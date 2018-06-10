@@ -16,25 +16,46 @@ public class PShoot : MonoBehaviour {
 
     public float hCannon, bCannon, sGun;
 
+    [SerializeField] private GameObject _cameraPos;
+
     //to tell which weapon is active
     public bool hCannonFire, bCannonFire, shotGunFire;
 
     [SerializeField] private int currentWeapon;
 
-
     // Use this for initialization
     void Start ()
     {
+        _cameraPos = GameObject.Find("Camera");
         hCannonFire = false;
         bCannonFire = false;
         shotGunFire = false;
+
+        //StartCoroutine(DebugUpdate());
 	}
-    
+
+    /*
+    IEnumerator DebugUpdate()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            Debug.Log(_cameraPos.transform.position);
+        }
+        
+    }
+    */
+
 	// Update is called once per frame
 	void Update ()
     {
         PInputWepChange();
         WeaponShootInput();
+        
+        if (Input.GetMouseButton(0))
+        {
+            RayTagReturn();
+        }
 	}
     
     private void WeaponShootInput()
@@ -51,7 +72,7 @@ public class PShoot : MonoBehaviour {
 
         if (shotGunFire)
         {
-            ShotgunWep();
+            ShotgunWep(); 
         }
     }
 
@@ -159,56 +180,37 @@ public class PShoot : MonoBehaviour {
     {
         //firerate
         //_fireRate = hCannon;
-        if (Time.time > _nextFire)
+        _fireRate = 0.5f;
+
+        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-
-            //if ammo
-            if (Input.GetMouseButtonDown(0))
-            {
-                PlaySound();
-            } 
-
-            //if no ammo
-            //play different sound
+            PlaySound();
         }
+       
     }
 
     //Blast Cannon behaviour
     private void BlastCannonWep()
     {
-        //_fireRate = bCannon;
-        if (Time.time > _nextFire)
+        _fireRate = 0.1f;
+
+        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-
-            //if ammo
-            if (Input.GetMouseButtonDown(0))
-            {
-                PlaySound();
-            }
-
-            //if no ammo
-            //play different sound
+            PlaySound();
         }
     }
 
     //Shotgun behaviour
     private void ShotgunWep()
     {
-        //_fireRate = sGun;
-        if (Time.time > _nextFire)
+        _fireRate = 1.1f;
+
+        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-
-            //if ammo
-            if (Input.GetMouseButtonDown(0))
-            {
-                PlaySound();
-            }
-
-            //if no ammo
-            //play different sound
+            PlaySound();
         }
     }
 
@@ -253,5 +255,17 @@ public class PShoot : MonoBehaviour {
         StopCoroutine(WeaponTransitionAction(1));
     }
 
+    void RayTagReturn()
+    {
+        RaycastHit hit;
 
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
+        {
+            Debug.Log(hit.collider.gameObject.tag);
+        }
+
+        
+ 
+    }
+    
 }

@@ -1,0 +1,109 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CharacterMotor : MonoBehaviour {
+
+    //create variables
+    [SerializeField] private float _speed;
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private float _jump;
+
+    float _translation;
+    float _strafe;
+
+    [SerializeField] private Animator _playerAnim;
+    
+
+    // Use this for initialization
+    void Start ()
+    {
+        //set variables
+        _speed *= Time.deltaTime;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+	
+	// Update is called once per frame
+	void Update ()
+    {
+        //movementfunction
+        MovementInput();
+
+        _translation = Input.GetAxis("Vertical") * _speed;
+        _strafe = Input.GetAxis("Horizontal") * _speed;
+
+        
+        if (IsWalking())
+        {
+            _playerAnim.SetBool("IsWalking", true);
+        }
+        else
+        {
+            _playerAnim.SetBool("IsWalking", false);
+        }
+        
+    }
+
+    private void MovementInput()
+    {
+        //WASD movement
+  
+
+        //force
+        transform.Translate(_strafe, 0, _translation);
+
+        //add mouse back in during play
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+    }
+
+    void Jump()
+    {
+        if (CanJump())
+        {
+            _rb.AddForce(_jump * transform.up, ForceMode.Impulse);
+        }
+        
+    }
+
+    bool CanJump()
+    {
+        Ray ray = new Ray(transform.position, transform.up * -1);
+
+        RaycastHit hit;
+
+        //localscale.y is maxdistance of ray
+        if (Physics.Raycast(ray, out hit, transform.localScale.y + 0.2f))
+        {
+            return true;
+            
+        }
+
+        return false;
+    }
+
+ 
+    bool IsWalking()
+    {
+        if (Mathf.Abs(_strafe) == 0 && Mathf.Abs(_translation) == 0)
+        {
+            _playerAnim.SetBool("IsWalking", false);
+            return false;
+        }
+        //animate
+        
+
+
+        return true;
+    }
+
+ 
+
+}
