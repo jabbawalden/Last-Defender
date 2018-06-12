@@ -11,17 +11,23 @@ public class CharacterLook : MonoBehaviour {
     private Vector2 _smoothV;
 
     private GameObject _character;
+    private CharacterMotor _pCharMotor;
 
     // Use this for initialization
     void Start ()
     {
         _character = this.transform.parent.gameObject;
+        _pCharMotor = GameObject.Find("_PlayerMove").GetComponent<CharacterMotor>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        CanMouseLook();
+        if (_pCharMotor.health >= 1)
+        {
+            CanMouseLook();
+        }
+
     }
 
     private void CanMouseLook()

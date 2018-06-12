@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterMotor : MonoBehaviour {
 
+    public int health;
     //create variables
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rb;
@@ -13,12 +14,13 @@ public class CharacterMotor : MonoBehaviour {
     float _strafe;
 
     [SerializeField] private Animator _playerAnim;
-    
+
+    public GameObject[] hitPos;
 
     // Use this for initialization
     void Start ()
     {
-        //set variables
+        health = 10;
         _speed *= Time.deltaTime;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -26,13 +28,17 @@ public class CharacterMotor : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //movementfunction
-        MovementInput();
-
+        
         _translation = Input.GetAxis("Vertical") * _speed;
         _strafe = Input.GetAxis("Horizontal") * _speed;
 
+        //movementfunction
+        if (health >= 1)
+        {
+            MovementInput();
+        }
         
+
         if (IsWalking())
         {
             _playerAnim.SetBool("IsWalking", true);
