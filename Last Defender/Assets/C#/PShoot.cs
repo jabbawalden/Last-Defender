@@ -22,6 +22,7 @@ public class PShoot : MonoBehaviour {
     public bool hCannonFire, bCannonFire, shotGunFire;
 
     [SerializeField] private int currentWeapon;
+    [SerializeField] private RayCastShoot _rayCastShoot;
 
     // Use this for initialization
     void Start ()
@@ -52,10 +53,6 @@ public class PShoot : MonoBehaviour {
         PInputWepChange();
         WeaponShootInput();
         
-        if (Input.GetMouseButton(0))
-        {
-            RayTagReturn();
-        }
 	}
     
     private void WeaponShootInput()
@@ -82,24 +79,18 @@ public class PShoot : MonoBehaviour {
         if (Input.GetKeyDown("1") && !hCannonFire)
         {
             WeaponChange(1);
-            //change firerate
-            //change damage
         }
         
         //weapon 2
         if (Input.GetKeyDown("2") && !bCannonFire)
         {
             WeaponChange(2);
-            //change firerate
-            //change damage
         }
 
         //weapon 3
         if (Input.GetKeyDown("3") && !shotGunFire)
         {
             WeaponChange(3);
-            //change firerate
-            //change damage
         }
     }
 
@@ -178,14 +169,13 @@ public class PShoot : MonoBehaviour {
     //Hyper Cannon behaviour
     private void HyperCannonWep()
     {
-        //firerate
-        //_fireRate = hCannon;
         _fireRate = 0.5f;
 
         if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
             PlaySound();
+            _rayCastShoot.RayShoot(1);
         }
        
     }
@@ -193,12 +183,13 @@ public class PShoot : MonoBehaviour {
     //Blast Cannon behaviour
     private void BlastCannonWep()
     {
-        _fireRate = 0.1f;
+        _fireRate = 0.2f;
 
-        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
+        if (Input.GetMouseButton(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
             PlaySound();
+            _rayCastShoot.RayShoot(1);
         }
     }
 
@@ -207,10 +198,11 @@ public class PShoot : MonoBehaviour {
     {
         _fireRate = 1.1f;
 
-        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
+        if (Input.GetMouseButton(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
             PlaySound();
+            _rayCastShoot.RayShoot(1);
         }
     }
 

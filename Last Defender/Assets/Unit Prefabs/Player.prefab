@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 136689531173801480}
   - component: {fileID: 114788019005660804}
   - component: {fileID: 114809899243560648}
-  - component: {fileID: 95270835419688078}
+  - component: {fileID: 114787409706078482}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 124298702458198520}
   - component: {fileID: 81809502399227562}
   - component: {fileID: 114411143421133658}
+  - component: {fileID: 95413226576214656}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1159,13 +1160,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &95270835419688078
+--- !u!95 &95413226576214656
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1291252860385384}
+  m_GameObject: {fileID: 1994098957617496}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e9e4bb533f8e69a4db32ae42f97bac79, type: 2}
@@ -1190,6 +1191,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sensitivity: 5
   _smoothing: 2
+--- !u!114 &114787409706078482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1291252860385384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b86d6578f1676d4795334965fc34934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114788019005660804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1201,10 +1213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ad8c669f81b2f40a0649428cffb22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 9
+  _speed: 6
   _rb: {fileID: 54636811976267662}
   _jump: 10
-  _playerAnim: {fileID: 95270835419688078}
+  _playerAnim: {fileID: 95413226576214656}
 --- !u!114 &114809899243560648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1235,10 +1247,12 @@ MonoBehaviour:
   hCannon: 3
   bCannon: 1
   sGun: 2
+  _cameraPos: {fileID: 0}
   hCannonFire: 1
   bCannonFire: 0
   shotGunFire: 0
   currentWeapon: 0
+  _rayCastShoot: {fileID: 114787409706078482}
 --- !u!124 &124298702458198520
 Behaviour:
   m_ObjectHideFlags: 1
