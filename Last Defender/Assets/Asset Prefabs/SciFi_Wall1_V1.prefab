@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4579563352187204}
   m_Layer: 0
   m_Name: Ceiling_Part1 (29)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 4718754550976480}
   m_Layer: 0
   m_Name: SciFi_Wall1_V1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 4541350908542096}
   m_Layer: 0
   m_Name: BarSection (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 4440326988872086}
   m_Layer: 0
   m_Name: BarSection (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 64237045724630406}
   m_Layer: 0
   m_Name: FrontWall_LP (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

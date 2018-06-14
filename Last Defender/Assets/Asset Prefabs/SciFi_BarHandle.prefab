@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4924811367992232}
   m_Layer: 0
   m_Name: PipeBend (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4211705840214902}
   m_Layer: 0
   m_Name: SciFi_BarHandle
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4521361878538526}
   m_Layer: 0
   m_Name: PipeV
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4305554427915224}
   m_Layer: 0
   m_Name: PipeBend
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4362164250367338}
   m_Layer: 0
   m_Name: Desk_LP (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 4137824721407966}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (41)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 4103321993103236}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (22)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2223,7 +2223,7 @@ GameObject:
   - component: {fileID: 4809189066821068}
   m_Layer: 0
   m_Name: Ceiling_Part1 (16)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2331,7 +2331,7 @@ GameObject:
   - component: {fileID: 4596497406713202}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (19)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3000,7 +3000,7 @@ GameObject:
   - component: {fileID: 4027989389193132}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (42)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3639,7 +3639,7 @@ GameObject:
   - component: {fileID: 4425288373986344}
   m_Layer: 0
   m_Name: Ceiling_Part1 (17)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4554,7 +4554,7 @@ GameObject:
   - component: {fileID: 4067735124311420}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (21)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4605,7 +4605,7 @@ GameObject:
   - component: {fileID: 4329567164953836}
   m_Layer: 0
   m_Name: SciFi_ControlDesk1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4755,7 +4755,7 @@ GameObject:
   - component: {fileID: 4162344121377956}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (23)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5688,7 +5688,7 @@ GameObject:
   - component: {fileID: 4981318060563818}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (20)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6027,7 +6027,7 @@ GameObject:
   - component: {fileID: 4105903804780012}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (25)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

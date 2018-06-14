@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 108613365562259436}
   m_Layer: 0
   m_Name: Spotlight (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23220168398071196}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4112991326347528}
   m_Layer: 0
   m_Name: TopScreen_LP (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4196768956074442}
   m_Layer: 0
   m_Name: SciFi_CeilingMonitor
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

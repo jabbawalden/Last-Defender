@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23881116829700864}
   m_Layer: 0
   m_Name: CylinderLight (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4420091736623338}
   m_Layer: 0
   m_Name: CylinderPiece
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4302359489607744}
   m_Layer: 0
   m_Name: LeverBase_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

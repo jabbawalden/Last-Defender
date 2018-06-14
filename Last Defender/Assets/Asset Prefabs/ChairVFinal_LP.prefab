@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4618844182524294}
   m_Layer: 0
   m_Name: ChairVFinal_LP
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 65578452697455140}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

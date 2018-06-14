@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4615561516208918}
   m_Layer: 0
   m_Name: CrateButton_Button (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23755539370349886}
   m_Layer: 0
   m_Name: Plane (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4831779249220334}
   m_Layer: 0
   m_Name: ButtonBase2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4206493512920276}
   m_Layer: 0
   m_Name: CrateButton_Button (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4326310614839880}
   m_Layer: 0
   m_Name: ButtonBase2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 4421923816830274}
   m_Layer: 0
   m_Name: SciFi_DoorFrame
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 4747003785297242}
   m_Layer: 0
   m_Name: DoorFrame_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 4459964142445182}
   m_Layer: 0
   m_Name: ButtonTop2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 4875521050465878}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (27)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 4410661483822488}
   m_Layer: 0
   m_Name: CrateButton_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 4965418127124628}
   m_Layer: 0
   m_Name: CrateButton_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 4208287284642742}
   m_Layer: 0
   m_Name: CrateButton_Button (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4154586315830660}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (28)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 4330429894296924}
   m_Layer: 0
   m_Name: CrateButton_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 4357461055453154}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (26)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 4666427287335062}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (25)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 4182747742134606}
   m_Layer: 0
   m_Name: ButtonTop2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 4784226624289630}
   m_Layer: 0
   m_Name: CrateButton_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 4687798387020590}
   m_Layer: 0
   m_Name: CrateButton_Button (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 4602818968550158}
   m_Layer: 0
   m_Name: ButtonTop2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 4940097482763990}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (24)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 4207554675999686}
   m_Layer: 0
   m_Name: CrateButton_Button (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 4454246128036684}
   m_Layer: 0
   m_Name: ButtonBase2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 4966613440196140}
   m_Layer: 0
   m_Name: CrateButton_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 4721882226947446}
   m_Layer: 0
   m_Name: CrateButton_Button (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 4278161433636278}
   m_Layer: 0
   m_Name: CrateButton_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 4856091460470870}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (29)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

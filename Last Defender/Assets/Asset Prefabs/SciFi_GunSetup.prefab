@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4664025248768102}
   m_Layer: 0
   m_Name: SciFi_GunSetup
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4251249778519796}
   m_Layer: 0
   m_Name: GunSetupLarge (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

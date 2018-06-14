@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4517713626925102}
   m_Layer: 0
   m_Name: Ceiling_LP (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4275252892151402}
   m_Layer: 0
   m_Name: SciFi_Ceiling1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 23926952487223438}
   m_Layer: 0
   m_Name: Plane (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

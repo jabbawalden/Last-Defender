@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4556697283488540}
   m_Layer: 0
   m_Name: SmallWall2_LP (3)
-  m_TagString: SmallWalls2
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 65401424913473484}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

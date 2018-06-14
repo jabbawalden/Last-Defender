@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 4411138047677406}
   m_Layer: 0
   m_Name: BarHandle (16)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 4971588372986578}
   m_Layer: 0
   m_Name: BarHandle (18)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 64619209085966842}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 4531968959491518}
   m_Layer: 0
   m_Name: BarHandle (19)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 4673659268258090}
   m_Layer: 0
   m_Name: BarHandle (17)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 4757291479108842}
   m_Layer: 0
   m_Name: BarHandle (15)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 4504433367763100}
   m_Layer: 0
   m_Name: SciFi_Wall1_V2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 64328042509988212}
   m_Layer: 0
   m_Name: FrontWall_LP (37)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 4829509955297530}
   m_Layer: 0
   m_Name: BarHandle (20)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

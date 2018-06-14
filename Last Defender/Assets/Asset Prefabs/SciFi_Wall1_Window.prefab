@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4300499916340278}
   m_Layer: 0
   m_Name: WindowFrame_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 64449987127928324}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 64915838112944080}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 64201295007356184}
   m_Layer: 0
   m_Name: FrontWallWindow_LP (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4448593982931618}
   m_Layer: 0
   m_Name: SciFi_Wall1_Window
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -121,11 +121,11 @@ GameObject:
   - component: {fileID: 4413364619685748}
   m_Layer: 0
   m_Name: WindowPanel (12)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4054387987105818
 Transform:
   m_ObjectHideFlags: 1
@@ -174,9 +174,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613888403791394}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.618113, y: -0.6725693, z: -4.345536}
+  m_LocalScale: {x: 1, y: 1, z: -1}
   m_Children:
   - {fileID: 4300499916340278}
   - {fileID: 4054387987105818}
@@ -308,7 +308,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 679eae61b3bdc694ab5f739484e9ecae, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

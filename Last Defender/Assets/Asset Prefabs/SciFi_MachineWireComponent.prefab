@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4903500640767578}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (30)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4227048133009700}
   m_Layer: 0
   m_Name: Wire_LP (11)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4455411358004444}
   m_Layer: 0
   m_Name: Wire_LP (10)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4701787091499312}
   m_Layer: 0
   m_Name: Wire_LP (14)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4161674615048268}
   m_Layer: 0
   m_Name: ControlBox_LP (12)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4143783777403162}
   m_Layer: 0
   m_Name: Wire_LP (13)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 4997430537990776}
   m_Layer: 0
   m_Name: Wire_LP (12)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 4468598416114196}
   m_Layer: 0
   m_Name: Wire_LP (9)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 4802461207941496}
   m_Layer: 0
   m_Name: SciFi_MachineWireComponent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 4264396872265904}
   m_Layer: 0
   m_Name: ControlBox_LP (11)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

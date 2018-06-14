@@ -9,6 +9,7 @@ TagManager:
   - SmallWalls2
   - Pathway
   - Door
+  - Environment
   layers:
   - Default
   - TransparentFX

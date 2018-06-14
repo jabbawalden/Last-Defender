@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4070640325342700}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (50)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4164876212534814}
   m_Layer: 0
   m_Name: CButton (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 64608124822717280}
   m_Layer: 0
   m_Name: Crate_LP
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 64842873561602446}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4508897761292738}
   m_Layer: 0
   m_Name: CButton (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4189415034247052}
   m_Layer: 0
   m_Name: SciFi_Crate
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 64721308534088194}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 64668176700696670}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 4176742984569794}
   m_Layer: 0
   m_Name: CButton
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 64256652647979880}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 4671560886100266}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (46)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 23076923017803002}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 4138430610949076}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (52)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 64328339168113512}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 23867946987911192}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 23183004657332952}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 64427049827899926}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 4154497876395426}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (47)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 64090698758179740}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 23221854563118250}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 4835372033266798}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (49)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 4302618093520464}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (53)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 23941098517923326}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 23989900025887706}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 4327210910353726}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (48)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 23976943895535400}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 23771958845033342}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 64799765282109368}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 64699166955828548}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 4803946120709106}
   m_Layer: 0
   m_Name: CButton (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 4989877124112658}
   m_Layer: 0
   m_Name: FrontWall_PartBlock (51)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -811,9 +811,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1260203338780740}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.38186353, z: -0, w: 0.9242188}
+  m_LocalPosition: {x: 29.7, y: -0.6725693, z: 39}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
   m_Children:
   - {fileID: 4563454815161898}
   - {fileID: 4176742984569794}
@@ -830,7 +830,7 @@ Transform:
   - {fileID: 4302618093520464}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 44.898003, z: 0}
 --- !u!4 &4256576324844844
 Transform:
   m_ObjectHideFlags: 1

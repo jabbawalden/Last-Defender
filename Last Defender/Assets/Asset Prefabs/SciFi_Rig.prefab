@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4603065617684118}
   m_Layer: 0
   m_Name: SciFi_Rig
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 4880589478929028}
   m_Layer: 0
   m_Name: RigHolder
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

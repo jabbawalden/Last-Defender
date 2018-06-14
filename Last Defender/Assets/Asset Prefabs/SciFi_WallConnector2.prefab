@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4752686034755770}
   m_Layer: 0
   m_Name: SciFi_WallConnector2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4235492578482552}
   m_Layer: 0
   m_Name: Ceiling_Part1 (30)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4927700119048090}
   m_Layer: 0
   m_Name: ConV2_LP (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4809573465141262}
   m_Layer: 0
   m_Name: Ceiling_Part1 (29)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4354933113141790}
   m_Layer: 0
   m_Name: Ceiling_Part1 (31)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 4004514993622702}
   m_Layer: 0
   m_Name: Ceiling_Part1 (32)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

@@ -1716,7 +1716,7 @@ GameObject:
   - component: {fileID: 4048123457849092}
   m_Layer: 0
   m_Name: EngineComponent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2204,7 +2204,7 @@ GameObject:
   - component: {fileID: 4898647258987220}
   m_Layer: 0
   m_Name: EngineComponent (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2843,7 +2843,7 @@ GameObject:
   - component: {fileID: 4262564008065308}
   m_Layer: 0
   m_Name: EngineComponent (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2927,7 +2927,7 @@ GameObject:
   - component: {fileID: 4571282648791796}
   m_Layer: 0
   m_Name: EngineComponent (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3520,7 +3520,7 @@ GameObject:
   - component: {fileID: 4369882732022252}
   m_Layer: 0
   m_Name: EnginePiece
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

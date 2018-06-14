@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65729477899698138}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4894535220356390}
   m_Layer: 0
   m_Name: FlatWall1_LP 1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

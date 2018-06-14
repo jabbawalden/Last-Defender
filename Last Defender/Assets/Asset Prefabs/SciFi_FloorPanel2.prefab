@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4741055826625014}
   m_Layer: 0
   m_Name: SciFi_FloorPanel2
-  m_TagString: Ground
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 65182534209225840}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

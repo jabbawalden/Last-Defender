@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4255503583097778}
   m_Layer: 0
   m_Name: BarHandle (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4472312106739424}
   m_Layer: 0
   m_Name: BarHandle (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 64553385006645092}
   m_Layer: 0
   m_Name: FrontWall_LP (24)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4851522612286832}
   m_Layer: 0
   m_Name: BarHandle (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 4145087727107722}
   m_Layer: 0
   m_Name: BarHandle (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 4002735012014494}
   m_Layer: 0
   m_Name: SciFi_Wall1 V3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 4858053044437206}
   m_Layer: 0
   m_Name: BarHandle (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 4692059222279612}
   m_Layer: 0
   m_Name: BarHandle
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 4327135917044866}
   m_Layer: 0
   m_Name: ControlBox_LP (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

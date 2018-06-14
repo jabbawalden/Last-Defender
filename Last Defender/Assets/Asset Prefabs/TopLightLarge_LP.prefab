@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23038281331817258}
   m_Layer: 0
   m_Name: Plane (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4505369718522060}
   m_Layer: 0
   m_Name: TopLightLarge_LP
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 108581392022099066}
   m_Layer: 0
   m_Name: Point Light (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 23048037865184852}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

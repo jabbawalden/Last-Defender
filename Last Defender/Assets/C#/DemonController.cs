@@ -9,36 +9,67 @@ public class DemonController : MonoBehaviour {
     private GameObject _player;
     private CharacterMotor _pCharMotor;
     public float distance;
-    public float projSpeed;
+    private float _projSpeed;
     private Vector3 direction;
 
+
+    private float _newFireRate;
+    [SerializeField] private float _fireRate;
     [SerializeField] private GameObject _projectile;
     [SerializeField] private GameObject _shootOrigin;
+    [SerializeField] private float _shootSeconds;
+
     [SerializeField] int type;
+
+    private GlobalEnemyStats _globalEnemyStats;
+
+    public bool playerInRange;
     //1 = speed, 2 = strong, 3 = range
 
 
     // Use this for initialization
     void Start ()
     {
-        projSpeed *= Time.deltaTime;
+        _globalEnemyStats = GameObject.Find("GlobalEnemyStats").GetComponent<GlobalEnemyStats>();
+        playerInRange = false;
+        _projSpeed = _globalEnemyStats.projectileSpeed * Time.deltaTime;
         _player = GameObject.Find("_PlayerMove");
         _pCharMotor = GameObject.Find("_PlayerMove").GetComponent<CharacterMotor>();
-        StartCoroutine(FirePlayer());
+        
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (_pCharMotor.health >= 1)
+        if (_pCharMotor.health >= 1 && playerInRange == true)
         {
-            EnemyFollow(type);  
+            EnemyFollow(type);
+            transform.LookAt(_player.transform.position);
         }
 
         direction = (_player.transform.position - transform.position).normalized;
+        RayView();
 
+       
     }
 
+    public void RayView()
+    {
+        Vector3 direction = transform.forward;
+        Vector3 rayOrigin = transform.position;
+        Debug.DrawRay(rayOrigin, direction * 40, Color.blue);
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, direction * 40, out hit))
+        {
+            if (hit.collider.tag == "Player")
+            {
+                FirePlayer();
+                
+            }
+
+        }
+
+    }
     private void EnemyFollow(int c)
     {
         var targetposition = (transform.position - _player.transform.position).normalized * distance + _player.transform.position;
@@ -48,20 +79,20 @@ public class DemonController : MonoBehaviour {
         if (c == 1)
         {
             agent.SetDestination(_pCharMotor.hitPos[r].transform.position);
-            agent.speed = 7;
+            agent.speed = _globalEnemyStats.speed_Speed;
         }
 
         if (c == 2)
         {
             agent.SetDestination(_player.transform.position);
-            agent.speed = 4;
+            agent.speed = _globalEnemyStats.speed_Strength;
         }
 
         if (c == 3)
         {
             agent.SetDestination(targetposition);
             
-            agent.speed = 5;
+            agent.speed = _globalEnemyStats.speed_Range;
         }
     }
 
@@ -85,7 +116,7 @@ public class DemonController : MonoBehaviour {
 
     private IEnumerator DamagePlayer()
     {
-        while (_pCharMotor.health > 1)
+        while (_pCharMotor.health >= 1)
         {
             yield return new WaitForSeconds(1);
 
@@ -93,15 +124,17 @@ public class DemonController : MonoBehaviour {
         }
     }
 
-    private IEnumerator FirePlayer()
+    private void FirePlayer()
     {
-
-        while (true)
+        
+        if (Time.time > _newFireRate)
         {
-            yield return new WaitForSeconds(1);
-            
+            _newFireRate = Time.time + _fireRate;
             GameObject shot1 = Instantiate(_projectile, _shootOrigin.transform.position, Quaternion.LookRotation(direction));
-            shot1.GetComponent<Rigidbody>().velocity = direction * projSpeed;
+            shot1.GetComponent<Rigidbody>().velocity = direction * _projSpeed;
         }
+            
+        
+
     }
 }

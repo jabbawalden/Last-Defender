@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4695100094297758}
   m_Layer: 0
   m_Name: Leverpart (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 4464172105603956}
   m_Layer: 0
   m_Name: Leverpart
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 4209971771504974}
   m_Layer: 0
   m_Name: TopScreen_LP (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1670,7 +1670,7 @@ GameObject:
   - component: {fileID: 23389017765976994}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2690,7 +2690,7 @@ GameObject:
   - component: {fileID: 108865975247356556}
   m_Layer: 0
   m_Name: Spotlight
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3777,7 +3777,7 @@ GameObject:
   - component: {fileID: 4614812168987066}
   m_Layer: 0
   m_Name: ButtonRound (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4309,7 +4309,7 @@ GameObject:
   - component: {fileID: 65247097558941244}
   m_Layer: 0
   m_Name: MainDesk
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4510,7 +4510,7 @@ GameObject:
   - component: {fileID: 4058027353839276}
   m_Layer: 0
   m_Name: Mug_LP2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4654,7 +4654,7 @@ GameObject:
   - component: {fileID: 4809624873807682}
   m_Layer: 0
   m_Name: ButtonRound (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5293,7 +5293,7 @@ GameObject:
   - component: {fileID: 4124010348112092}
   m_Layer: 0
   m_Name: MainDeskGear
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5542,7 +5542,7 @@ GameObject:
   - component: {fileID: 4600586363315018}
   m_Layer: 0
   m_Name: Leverpart (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6242,7 +6242,7 @@ GameObject:
   - component: {fileID: 4943718436224216}
   m_Layer: 0
   m_Name: ButtonRound (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6923,7 +6923,7 @@ GameObject:
   - component: {fileID: 4684911690008554}
   m_Layer: 0
   m_Name: TopScreen_LP (8)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7196,7 +7196,7 @@ GameObject:
   - component: {fileID: 4632355637850460}
   m_Layer: 0
   m_Name: TopScreen_LP (9)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8262,7 +8262,7 @@ GameObject:
   - component: {fileID: 4553169681151400}
   m_Layer: 0
   m_Name: ButtonRound (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -9596,7 +9596,7 @@ GameObject:
   - component: {fileID: 4701482688079652}
   m_Layer: 0
   m_Name: ButtonRound (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -9802,7 +9802,7 @@ GameObject:
   - component: {fileID: 4858607264265272}
   m_Layer: 0
   m_Name: Crate_LP
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -10143,7 +10143,7 @@ GameObject:
   - component: {fileID: 4149947366707096}
   m_Layer: 0
   m_Name: Leverpart (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -10359,7 +10359,7 @@ GameObject:
   - component: {fileID: 4408446927988500}
   m_Layer: 0
   m_Name: Leverpart (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
