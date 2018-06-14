@@ -11,11 +11,12 @@ public class RayCastShoot : MonoBehaviour {
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private LineRenderer[] laserLine;
+    private PShoot _pShoot;
 
 	// Use this for initialization
 	void Start ()
     {
-
+        _pShoot = GetComponent<PShoot>();
 	}
 	
     public void RayShoot(int c)
@@ -42,7 +43,7 @@ public class RayCastShoot : MonoBehaviour {
             //checks if there is a shootablebox script
             if (health != null)
             {
-                health.Damage(gunDamage);
+                health.currentHealth -= _pShoot.currentDamage;
             }
 
             if (hit.rigidbody != null)

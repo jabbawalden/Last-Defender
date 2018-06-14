@@ -22,7 +22,7 @@ public class DemonController : MonoBehaviour {
     [SerializeField] int type;
 
     private GlobalEnemyStats _globalEnemyStats;
-
+    private ShootableBox _shootableBox;
     public bool playerInRange;
     //1 = speed, 2 = strong, 3 = range
 
@@ -35,13 +35,20 @@ public class DemonController : MonoBehaviour {
         _projSpeed = _globalEnemyStats.projectileSpeed * Time.deltaTime;
         _player = GameObject.Find("_PlayerMove");
         _pCharMotor = GameObject.Find("_PlayerMove").GetComponent<CharacterMotor>();
+        _shootableBox = GetComponent<ShootableBox>();
         
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+
         if (_pCharMotor.health >= 1 && playerInRange == true)
+        {
+            EnemyFollow(type);
+            transform.LookAt(_player.transform.position);
+        }
+        else if (_shootableBox.currentHealth < 3)
         {
             EnemyFollow(type);
             transform.LookAt(_player.transform.position);

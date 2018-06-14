@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PShoot : MonoBehaviour {
 
-    
-    public AudioSource[] hyperCannon;
-    public AudioSource[] blastCannon;
-    public AudioSource[] shotgun;
-
-    [SerializeField] private GameObject _hyperCannon, _BlastCannon, _Shotgun;
+    private AudioSource _audioSource; 
+    [SerializeField] private AudioClip[] _blastCannonSFX;
+    [SerializeField] private AudioClip[] _miniCannonSFX;
+    [SerializeField] private AudioClip[] _hyperBlasterSFX;
+    public int currentDamage;
+    public int blastDamage, miniDamage, hyperDamage;
+    [SerializeField] private GameObject _hyperCannon, _BlastCannon, _hyperBlaste;
 
     [SerializeField] private float _fireRate; 
     private float _nextFire;
@@ -19,7 +20,7 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private GameObject _cameraPos;
 
     //to tell which weapon is active
-    public bool hCannonFire, bCannonFire, shotGunFire;
+    public bool bCannonFire, miniCannonFire, hyperBlasterFire;
 
     [SerializeField] private int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
@@ -28,10 +29,10 @@ public class PShoot : MonoBehaviour {
     void Start ()
     {
         _cameraPos = GameObject.Find("Camera");
-        hCannonFire = false;
         bCannonFire = false;
-        shotGunFire = false;
-
+        miniCannonFire = false;
+        hyperBlasterFire = false;
+        _audioSource = GetComponent<AudioSource>();
         //StartCoroutine(DebugUpdate());
 	}
 
@@ -57,38 +58,38 @@ public class PShoot : MonoBehaviour {
     
     private void WeaponShootInput()
     {
-        if (hCannonFire)
-        {
-            HyperCannonWep();
-        }
-
         if (bCannonFire)
         {
             BlastCannonWep();
         }
 
-        if (shotGunFire)
+        if (miniCannonFire)
         {
-            ShotgunWep(); 
+            MiniCannonWep();
+        }
+
+        if (hyperBlasterFire)
+        {
+            HyperBlasterWep(); 
         }
     }
 
     private void PInputWepChange()
     {
         //weapon 1
-        if (Input.GetKeyDown("1") && !hCannonFire)
+        if (Input.GetKeyDown("1") && !bCannonFire)
         {
             WeaponChange(1);
         }
         
         //weapon 2
-        if (Input.GetKeyDown("2") && !bCannonFire)
+        if (Input.GetKeyDown("2") && !miniCannonFire)
         {
             WeaponChange(2);
         }
 
         //weapon 3
-        if (Input.GetKeyDown("3") && !shotGunFire)
+        if (Input.GetKeyDown("3") && !hyperBlasterFire)
         {
             WeaponChange(3);
         }
@@ -99,17 +100,17 @@ public class PShoot : MonoBehaviour {
     {
         if (c == 1)
         {
-            hCannonFire = false;
+            bCannonFire = false;
         }
 
         if (c == 2)
         {
-            bCannonFire = false;
+            miniCannonFire = false;
         }
 
         if (c == 3)
         {
-            shotGunFire = false;
+            hyperBlasterFire = false;
         }
     }
 
@@ -118,6 +119,7 @@ public class PShoot : MonoBehaviour {
         if (weapon == 1)
         {
             print("weapon 1");
+            currentDamage = blastDamage;
 
             if (weapon != currentWeapon)
             {
@@ -134,6 +136,8 @@ public class PShoot : MonoBehaviour {
         if (weapon == 2)
         {
             print("weapon 2");
+            currentDamage = miniDamage;
+
             if (weapon != currentWeapon)
             {
                 DeActivateWeapon(currentWeapon);
@@ -151,6 +155,8 @@ public class PShoot : MonoBehaviour {
         if (weapon == 3)
         {
             print("weapon 3");
+            currentDamage = hyperDamage;
+
             if (weapon != currentWeapon)
             {
                 DeActivateWeapon(currentWeapon);
@@ -167,64 +173,69 @@ public class PShoot : MonoBehaviour {
 
 
     //Hyper Cannon behaviour
-    private void HyperCannonWep()
+    private void BlastCannonWep()
     {
-        _fireRate = 0.5f;
+        _fireRate = 0.35f;
 
         if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-            PlaySound();
+            PlaySound(1);
             _rayCastShoot.RayShoot(1);
         }
        
     }
 
     //Blast Cannon behaviour
-    private void BlastCannonWep()
+    private void MiniCannonWep()
     {
-        _fireRate = 0.2f;
+        _fireRate = 0.15f;
 
         if (Input.GetMouseButton(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-            PlaySound();
+            PlaySound(2);
             _rayCastShoot.RayShoot(1);
         }
     }
 
     //Shotgun behaviour
-    private void ShotgunWep()
+    private void HyperBlasterWep()
     {
         _fireRate = 1.1f;
 
         if (Input.GetMouseButton(0) && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-            PlaySound();
+            PlaySound(3);
             _rayCastShoot.RayShoot(1);
         }
     }
 
-    void PlaySound()
+    void PlaySound(int c)
     {
-        int n = Random.Range(0, 3);
-        
-        //if 1 2 or 3, player certain sound
-        if (hCannonFire)
+        if (c == 1)
         {
-            hyperCannon[n].Play();
+            int n = Random.Range(0, _blastCannonSFX.Length);
+
+            _audioSource.PlayOneShot(_blastCannonSFX[n]);
         }
 
-        if (bCannonFire)
+        if (c == 2)
         {
-            blastCannon[n].Play();
+            int n = Random.Range(0, _miniCannonSFX.Length);
+
+            _audioSource.PlayOneShot(_miniCannonSFX[n]);
         }
 
-        if (shotGunFire)
+        if (c == 3)
         {
-            shotgun[n].Play();
+            int n = Random.Range(0, _hyperBlasterSFX.Length);
+
+            _audioSource.PlayOneShot(_hyperBlasterSFX[n]);
         }
+
+
     }
 
     IEnumerator WeaponTransitionAction(int c)
@@ -233,15 +244,15 @@ public class PShoot : MonoBehaviour {
 
         if (c == 1)
         {
-            hCannonFire = true;
+            bCannonFire = true;
         }
         if (c == 2)
         {
-            bCannonFire = true;
+            miniCannonFire = true;
         }
         if (c == 3)
         {
-            shotGunFire = true;
+            hyperBlasterFire = true;
         }
 
         StopCoroutine(WeaponTransitionAction(1));

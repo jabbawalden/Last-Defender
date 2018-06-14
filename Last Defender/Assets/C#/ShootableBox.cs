@@ -6,12 +6,27 @@ public class ShootableBox : MonoBehaviour {
 
     public int currentHealth;
 
-	public void Damage(int damageAmount)
+    private void Start()
     {
-        currentHealth -= damageAmount;
+        currentHealth = 6;
+    }
+    public void Update()
+    {
         if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
         }
     }
+
+    /*
+    public void Damage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+
+        if (currentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    */
 }
