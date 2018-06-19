@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4931468512965136}
   - component: {fileID: 135663106894136758}
   - component: {fileID: 114517285993116044}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyAgressionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4456870527988414}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHolderSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114928124610568286}
   - component: {fileID: 114126590110267444}
   - component: {fileID: 136439829357267478}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 33482638883043784}
   - component: {fileID: 23411468387525422}
   - component: {fileID: 65486339677997166}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,15 +103,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413663383004030}
-  m_LocalRotation: {x: -0, y: -0.8491042, z: -0, w: 0.5282254}
-  m_LocalPosition: {x: 104.9, y: 3.34, z: 2}
+  m_LocalRotation: {x: -0, y: -0.62148434, z: -0, w: 0.7834266}
+  m_LocalPosition: {x: 105.67, y: 3.34, z: -3.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4553233172008892}
   - {fileID: 4931468512965136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -116.229004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -76.84901, z: 0}
 --- !u!4 &4553233172008892
 Transform:
   m_ObjectHideFlags: 1
@@ -303,7 +303,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 31
+  m_Radius: 36
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136297506982935526
 CapsuleCollider:

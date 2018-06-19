@@ -55,9 +55,12 @@ public class DemonController : MonoBehaviour {
         }
 
         direction = (_player.transform.position - transform.position).normalized;
-        RayView();
 
-       
+        if (type == 3)
+        {
+            RayView();
+        }
+        
     }
 
     public void RayView()
@@ -66,6 +69,7 @@ public class DemonController : MonoBehaviour {
         Vector3 rayOrigin = transform.position;
         Debug.DrawRay(rayOrigin, direction * 40, Color.blue);
         RaycastHit hit;
+
         if (Physics.Raycast(rayOrigin, direction * 40, out hit))
         {
             if (hit.collider.tag == "Player")
@@ -98,7 +102,6 @@ public class DemonController : MonoBehaviour {
         if (c == 3)
         {
             agent.SetDestination(targetposition);
-            
             agent.speed = _globalEnemyStats.speed_Range;
         }
     }

@@ -20,7 +20,7 @@ public class CharacterMotor : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        health = 10;
+       
         _speed *= Time.deltaTime;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -36,6 +36,9 @@ public class CharacterMotor : MonoBehaviour {
         if (health >= 1)
         {
             MovementInput();
+        } else
+        {
+
         }
         
 
@@ -49,6 +52,7 @@ public class CharacterMotor : MonoBehaviour {
         }
         
     }
+
 
     private void MovementInput()
     {

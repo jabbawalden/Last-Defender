@@ -8,7 +8,16 @@ public class EnemyAgressionField : MonoBehaviour {
 
     private void Update()
     {
-        transform.position = _demonController.transform.position;
+        if (_demonController != null)
+        {
+            transform.position = _demonController.transform.position;
+        }
+        else
+        {
+            return;
+        }
+        
+        
     }
     private void OnTriggerEnter(Collider other)
     {

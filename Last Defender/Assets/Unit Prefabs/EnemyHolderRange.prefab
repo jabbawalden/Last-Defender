@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 195579843032525100}
   - component: {fileID: 114220274738197938}
   - component: {fileID: 114769279171915948}
-  - component: {fileID: 114750616688272410}
   - component: {fileID: 136940548989104668}
   m_Layer: 0
   m_Name: EnemyController
@@ -119,15 +118,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484439138985066}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 95.53999, y: 3.34, z: -6.4400005}
+  m_LocalRotation: {x: -0, y: -0.99913883, z: -0, w: -0.041492544}
+  m_LocalPosition: {x: 12.5, y: 3.34, z: -25.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4399596636516194}
   - {fileID: 4777039766926056}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -184.756, z: 0}
 --- !u!4 &4399596636516194
 Transform:
   m_ObjectHideFlags: 1
@@ -135,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1092648301017156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.48, y: 0, z: -5.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4013113639612420}
@@ -150,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1420009023705210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.83, z: 0}
+  m_LocalPosition: {x: 0.07, y: 0.1, z: 0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4399596636516194}
@@ -293,16 +292,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 195579843032525100}
   distance: 10
-  projSpeed: 2500
   _fireRate: 1
   _projectile: {fileID: 1636765237830762, guid: 041eb1cbeced17c478b2b909acd3e146,
     type: 2}
   _shootOrigin: {fileID: 1420009023705210}
   _shootSeconds: 0.8
   type: 3
-  speed_Speed: 9
-  speed_Strength: 4.5
-  speed_Range: 6
   playerInRange: 0
 --- !u!114 &114468431760122490
 MonoBehaviour:
@@ -316,20 +311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _demonController: {fileID: 114220274738197938}
---- !u!114 &114750616688272410
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1092648301017156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 958bcbb7797e36644ae48795bea3ec08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fieldOfViewAngle: 110
-  playerInSight: 0
-  personLastSighting: {x: 0, y: 0, z: 0}
 --- !u!114 &114769279171915948
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -10,7 +10,9 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private AudioClip[] _hyperBlasterSFX;
     public int currentDamage;
     public int blastDamage, miniDamage, hyperDamage;
-    [SerializeField] private GameObject _hyperCannon, _BlastCannon, _hyperBlaste;
+    [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster;
+
+    public float bAmmo, mAmmo, hAmmo;
 
     [SerializeField] private float _fireRate; 
     private float _nextFire;
@@ -36,17 +38,7 @@ public class PShoot : MonoBehaviour {
         //StartCoroutine(DebugUpdate());
 	}
 
-    /*
-    IEnumerator DebugUpdate()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            Debug.Log(_cameraPos.transform.position);
-        }
-        
-    }
-    */
+  
 
 	// Update is called once per frame
 	void Update ()
@@ -177,8 +169,9 @@ public class PShoot : MonoBehaviour {
     {
         _fireRate = 0.35f;
 
-        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire)
+        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire && bAmmo >= 1)
         {
+            bAmmo--;
             _nextFire = Time.time + _fireRate;
             PlaySound(1);
             _rayCastShoot.RayShoot(1);
@@ -189,10 +182,11 @@ public class PShoot : MonoBehaviour {
     //Blast Cannon behaviour
     private void MiniCannonWep()
     {
-        _fireRate = 0.15f;
+        _fireRate = 0.1f;
 
-        if (Input.GetMouseButton(0) && Time.time > _nextFire)
+        if (Input.GetMouseButton(0) && Time.time > _nextFire && mAmmo >= 1)
         {
+            mAmmo--;
             _nextFire = Time.time + _fireRate;
             PlaySound(2);
             _rayCastShoot.RayShoot(1);
@@ -202,11 +196,12 @@ public class PShoot : MonoBehaviour {
     //Shotgun behaviour
     private void HyperBlasterWep()
     {
-        _fireRate = 1.1f;
+        _fireRate = 0.9f;
 
-        if (Input.GetMouseButton(0) && Time.time > _nextFire)
+        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire && hAmmo >= 1)
         {
             _nextFire = Time.time + _fireRate;
+            hAmmo--;
             PlaySound(3);
             _rayCastShoot.RayShoot(1);
         }
