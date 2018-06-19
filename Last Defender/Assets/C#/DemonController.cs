@@ -37,8 +37,8 @@ public class DemonController : MonoBehaviour {
         _globalEnemyStats = GameObject.Find("GlobalEnemyStats").GetComponent<GlobalEnemyStats>();
         playerInRange = false;
         _projSpeed = _globalEnemyStats.projectileSpeed * Time.deltaTime;
-        _player = GameObject.Find("_PlayerMove");
-        _pCharMotor = GameObject.Find("_PlayerMove").GetComponent<CharacterMotor>();
+        _player = GameObject.Find("PlayerMain");
+        _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _shootableBox = GetComponent<ShootableBox>();
         
     }

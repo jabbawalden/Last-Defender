@@ -103,15 +103,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413663383004030}
-  m_LocalRotation: {x: -0, y: -0.62148434, z: -0, w: 0.7834266}
-  m_LocalPosition: {x: 105.67, y: 3.34, z: -3.24}
+  m_LocalRotation: {x: -0, y: 0.07349602, z: -0, w: 0.9972955}
+  m_LocalPosition: {x: -3.2, y: 2.68, z: -52.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4553233172008892}
   - {fileID: 4931468512965136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -76.84901, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 8.43, z: 0}
 --- !u!4 &4553233172008892
 Transform:
   m_ObjectHideFlags: 1
@@ -291,6 +291,9 @@ MonoBehaviour:
   _projectile: {fileID: 0}
   _shootOrigin: {fileID: 0}
   _shootSeconds: 0
+  _isAttacking: 0
+  _attackRate: 0
+  _newAttack: 0
   type: 1
   playerInRange: 0
 --- !u!135 &135663106894136758
@@ -303,7 +306,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 36
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136297506982935526
 CapsuleCollider:

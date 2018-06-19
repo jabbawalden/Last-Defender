@@ -26,4 +26,12 @@ public class EnemyAgressionField : MonoBehaviour {
             _demonController.playerInRange = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            _demonController.playerInRange = false;
+        }
+    }
 }

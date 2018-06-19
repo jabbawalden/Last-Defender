@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848401435102958}
   m_LocalRotation: {x: -0, y: -0.8798175, z: -0, w: 0.4753117}
-  m_LocalPosition: {x: 61.17, y: 3.34, z: -8.81}
+  m_LocalPosition: {x: -27.49, y: 2.32, z: -66.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4639868562264004}
@@ -287,15 +287,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 195523481328513368}
   distance: 10
-  projSpeed: 0
   _fireRate: 0
   _projectile: {fileID: 0}
   _shootOrigin: {fileID: 0}
   _shootSeconds: 0
+  _isAttacking: 0
+  _attackRate: 0
+  _newAttack: 0
   type: 2
-  speed_Speed: 9
-  speed_Strength: 4.5
-  speed_Range: 6
   playerInRange: 0
 --- !u!135 &135409607077188074
 SphereCollider:
@@ -307,7 +306,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 36
+  m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136157434212875640
 CapsuleCollider:

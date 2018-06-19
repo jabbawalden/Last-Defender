@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114220274738197938}
   - component: {fileID: 114769279171915948}
   - component: {fileID: 136940548989104668}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4777039766926056}
   - component: {fileID: 135785305393705884}
   - component: {fileID: 114468431760122490}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyAgressionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4608332402027150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShootOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4067706236363674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHolderRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 33969114032144882}
   - component: {fileID: 23594000718474930}
   - component: {fileID: 65921492739969524}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,23 +118,23 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484439138985066}
-  m_LocalRotation: {x: -0, y: -0.99913883, z: -0, w: -0.041492544}
-  m_LocalPosition: {x: 12.5, y: 3.34, z: -25.5}
+  m_LocalRotation: {x: -0, y: -0.044402536, z: -0, w: 0.9990137}
+  m_LocalPosition: {x: -2.04, y: 2.29, z: -55.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4399596636516194}
   - {fileID: 4777039766926056}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -184.756, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -5.09, z: 0}
 --- !u!4 &4399596636516194
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1092648301017156}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.48, y: 0, z: -5.73}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4013113639612420}
@@ -297,6 +297,9 @@ MonoBehaviour:
     type: 2}
   _shootOrigin: {fileID: 1420009023705210}
   _shootSeconds: 0.8
+  _isAttacking: 0
+  _attackRate: 0
+  _newAttack: 0
   type: 3
   playerInRange: 0
 --- !u!114 &114468431760122490
@@ -333,7 +336,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136845241003226232
 CapsuleCollider:

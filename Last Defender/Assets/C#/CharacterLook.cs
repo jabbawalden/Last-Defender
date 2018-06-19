@@ -17,7 +17,7 @@ public class CharacterLook : MonoBehaviour {
     void Start ()
     {
         _character = this.transform.parent.gameObject;
-        _pCharMotor = GameObject.Find("_PlayerMove").GetComponent<CharacterMotor>();
+        _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
 	}
 	
 	// Update is called once per frame

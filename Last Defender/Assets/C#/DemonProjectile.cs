@@ -9,7 +9,7 @@ public class DemonProjectile : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        _charMotor = GameObject.Find("_PlayerMove").GetComponent<CharacterMotor>();
+        _charMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         StartCoroutine(DestroyProjectile());
 	}
 	

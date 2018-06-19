@@ -10,7 +10,7 @@ public class HealthDisplay : MonoBehaviour {
 
 	void Start ()
     {
-        _characterMotor = GameObject.Find("_PlayerMove").GetComponent<CharacterMotor>();
+        _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
 	}
 
 
