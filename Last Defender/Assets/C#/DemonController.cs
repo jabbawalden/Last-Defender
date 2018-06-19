@@ -19,6 +19,10 @@ public class DemonController : MonoBehaviour {
     [SerializeField] private GameObject _shootOrigin;
     [SerializeField] private float _shootSeconds;
 
+    [SerializeField] private bool _isAttacking;
+    [SerializeField] private float _attackRate;
+    [SerializeField] private float _newAttack;
+
     [SerializeField] int type;
 
     private GlobalEnemyStats _globalEnemyStats;
@@ -59,6 +63,11 @@ public class DemonController : MonoBehaviour {
         if (type == 3)
         {
             RayView();
+        }
+
+        if (_isAttacking)
+        {
+            DamagePlayer();
         }
         
     }
@@ -110,7 +119,7 @@ public class DemonController : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            StartCoroutine(DamagePlayer());
+            _isAttacking = true;
         }
        
     }
@@ -119,19 +128,22 @@ public class DemonController : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            StopCoroutine(DamagePlayer());
+            _isAttacking = false;
         }
 
     }
 
-    private IEnumerator DamagePlayer()
+    private void DamagePlayer()
     {
-        while (_pCharMotor.health >= 1)
-        {
-            yield return new WaitForSeconds(1);
+        _attackRate = 1;
 
+        if (Time.time > _newAttack)
+        {
+            _newAttack = Time.time + _attackRate;
             _pCharMotor.health--;
         }
+           
+  
     }
 
     private void FirePlayer()

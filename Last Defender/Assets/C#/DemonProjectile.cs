@@ -22,15 +22,15 @@ public class DemonProjectile : MonoBehaviour {
     {
         yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
-    }
+    } 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        if (collision.collider.tag == "Player")
+        if (other.collider.tag == "Player")
         {
             _charMotor.health--;
             Destroy(this.gameObject);
-        } else if (collision.collider.tag == "Environment")
+        } else if (other.collider.tag == "Environment")
         {
             Destroy(this.gameObject);
         }

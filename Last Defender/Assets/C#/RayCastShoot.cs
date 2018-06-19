@@ -12,13 +12,15 @@ public class RayCastShoot : MonoBehaviour {
     [SerializeField] private Camera fpsCam;
     [SerializeField] private LineRenderer[] laserLine;
     private PShoot _pShoot;
+    [SerializeField] private GameObject _gunLight;
+    // Use this for initialization
 
-	// Use this for initialization
-	void Start ()
+    private void Awake()
     {
+        _gunLight.SetActive(false);
         _pShoot = GetComponent<PShoot>();
-	}
-	
+    }
+
     public void RayShoot(int c)
     {
         if (c == 1)
@@ -62,8 +64,10 @@ public class RayCastShoot : MonoBehaviour {
         if (c == 1)
         {
             laserLine[0].enabled = true;
-            yield return new WaitForSeconds(0.05f);
+            _gunLight.SetActive(true);
+            yield return new WaitForSeconds(0.08f);
             laserLine[0].enabled = false;
+            _gunLight.SetActive(false);
             StopCoroutine(ShotEffect(1));
         }
    

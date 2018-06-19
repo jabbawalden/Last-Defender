@@ -26,6 +26,7 @@ public class PShoot : MonoBehaviour {
 
     [SerializeField] private int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
+    
 
     // Use this for initialization
     void Start ()
