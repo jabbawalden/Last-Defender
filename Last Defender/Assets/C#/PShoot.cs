@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PShoot : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster;
 
     public float bAmmo, mAmmo, hAmmo;
+    public Text ammoDisplay;
 
     [SerializeField] private float _fireRate; 
     private float _nextFire;
@@ -54,16 +56,19 @@ public class PShoot : MonoBehaviour {
         if (bCannonFire)
         {
             BlastCannonWep();
+            ammoDisplay.text = "AMMO: " + bAmmo;
         }
 
         if (miniCannonFire)
         {
             MiniCannonWep();
+            ammoDisplay.text = "AMMO: " + mAmmo;
         }
 
         if (hyperBlasterFire)
         {
-            HyperBlasterWep(); 
+            HyperBlasterWep();
+            ammoDisplay.text = "AMMO: " + hAmmo;
         }
     }
 
@@ -124,6 +129,7 @@ public class PShoot : MonoBehaviour {
             }
             //animate weapon
             StartCoroutine(WeaponTransitionAction(1));
+            
         }
 
         if (weapon == 2)
@@ -142,7 +148,7 @@ public class PShoot : MonoBehaviour {
             }
             StartCoroutine(WeaponTransitionAction(2));
             //animate weapon
-
+            
         }
 
         if (weapon == 3)
@@ -160,6 +166,7 @@ public class PShoot : MonoBehaviour {
                 currentWeapon = weapon;
             }
             StartCoroutine(WeaponTransitionAction(3));
+            
         }
   
     }

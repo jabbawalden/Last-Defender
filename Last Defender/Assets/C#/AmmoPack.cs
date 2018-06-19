@@ -15,7 +15,7 @@ public class AmmoPack : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        _pShoot = GameObject.Find("_PlayerMove").GetComponent<PShoot>();
+        _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
     }
 
 

@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4000022670886400}
   - component: {fileID: 33727083409700010}
   - component: {fileID: 23882373531094240}
-  - component: {fileID: 65755656309520850}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -91,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781086424531414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.85, z: 0.5}
+  m_LocalPosition: {x: -0.026, y: 0.598, z: 0.294}
   m_LocalScale: {x: 0.59179217, y: 0.59179217, z: 0.59179217}
   m_Children: []
   m_Father: {fileID: 4639868562264004}
@@ -117,15 +116,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848401435102958}
-  m_LocalRotation: {x: -0, y: -0.8798175, z: -0, w: 0.4753117}
-  m_LocalPosition: {x: -27.49, y: 2.32, z: -66.81}
+  m_LocalRotation: {x: -0, y: -0.69705725, z: -0, w: -0.7170155}
+  m_LocalPosition: {x: -31.164, y: 2.44, z: -66.108}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4639868562264004}
   - {fileID: 4821523374310798}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -123.241005, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -271.617, z: 0}
 --- !u!4 &4821523374310798
 Transform:
   m_ObjectHideFlags: 1
@@ -189,7 +188,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6f126a181dcea4140aa6ff8f4d2aea59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -238,18 +237,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!65 &65755656309520850
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1781086424531414}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114106864462263896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,7 +293,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 16
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136157434212875640
 CapsuleCollider:
