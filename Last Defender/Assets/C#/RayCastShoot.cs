@@ -7,7 +7,7 @@ public class RayCastShoot : MonoBehaviour {
     public int gunDamage = 1;
     public float weaponRange = 50;
     public float hitForce = 160;
-    public Transform gunEnd1, gunEnd2;
+    public Transform gunEnd1;
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private LineRenderer[] laserLine;
@@ -30,12 +30,10 @@ public class RayCastShoot : MonoBehaviour {
         Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3 (0.5f, 0.5f, 0));
         RaycastHit hit;
         laserLine[0].SetPosition(0, gunEnd1.position);
-        laserLine[1].SetPosition(0, gunEnd2.position);
 
         if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
         {
             laserLine[0].SetPosition(1, hit.point);
-            laserLine[1].SetPosition(1, hit.point);
 
             //gets script from hit object
             ShootableBox health = hit.collider.GetComponent<ShootableBox>();
@@ -56,7 +54,6 @@ public class RayCastShoot : MonoBehaviour {
         else
         {   //continue past point
             laserLine[0].SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
-            laserLine[1].SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
         }
     }
 
@@ -65,10 +62,9 @@ public class RayCastShoot : MonoBehaviour {
         if (c == 1)
         {
             laserLine[0].enabled = true;
-            laserLine[1].enabled = true;
-            yield return new WaitForSeconds(0.07f);
+            yield return new WaitForSeconds(0.05f);
             laserLine[0].enabled = false;
-            laserLine[1].enabled = false;
+            StopCoroutine(ShotEffect(1));
         }
    
     }

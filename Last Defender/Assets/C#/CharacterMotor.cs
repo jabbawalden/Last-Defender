@@ -10,6 +10,10 @@ public class CharacterMotor : MonoBehaviour {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _jump;
 
+    public GameObject spotLight;
+    public float lightPower;
+    public bool lightOn;
+
     float _translation;
     float _strafe;
 
@@ -17,10 +21,13 @@ public class CharacterMotor : MonoBehaviour {
 
     public GameObject[] hitPos;
 
+   
+
     // Use this for initialization
     void Start ()
     {
-       
+        lightOn = false;
+        spotLight.SetActive(false);
         _speed *= Time.deltaTime;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -36,12 +43,13 @@ public class CharacterMotor : MonoBehaviour {
         if (health >= 1)
         {
             MovementInput();
-        } else
+            LightEnable();
+        }
+        else
         {
 
         }
         
-
         if (IsWalking())
         {
             _playerAnim.SetBool("IsWalking", true);
@@ -114,6 +122,39 @@ public class CharacterMotor : MonoBehaviour {
         return true;
     }
 
- 
+    private void LightEnable()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !lightOn)
+        {
+            lightOn = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && lightOn)
+        {
+            lightOn = false;
+        }
+
+        if (lightOn)
+        {
+            spotLight.SetActive(true);
+            lightPower--;
+
+        }
+        else if (!lightOn)
+        {
+            spotLight.SetActive(false);
+
+            if (lightPower < 500)
+            {
+                lightPower++;
+            }
+        }
+
+
+        if (lightPower <= 0)
+        {
+            lightOn = false;
+        }
+
+    }
 
 }
