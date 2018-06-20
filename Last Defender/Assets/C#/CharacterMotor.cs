@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterMotor : MonoBehaviour {
 
     public int health;
-    //create variables
+    //movement
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _jump;
 
+    //Light capabilities
     public GameObject spotLight;
     public float lightPower;
     public bool lightOn;
+    public int powerCoresCollected = 0;
+    public int lightRecoveryAmount;
+    public float maxLightPower;
+    public Text lightPowerDisplay;
 
     float _translation;
     float _strafe;
@@ -21,11 +27,10 @@ public class CharacterMotor : MonoBehaviour {
 
     public GameObject[] hitPos;
 
-   
-
     // Use this for initialization
     void Start ()
     {
+        lightRecoveryAmount = 1;
         lightOn = false;
         spotLight.SetActive(false);
         _speed *= Time.deltaTime;
@@ -47,9 +52,10 @@ public class CharacterMotor : MonoBehaviour {
         }
         else
         {
-
+            //death function
         }
         
+        //head bob
         if (IsWalking())
         {
             _playerAnim.SetBool("IsWalking", true);
@@ -58,15 +64,13 @@ public class CharacterMotor : MonoBehaviour {
         {
             _playerAnim.SetBool("IsWalking", false);
         }
-        
+        lightPowerDisplay.text = "POWER: " + lightPower;
     }
 
 
     private void MovementInput()
     {
         //WASD movement
-  
-
         //force
         transform.Translate(_strafe, 0, _translation);
 
@@ -78,32 +82,23 @@ public class CharacterMotor : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            if (CanJump())
+            {
+                _rb.AddForce(_jump * transform.up, ForceMode.Impulse);
+            }
         }
-    }
-
-    void Jump()
-    {
-        if (CanJump())
-        {
-            _rb.AddForce(_jump * transform.up, ForceMode.Impulse);
-        }
-        
     }
 
     bool CanJump()
     {
         Ray ray = new Ray(transform.position, transform.up * -1);
-
         RaycastHit hit;
 
         //localscale.y is maxdistance of ray
         if (Physics.Raycast(ray, out hit, transform.localScale.y + 0.2f))
         {
             return true;
-            
         }
-
         return false;
     }
 
@@ -115,9 +110,7 @@ public class CharacterMotor : MonoBehaviour {
             _playerAnim.SetBool("IsWalking", false);
             return false;
         }
-        //animate
-        
-
+        //animate head bob
 
         return true;
     }
@@ -143,9 +136,9 @@ public class CharacterMotor : MonoBehaviour {
         {
             spotLight.SetActive(false);
 
-            if (lightPower < 500)
+            if (lightPower < maxLightPower)
             {
-                lightPower++;
+                lightPower += lightRecoveryAmount;
             }
         }
 

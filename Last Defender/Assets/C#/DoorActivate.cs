@@ -5,17 +5,54 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class DoorActivate : MonoBehaviour {
 
+    [System.Serializable]
+    public enum DoorType {automatic, powerAcquired}
+
+    public DoorType doorType;
+
     [SerializeField]
     private Animator _animator;
     [SerializeField]
     private AudioSource _doorSFX;
 
+    public bool powerLevelReached;
+    public int powerLevelRequirement;
+
+    private CharacterMotor _player;
+
+    private void Start()
+    {
+        powerLevelReached = false;
+        _player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
+    }
+
+    private void Update()
+    {
+        if (_player.powerCoresCollected == powerLevelRequirement)
+        {
+            powerLevelReached = true;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            _animator.SetBool("DoorActive", true);
-            _doorSFX.Play();
+            if (doorType == DoorType.powerAcquired)
+            {
+                if (powerLevelReached)
+                {
+                    _animator.SetBool("DoorActive", true);
+                    _doorSFX.Play();
+                }
+               
+            }
+            else
+            {
+                _animator.SetBool("DoorActive", true);
+                _doorSFX.Play();
+            }
+          
         }
     }
 
@@ -23,8 +60,20 @@ public class DoorActivate : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            _animator.SetBool("DoorActive", false);
-            _doorSFX.Play();
+            if (doorType == DoorType.powerAcquired)
+            {
+                if (powerLevelReached)
+                {
+                    _animator.SetBool("DoorActive", false);
+                    _doorSFX.Play();
+                }
+            }
+            else
+            {
+                _animator.SetBool("DoorActive", false);
+                _doorSFX.Play();
+            } 
+            
         }
     }
 

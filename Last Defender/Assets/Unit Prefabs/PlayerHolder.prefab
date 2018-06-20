@@ -261,15 +261,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888969522736018}
-  m_LocalRotation: {x: -0.060645137, y: 0.010927254, z: -0.003018286, w: 0.99809504}
-  m_LocalPosition: {x: 0.38, y: 0.87, z: -0.28}
+  m_LocalRotation: {x: -0.15498766, y: -0.029732838, z: 0.012101723, w: 0.9873947}
+  m_LocalPosition: {x: 0.25, y: 1, z: -0.07}
   m_LocalScale: {x: 0.49526858, y: 0.49526858, z: 1.9115603}
   m_Children:
   - {fileID: 4163055181566186}
   - {fileID: 4390231253560672}
   m_Father: {fileID: 4310666132587624}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -6.9490004, y: 1.2800001, z: -0.42400002}
+  m_LocalEulerAnglesHint: {x: -17.779001, y: -3.7610002, z: 1.9930001}
 --- !u!4 &4390231253560672
 Transform:
   m_ObjectHideFlags: 1
@@ -304,8 +304,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566536030198070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.81, y: 3.19, z: -26.97}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 20.81, y: 3.201, z: -26.97}
+  m_LocalScale: {x: 1, y: 1.0332409, z: 1}
   m_Children:
   - {fileID: 4758531686056194}
   - {fileID: 4593371957569172}
@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 1227307040002208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.1285058, z: 1}
   m_Children:
   - {fileID: 4987061697916668}
   m_Father: {fileID: 4751626953335770}
@@ -345,13 +345,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128594682970450}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.031810418, y: -0, z: -0, w: 0.99949396}
   m_LocalPosition: {x: 0, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4987061697916668}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.6460001, y: 0, z: 0}
 --- !u!4 &4905635592477486
 Transform:
   m_ObjectHideFlags: 1
@@ -372,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777528901533992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 1.089, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4814605866942552}
@@ -695,9 +695,9 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
-  m_Range: 18
-  m_SpotAngle: 68.1
+  m_Intensity: 3.5
+  m_Range: 40
+  m_SpotAngle: 84
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -735,10 +735,14 @@ MonoBehaviour:
   health: 40
   _speed: 6
   _rb: {fileID: 54800562517440174}
-  _jump: 10
+  _jump: 9
   spotLight: {fileID: 1128594682970450}
-  lightPower: 500
+  lightPower: 600
   lightOn: 0
+  powerCoresCollected: 0
+  lightRecoveryAmount: 0
+  maxLightPower: 500
+  lightPowerDisplay: {fileID: 0}
   _playerAnim: {fileID: 95902120267420156}
   hitPos:
   - {fileID: 1996854057270714}
@@ -755,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613d222ddb13cd249978904765744ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 5
+  _sensitivity: 3.4
   _smoothing: 2
 --- !u!114 &114364619217108956
 MonoBehaviour:
@@ -830,8 +834,9 @@ MonoBehaviour:
   _miniCannon: {fileID: 0}
   _hyperBlaster: {fileID: 0}
   bAmmo: 40
-  mAmmo: 60
-  hAmmo: 10
+  mAmmo: 80
+  hAmmo: 15
+  ammoDisplay: {fileID: 0}
   _fireRate: 0
   hCannon: 3
   bCannon: 1
@@ -840,6 +845,7 @@ MonoBehaviour:
   bCannonFire: 0
   miniCannonFire: 0
   hyperBlasterFire: 0
+  canFire: 0
   currentWeapon: 0
   _rayCastShoot: {fileID: 114512366915737286}
 --- !u!114 &114819696283258942

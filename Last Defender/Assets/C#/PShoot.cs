@@ -25,6 +25,7 @@ public class PShoot : MonoBehaviour {
 
     //to tell which weapon is active
     public bool bCannonFire, miniCannonFire, hyperBlasterFire;
+    public bool canFire;
 
     [SerializeField] private int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
@@ -75,6 +76,7 @@ public class PShoot : MonoBehaviour {
     private void PInputWepChange()
     {
         //weapon 1
+        //check if weapon not selected before changing
         if (Input.GetKeyDown("1") && !bCannonFire)
         {
             WeaponChange(1);
@@ -114,6 +116,10 @@ public class PShoot : MonoBehaviour {
 
     void WeaponChange(int weapon)
     {
+        //check current weapon then set new current weapon
+        //check weapon int upon call
+        //set relevant weapon bool to true
+        //animate weapon + weapon delay
         if (weapon == 1)
         {
             print("weapon 1");
@@ -127,9 +133,8 @@ public class PShoot : MonoBehaviour {
             {
                 currentWeapon = weapon;
             }
-            //animate weapon
             StartCoroutine(WeaponTransitionAction(1));
-            
+            bCannonFire = true;
         }
 
         if (weapon == 2)
@@ -147,8 +152,8 @@ public class PShoot : MonoBehaviour {
                 currentWeapon = weapon;
             }
             StartCoroutine(WeaponTransitionAction(2));
-            //animate weapon
-            
+            miniCannonFire = true;
+
         }
 
         if (weapon == 3)
@@ -166,18 +171,19 @@ public class PShoot : MonoBehaviour {
                 currentWeapon = weapon;
             }
             StartCoroutine(WeaponTransitionAction(3));
-            
+            hyperBlasterFire = true;
         }
   
     }
 
-
+    
     //Hyper Cannon behaviour
     private void BlastCannonWep()
     {
         _fireRate = 0.35f;
 
-        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire && bAmmo >= 1)
+        //check canFire, player input and firerate
+        if (canFire && Input.GetMouseButtonDown(0) && Time.time > _nextFire && bAmmo >= 1)
         {
             bAmmo--;
             _nextFire = Time.time + _fireRate;
@@ -192,7 +198,8 @@ public class PShoot : MonoBehaviour {
     {
         _fireRate = 0.1f;
 
-        if (Input.GetMouseButton(0) && Time.time > _nextFire && mAmmo >= 1)
+        //check canFire, player input and firerate
+        if (canFire && Input.GetMouseButton(0) && Time.time > _nextFire && mAmmo >= 1)
         {
             mAmmo--;
             _nextFire = Time.time + _fireRate;
@@ -206,7 +213,8 @@ public class PShoot : MonoBehaviour {
     {
         _fireRate = 0.9f;
 
-        if (Input.GetMouseButtonDown(0) && Time.time > _nextFire && hAmmo >= 1)
+        //check canFire, player input and firerate
+        if (canFire && Input.GetMouseButtonDown(0) && Time.time > _nextFire && hAmmo >= 1)
         {
             _nextFire = Time.time + _fireRate;
             hAmmo--;
@@ -217,24 +225,23 @@ public class PShoot : MonoBehaviour {
 
     void PlaySound(int c)
     {
+        //play sound depending on c upon call
+        //randomise audioclip to play
         if (c == 1)
         {
             int n = Random.Range(0, _blastCannonSFX.Length);
-
             _audioSource.PlayOneShot(_blastCannonSFX[n]);
         }
 
         if (c == 2)
         {
             int n = Random.Range(0, _miniCannonSFX.Length);
-
             _audioSource.PlayOneShot(_miniCannonSFX[n]);
         }
 
         if (c == 3)
         {
             int n = Random.Range(0, _hyperBlasterSFX.Length);
-
             _audioSource.PlayOneShot(_hyperBlasterSFX[n]);
         }
 
@@ -243,22 +250,27 @@ public class PShoot : MonoBehaviour {
 
     IEnumerator WeaponTransitionAction(int c)
     {
-        yield return new WaitForSeconds(0.5f);
+
 
         if (c == 1)
         {
-            bCannonFire = true;
+            //animate BlastCannon
         }
         if (c == 2)
         {
-            miniCannonFire = true;
+            //animate miniCannon
         }
         if (c == 3)
         {
-            hyperBlasterFire = true;
+            //animate HyperBlaster
         }
 
-        StopCoroutine(WeaponTransitionAction(1));
+        //fire delay during animation
+        canFire = false;
+        yield return new WaitForSeconds(0.4f);
+        canFire = true;
+
+        StopCoroutine(WeaponTransitionAction(c));
     }
 
     void RayTagReturn()
@@ -270,8 +282,6 @@ public class PShoot : MonoBehaviour {
             Debug.Log(hit.collider.gameObject.tag);
         }
 
-        
- 
     }
     
 }
