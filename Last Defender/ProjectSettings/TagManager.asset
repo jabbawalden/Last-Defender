@@ -10,6 +10,7 @@ TagManager:
   - Pathway
   - Door
   - Environment
+  - Enemy
   layers:
   - Default
   - TransparentFX

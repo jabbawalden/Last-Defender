@@ -15,7 +15,7 @@ public class PowerCore : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             //+1 to power cores collected
             _player.powerCoresCollected++;

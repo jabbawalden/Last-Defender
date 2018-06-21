@@ -32,7 +32,7 @@ public class DemonController : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         _globalEnemyStats = GameObject.Find("GlobalEnemyStats").GetComponent<GlobalEnemyStats>();
         playerInRange = false;
@@ -40,11 +40,11 @@ public class DemonController : MonoBehaviour {
         _player = GameObject.Find("PlayerMain");
         _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _shootableBox = GetComponent<ShootableBox>();
-        
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
 
         if (_pCharMotor.health >= 1 && playerInRange == true)
@@ -69,7 +69,7 @@ public class DemonController : MonoBehaviour {
         {
             DamagePlayer();
         }
-        
+
     }
 
     public void RayView()
@@ -81,10 +81,10 @@ public class DemonController : MonoBehaviour {
 
         if (Physics.Raycast(rayOrigin, direction * 40, out hit))
         {
-            if (hit.collider.tag == "Player")
+            if (hit.collider.CompareTag("Player"))
             {
                 FirePlayer();
-                
+
             }
 
         }
@@ -117,16 +117,16 @@ public class DemonController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             _isAttacking = true;
         }
-       
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             _isAttacking = false;
         }

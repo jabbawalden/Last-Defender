@@ -21,7 +21,7 @@ public class AmmoPack : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             if (ammoType == AmmoType.blastCannon)
             {

@@ -26,12 +26,12 @@ public class DemonProjectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             _charMotor.health--;
             Destroy(this.gameObject);
         }
-        else if (other.tag == "Environment")
+        else if (other.CompareTag("Environment"))
         {
             Destroy(this.gameObject);
         }

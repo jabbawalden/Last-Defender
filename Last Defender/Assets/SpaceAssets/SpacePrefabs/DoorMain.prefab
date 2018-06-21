@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 33686842328437112}
   - component: {fileID: 23220891195968666}
   - component: {fileID: 64320169938094304}
+  - component: {fileID: 208365941715904628}
   m_Layer: 0
   m_Name: Door1_LP
   m_TagString: Untagged
@@ -682,6 +683,7 @@ GameObject:
   - component: {fileID: 33630196363926630}
   - component: {fileID: 23025590548406608}
   - component: {fileID: 64037489259476416}
+  - component: {fileID: 208620636166961672}
   m_Layer: 0
   m_Name: Door2_LP
   m_TagString: Untagged
@@ -835,7 +837,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481920580496326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000011921, y: 0, z: 0}
+  m_LocalPosition: {x: 0.000000029802, y: -0.00000047684, z: 0.0000011623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4931415809346248}
@@ -887,7 +889,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939508133176770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000000029802, y: 4, z: 4}
+  m_LocalPosition: {x: 0.00000012666, y: 4, z: 4}
   m_LocalScale: {x: 1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 4931415809346248}
@@ -3439,3 +3441,33 @@ MonoBehaviour:
   _doorSFX: {fileID: 82823812087684940}
   powerLevelReached: 0
   powerLevelRequirement: 1
+--- !u!208 &208365941715904628
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481920580496326}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 2, z: 1.1060001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.5, y: 2, z: 1.1060001}
+  m_TimeToStationary: 0.1
+--- !u!208 &208620636166961672
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939508133176770}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 2, z: 1.1060001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.5, y: 2, z: 1.1060001}
+  m_TimeToStationary: 0.1

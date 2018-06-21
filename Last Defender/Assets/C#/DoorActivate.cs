@@ -36,7 +36,8 @@ public class DoorActivate : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        print(other.tag);
+        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
             if (doorType == DoorType.powerAcquired)
             {
@@ -58,7 +59,7 @@ public class DoorActivate : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             if (doorType == DoorType.powerAcquired)
             {

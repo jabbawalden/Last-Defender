@@ -21,7 +21,7 @@ public class EnemyAgressionField : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             _demonController.playerInRange = true;
         }
@@ -29,7 +29,7 @@ public class EnemyAgressionField : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             _demonController.playerInRange = false;
         }
