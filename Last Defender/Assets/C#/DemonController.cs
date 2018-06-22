@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class DemonController : MonoBehaviour {
 
+    //creates an ID for each enemy
+    public string enemyID = System.Guid.NewGuid().ToString();
+
     public NavMeshAgent agent;
     private GameObject _player;
     private CharacterMotor _pCharMotor;
     public float distance;
     private float _projSpeed;
     private Vector3 direction;
-
 
     private float _newFireRate;
     [SerializeField] private float _fireRate;
@@ -30,16 +32,24 @@ public class DemonController : MonoBehaviour {
     public bool playerInRange;
     //1 = speed, 2 = strong, 3 = range
 
-
+    private GameManager gameManager;
     // Use this for initialization
     void Start()
     {
+        
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //if (gameManager.deadEnemies.Contains(enemyID))
+        //{
+        //    Destroy(this.gameObject);
+        //    return;
+        //}
         _globalEnemyStats = GameObject.Find("GlobalEnemyStats").GetComponent<GlobalEnemyStats>();
         playerInRange = false;
         _projSpeed = _globalEnemyStats.projectileSpeed * Time.deltaTime;
         _player = GameObject.Find("PlayerMain");
         _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _shootableBox = GetComponent<ShootableBox>();
+        
 
     }
 
@@ -159,4 +169,14 @@ public class DemonController : MonoBehaviour {
         
 
     }
-}
+
+    //if ID is not in deadEnemies, add it to list so we know which enemies are dead
+    //public void OnKill()
+    //{
+    //    if (!gameManager.deadEnemies.Contains(enemyID))
+    //    {
+    //        gameManager.deadEnemies.Add(enemyID);
+    //    }
+        
+    //}
+} 
