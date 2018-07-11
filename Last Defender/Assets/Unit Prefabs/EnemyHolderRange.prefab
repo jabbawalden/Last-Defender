@@ -87,9 +87,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484439138985066}
-  m_LocalRotation: {x: -0, y: 0.9710848, z: -0, w: -0.23873499}
-  m_LocalPosition: {x: 16.59671, y: -0.20000005, z: -0.53099287}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7655221, z: -0, w: 0.6434096}
+  m_LocalPosition: {x: -48.02398, y: -21.336212, z: -82.402626}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 4399596636516194}
   - {fileID: 4777039766926056}
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b024fa653c30e3f459640ae3d2116e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 9349fc97-8b6e-418b-a60a-55b64f487b11
   agent: {fileID: 195579843032525100}
   distance: 10
   _fireRate: 1
@@ -250,7 +251,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136845241003226232
 CapsuleCollider:

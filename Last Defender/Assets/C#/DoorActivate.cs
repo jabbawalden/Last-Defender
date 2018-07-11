@@ -17,11 +17,12 @@ public class DoorActivate : MonoBehaviour {
 
     public bool powerLevelReached;
     public int powerLevelRequirement;
-
+    public bool doorIsOpening;
     private CharacterMotor _player;
 
     private void Start()
     {
+        doorIsOpening = false;
         powerLevelReached = false;
         _player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
     }
@@ -36,25 +37,34 @@ public class DoorActivate : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.tag);
-        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
+       
+        if (other.CompareTag("Player") /*|| other.CompareTag("Enemy")*/)
         {
             if (doorType == DoorType.powerAcquired)
             {
-                if (powerLevelReached)
+                if (powerLevelReached && !doorIsOpening)
                 {
                     _animator.SetBool("DoorActive", true);
                     _doorSFX.Play();
+                    StartCoroutine(DoorOpenCheck());
                 }
                
             }
-            else
+            else if (doorType == DoorType.automatic && !doorIsOpening)
             {
                 _animator.SetBool("DoorActive", true);
                 _doorSFX.Play();
+                StartCoroutine(DoorOpenCheck());
             }
           
         }
+    }
+
+    IEnumerator DoorOpenCheck()
+    {
+        doorIsOpening = true;
+        yield return new WaitForSeconds(1f);
+        doorIsOpening = false;
     }
 
     private void OnTriggerExit(Collider other)

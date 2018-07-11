@@ -6,6 +6,7 @@ public class ShootableBox : MonoBehaviour {
 
     public int currentHealth;
     private DemonController demonController;
+    
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class ShootableBox : MonoBehaviour {
         if (currentHealth <= 0)
         {
             //calls OnKill function
-            //demonController.OnKill();
+            demonController.OnKill();
             Destroy(this.gameObject);
         }
     }

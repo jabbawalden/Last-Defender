@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class DemonController : MonoBehaviour {
 
-    //creates an ID for each enemy
-    public string enemyID = System.Guid.NewGuid().ToString();
+    //set enemyID variable
+    public string enemyID = "Undefined";
 
     public NavMeshAgent agent;
     private GameObject _player;
@@ -32,17 +33,23 @@ public class DemonController : MonoBehaviour {
     public bool playerInRange;
     //1 = speed, 2 = strong, 3 = range
 
-    private GameManager gameManager;
+    private GameManager _gameManager;
     // Use this for initialization
     void Start()
     {
-        
-        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        //if (gameManager.deadEnemies.Contains(enemyID))
-        //{
-        //    Destroy(this.gameObject);
-        //    return;
-        //}
+        if (enemyID == "Undefined")
+        {
+            Debug.LogError("Enemy ID not generated");
+        }
+
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (_gameManager.deadEnemies.Contains(enemyID))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+
         _globalEnemyStats = GameObject.Find("GlobalEnemyStats").GetComponent<GlobalEnemyStats>();
         playerInRange = false;
         _projSpeed = _globalEnemyStats.projectileSpeed * Time.deltaTime;
@@ -171,12 +178,28 @@ public class DemonController : MonoBehaviour {
     }
 
     //if ID is not in deadEnemies, add it to list so we know which enemies are dead
-    //public void OnKill()
-    //{
-    //    if (!gameManager.deadEnemies.Contains(enemyID))
-    //    {
-    //        gameManager.deadEnemies.Add(enemyID);
-    //    }
-        
-    //}
+    public void OnKill()
+    {
+        if (!_gameManager.deadEnemies.Contains(enemyID))
+        {
+            _gameManager.deadEnemies.Add(enemyID);
+        }
+
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.EventEnemyHit += EnemyHit;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.EventEnemyHit -= EnemyHit;
+    }
+
+    void EnemyHit()
+    {
+        Debug.Log("Play Enemy Hit Sound");
+        //Play sound
+    }
 } 

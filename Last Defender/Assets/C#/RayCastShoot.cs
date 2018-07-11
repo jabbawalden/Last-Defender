@@ -8,15 +8,18 @@ public class RayCastShoot : MonoBehaviour {
     public float weaponRange = 50;
     public float hitForce = 160;
     public Transform gunEnd1;
+    private CharacterMotor _characterMotor;
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private LineRenderer[] laserLine;
     private PShoot _pShoot;
     [SerializeField] private GameObject _gunLight;
     // Use this for initialization
+    
 
     private void Awake()
     {
+        _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _gunLight.SetActive(false);
         _pShoot = GetComponent<PShoot>();
     }
@@ -27,22 +30,24 @@ public class RayCastShoot : MonoBehaviour {
         {
             StartCoroutine(ShotEffect(1));
         }
-       
+
         //gets point at exact center of viewport
-        Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3 (0.5f, 0.5f, 0));
+        Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         laserLine[0].SetPosition(0, gunEnd1.position);
 
         if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
         {
-            laserLine[0].SetPosition(1, hit.point);
 
+            laserLine[0].SetPosition(1, hit.point);
             //gets script from hit object
             ShootableBox health = hit.collider.GetComponent<ShootableBox>();
+            //DemonController demonController = hit.collider.GetComponent<DemonController>();
 
             //checks if there is a shootablebox script
             if (health != null)
             {
+                GameEvents.ReportEnemyHit();
                 health.currentHealth -= _pShoot.currentDamage;
             }
 
@@ -52,11 +57,15 @@ public class RayCastShoot : MonoBehaviour {
                 //use -hit.normal to make the box move away from the surface it was hit * hitforce amount
                 hit.rigidbody.AddForce(-hit.normal * hitForce);
             }
+
+
         }
         else
         {   //continue past point
             laserLine[0].SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
         }
+
+
     }
 
     IEnumerator ShotEffect(int c)
@@ -73,5 +82,20 @@ public class RayCastShoot : MonoBehaviour {
    
     }
 
+    private void OnEnable()
+    {
+        GameEvents.EventEnemyHit += EnemyHit;
+    }
 
+    private void OnDisable()
+    {
+        GameEvents.EventEnemyHit -= EnemyHit;
+    }
+
+    void EnemyHit()
+    {
+        Debug.Log("EnemyHit");
+       //Dot image fx
+       //
+    }
 }

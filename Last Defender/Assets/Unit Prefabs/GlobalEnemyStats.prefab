@@ -52,6 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed_Speed: 13
-  speed_Strength: 7
-  speed_Range: 4
+  speed_Strength: 5
+  speed_Range: 3
   projectileSpeed: 2500

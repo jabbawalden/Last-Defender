@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterMotor : MonoBehaviour {
 
     public int health;
+    public int maxHealth;
     //movement
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rb;
@@ -20,8 +22,12 @@ public class CharacterMotor : MonoBehaviour {
     public float maxLightPower;
     public Text lightPowerDisplay;
 
+    private bool _cursorshown;
+
     float _translation;
     float _strafe;
+
+    public bool canShoot;
 
     [SerializeField] private Animator _playerAnim;
 
@@ -30,11 +36,15 @@ public class CharacterMotor : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        health = maxHealth;
+        canShoot = true;
+        _cursorshown = false;
         lightRecoveryAmount = 1;
         lightOn = false;
         spotLight.SetActive(false);
         _speed *= Time.deltaTime;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 	
 	// Update is called once per frame
@@ -50,9 +60,9 @@ public class CharacterMotor : MonoBehaviour {
             MovementInput();
             LightEnable();
         }
-        else
+        else if (health <= 0)
         {
-            //death function
+            GameEvents.ReportPlayerDead();
         }
         
         //head bob
@@ -74,12 +84,6 @@ public class CharacterMotor : MonoBehaviour {
         //force
         transform.Translate(_strafe, 0, _translation);
 
-        //add mouse back in during play
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (CanJump())
@@ -87,6 +91,22 @@ public class CharacterMotor : MonoBehaviour {
                 _rb.AddForce(_jump * transform.up, ForceMode.Impulse);
             }
         }
+
+        //add mouse back in during play
+        if (Input.GetKeyDown(KeyCode.Escape) && !_cursorshown)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            _cursorshown = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && _cursorshown)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            _cursorshown = false;
+        }
+
+      
     }
 
     bool CanJump()
@@ -114,6 +134,15 @@ public class CharacterMotor : MonoBehaviour {
 
         return true;
     }
+
+    /*
+    private IEnumerator Death()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(0);
+        //upon death, data from last save point must be reloaded, otherwise enemies that were killed before a new save will not spawn
+    }
+    */
 
     private void LightEnable()
     {
@@ -148,6 +177,25 @@ public class CharacterMotor : MonoBehaviour {
             lightOn = false;
         }
 
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.EventPlayerDead += PlayerDead;
+    }
+
+    private void OnDisable() 
+    {
+        GameEvents.EventPlayerDead -= PlayerDead;
+    }
+
+    public void PlayerDead()
+    {
+        Debug.Log("Player is dead");
+        //animate camera death
+        //add in blood image overlay
+        //play sound
+        //
     }
 
 }

@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b024fa653c30e3f459640ae3d2116e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: Undefined
   agent: {fileID: 195553535066187650}
   distance: 10
   _fireRate: 0
