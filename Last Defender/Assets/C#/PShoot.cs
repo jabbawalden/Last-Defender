@@ -9,9 +9,10 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private AudioClip[] _blastCannonSFX;
     [SerializeField] private AudioClip[] _miniCannonSFX;
     [SerializeField] private AudioClip[] _hyperBlasterSFX;
+    [SerializeField] private AudioClip[] _rezoidSFX;
     public int currentDamage;
-    public int blastDamage, miniDamage, hyperDamage;
-    [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster;
+    public int blastDamage, miniDamage, hyperDamage, rezoidDamage;
+    [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster, _rezoid;
 
     public float bAmmo, mAmmo, hAmmo;
     public Text ammoDisplay;
@@ -24,7 +25,7 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private GameObject _cameraPos;
 
     //to tell which weapon is active
-    public bool bCannonFire, miniCannonFire, hyperBlasterFire;
+    public bool bCannonFire, miniCannonFire, hyperBlasterFire, rezoidFire;
     public bool canFire;
 
     [SerializeField] private int currentWeapon;
@@ -38,6 +39,7 @@ public class PShoot : MonoBehaviour {
         bCannonFire = false;
         miniCannonFire = false;
         hyperBlasterFire = false;
+        rezoidFire = false;
         _audioSource = GetComponent<AudioSource>();
         //StartCoroutine(DebugUpdate());
 	}
@@ -71,8 +73,16 @@ public class PShoot : MonoBehaviour {
             HyperBlasterWep();
             ammoDisplay.text = "AMMO: " + hAmmo;
         }
+
+        if (rezoidFire)
+        {
+            RezoidWep();
+            ammoDisplay.text = "AMMO: N/A";
+        }
+
     }
 
+    //input for changing weapon
     private void PInputWepChange()
     {
         //weapon 1
@@ -93,6 +103,11 @@ public class PShoot : MonoBehaviour {
         {
             WeaponChange(3);
         }
+
+        if (Input.GetKeyDown("4") && !rezoidFire)
+        {
+            WeaponChange(4);
+        }
     }
 
     //if currentweapon is not == new weapon, deactivate current weapon and set bool to false.
@@ -112,11 +127,16 @@ public class PShoot : MonoBehaviour {
         {
             hyperBlasterFire = false;
         }
+
+        if (c == 4)
+        {
+            rezoidFire = false;
+        }
     }
 
     void WeaponChange(int weapon)
     {
-        //check current weapon then set new current weapon
+        //check current weapon then set new current weapon via DeActivation method
         //check weapon int upon call
         //set relevant weapon bool to true
         //animate weapon + weapon delay
@@ -173,7 +193,25 @@ public class PShoot : MonoBehaviour {
             StartCoroutine(WeaponTransitionAction(3));
             hyperBlasterFire = true;
         }
-  
+
+        if (weapon == 4)
+        {
+            print("Weapon 4");
+            currentDamage = rezoidDamage;
+
+            if (weapon != currentWeapon)
+            {
+                DeActivateWeapon(currentWeapon);
+                currentWeapon = weapon;
+            }
+            else
+            {
+                currentWeapon = weapon;
+            }
+            StartCoroutine(WeaponTransitionAction(3));
+            rezoidFire = true;
+        }
+
     }
 
     
@@ -223,6 +261,19 @@ public class PShoot : MonoBehaviour {
         }
     }
 
+    //Rezoid Behaviour
+    private void RezoidWep()
+    {
+        _fireRate = 0.29f;
+
+        if (canFire && Input.GetMouseButtonDown(0) && Time.time > _nextFire)
+        {
+            _nextFire = Time.time + _fireRate;
+            PlaySound(4);
+            _rayCastShoot.RayShoot(1);
+        }
+    }
+
     void PlaySound(int c)
     {
         //play sound depending on c upon call
@@ -245,7 +296,11 @@ public class PShoot : MonoBehaviour {
             _audioSource.PlayOneShot(_hyperBlasterSFX[n]);
         }
 
-
+        if (c == 4)
+        {
+            int n = Random.Range(0, _hyperBlasterSFX.Length);
+            _audioSource.PlayOneShot(_rezoidSFX[n]);
+        }
     }
 
     IEnumerator WeaponTransitionAction(int c)
@@ -263,6 +318,11 @@ public class PShoot : MonoBehaviour {
         if (c == 3)
         {
             //animate HyperBlaster
+        }
+
+        if (c == 4)
+        {
+            //animate rezoid
         }
 
         //fire delay during animation

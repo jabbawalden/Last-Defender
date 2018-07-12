@@ -304,7 +304,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566536030198070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.5, y: 3.52, z: -31.193}
+  m_LocalPosition: {x: 21.37, y: 3.5192103, z: -30.8}
   m_LocalScale: {x: 1, y: 0.88801545, z: 1}
   m_Children:
   - {fileID: 4758531686056194}
@@ -732,8 +732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ad8c669f81b2f40a0649428cffb22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
-  _speed: 8
+  health: 20
+  maxHealth: 20
+  _speed: 9
   _rb: {fileID: 54800562517440174}
   _jump: 9
   spotLight: {fileID: 1128594682970450}
@@ -741,8 +742,9 @@ MonoBehaviour:
   lightOn: 0
   powerCoresCollected: 0
   lightRecoveryAmount: 0
-  maxLightPower: 500
+  maxLightPower: 600
   lightPowerDisplay: {fileID: 0}
+  canShoot: 0
   _playerAnim: {fileID: 95902120267420156}
   hitPos:
   - {fileID: 1996854057270714}
@@ -826,13 +828,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f8894ea372ee3c344be7a75e2cd5d4e9, type: 3}
   - {fileID: 8300000, guid: 2dc44045e64a839428b593678448265d, type: 3}
   - {fileID: 8300000, guid: 2edbae5345454314a9c9d69003e28c5e, type: 3}
+  _rezoidSFX:
+  - {fileID: 8300000, guid: 8e399fd0fa33bf64d93c38c487b41c71, type: 3}
+  - {fileID: 8300000, guid: c2b96f03e26409a49b4d7ae622f95fc0, type: 3}
+  - {fileID: 8300000, guid: 8aee681e49a959f428d2147c62a5c8c6, type: 3}
+  - {fileID: 0}
   currentDamage: 0
   blastDamage: 3
   miniDamage: 1
   hyperDamage: 6
+  rezoidDamage: 2
   _blastCannon: {fileID: 0}
   _miniCannon: {fileID: 0}
   _hyperBlaster: {fileID: 0}
+  _rezoid: {fileID: 0}
   bAmmo: 40
   mAmmo: 80
   hAmmo: 15
@@ -845,6 +854,7 @@ MonoBehaviour:
   bCannonFire: 0
   miniCannonFire: 0
   hyperBlasterFire: 0
+  rezoidFire: 0
   canFire: 0
   currentWeapon: 0
   _rayCastShoot: {fileID: 114512366915737286}
