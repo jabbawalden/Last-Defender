@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 95405469564250080}
   m_Layer: 0
   m_Name: DoorTogether
-  m_TagString: Untagged
+  m_TagString: DoorTogether
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 208365941715904628}
   m_Layer: 0
   m_Name: Door1_LP
-  m_TagString: Untagged
+  m_TagString: DoorTogether
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 208620636166961672}
   m_Layer: 0
   m_Name: Door2_LP
-  m_TagString: Untagged
+  m_TagString: DoorTogether
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,8 +789,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844028811469202}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: 40.241524, y: 39.821564, z: -2.6001701}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 45.241127, y: 39.819763, z: 31.39978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4931415809346248}
@@ -871,7 +871,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481920580496326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000000029802, y: -0.00000047684, z: 0.0000011623}
+  m_LocalPosition: {x: 0.00000023842, y: -0.00000047684, z: -0.0000027418}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4931415809346248}
@@ -3118,8 +3118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.919853, y: 7.979806, z: 7.505046}
-  m_Center: {x: -1.332036, y: 3.060804, z: 1.951776}
+  m_Size: {x: 15.322424, y: 7.979806, z: 9.7356825}
+  m_Center: {x: -0.47159863, y: 3.060804, z: 3.0670948}
 --- !u!65 &65324148017371480
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3576,8 +3576,6 @@ MonoBehaviour:
   powerLevelReached: 0
   powerLevelRequirement: 1
   doorIsOpening: 0
-  _restorePower: {fileID: 0}
-  _powerCoreRequired: {fileID: 0}
 --- !u!208 &208365941715904628
 NavMeshObstacle:
   m_ObjectHideFlags: 1

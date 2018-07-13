@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour {
 
-    [SerializeField] private Text _healthDisplay;
-    private CharacterMotor _characterMotor;
+ //   [SerializeField] private Text _healthDisplay;
+ //   private CharacterMotor _characterMotor;
 
-	void Start ()
-    {
-        _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
-	}
+	//void Start ()
+ //   {
+ //       _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
+	//}
 
 
-	void Update ()
-    {
-        _healthDisplay.text = "HEALTH: " + _characterMotor.health;
-	}
+	//void Update ()
+ //   {
+ //       _healthDisplay.text = "HEALTH: " + _characterMotor.health;
+	//}
 }

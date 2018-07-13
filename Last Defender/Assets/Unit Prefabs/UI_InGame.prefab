@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 223812886665909324}
   - component: {fileID: 114178269368386656}
   - component: {fileID: 114573833760189160}
+  - component: {fileID: 114566094647996234}
   m_Layer: 0
   m_Name: UI_InGame
   m_TagString: Untagged
@@ -90,7 +91,6 @@ GameObject:
   - component: {fileID: 224498631131873458}
   - component: {fileID: 222716738133139304}
   - component: {fileID: 114795334447690142}
-  - component: {fileID: 114708404586088138}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -169,6 +169,24 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Restore Power (R)
+--- !u!114 &114566094647996234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509488455067742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1c2d230f46b2946bde9fb7faea5e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthDisplay: {fileID: 114795334447690142}
+  _ammoDisplay: {fileID: 114963673125131598}
+  _lightPowerDisplay: {fileID: 114652568840306704}
+  _restorePower: {fileID: 1888407912004062}
+  _powerCoreRequired: {fileID: 1254614899834320}
+  restorePower: 0
+  powerCoreRequired: 0
 --- !u!114 &114573833760189160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,18 +269,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Power Core Required
---- !u!114 &114708404586088138
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1757814969346554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38dc12cd53f26bb49acbc44bb6074c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthDisplay: {fileID: 114795334447690142}
 --- !u!114 &114795334447690142
 MonoBehaviour:
   m_ObjectHideFlags: 1

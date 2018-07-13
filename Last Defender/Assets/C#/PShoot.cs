@@ -15,7 +15,6 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster, _rezoid;
 
     public float bAmmo, mAmmo, hAmmo;
-    public Text ammoDisplay;
 
     [SerializeField] private float _fireRate; 
     private float _nextFire;
@@ -59,25 +58,21 @@ public class PShoot : MonoBehaviour {
         if (bCannonFire)
         {
             BlastCannonWep();
-            ammoDisplay.text = "AMMO: " + bAmmo;
         }
 
         if (miniCannonFire)
         {
             MiniCannonWep();
-            ammoDisplay.text = "AMMO: " + mAmmo;
         }
 
         if (hyperBlasterFire)
         {
             HyperBlasterWep();
-            ammoDisplay.text = "AMMO: " + hAmmo;
         }
 
         if (rezoidFire)
         {
             RezoidWep();
-            ammoDisplay.text = "AMMO: N/A";
         }
 
     }

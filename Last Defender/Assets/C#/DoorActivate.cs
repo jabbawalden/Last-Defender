@@ -6,10 +6,11 @@ using UnityEngine;
 public class DoorActivate : MonoBehaviour {
 
     [System.Serializable]
-    public enum DoorType {automatic, powerAcquired}
-    public Light plight1, plight2;
-    public DoorType doorType;
+    public enum DoorState {unlocked, locked}
+    public DoorState doorState;
 
+
+    public Light plight1, plight2;
     [SerializeField]
     private Animator _animator;
     [SerializeField]
@@ -19,101 +20,55 @@ public class DoorActivate : MonoBehaviour {
     public int powerLevelRequirement;
     public bool doorIsOpening;
     private CharacterMotor _player;
-    [SerializeField]
-    private GameObject _restorePower;
-    [SerializeField]
-    private GameObject _powerCoreRequired;
-    private bool _playerInRange;
+    private UIManager _uIManager;
+    public bool playerInRange;
+    public bool unlocked;
+
+    private void OnEnable()
+    {
+        GameEvents.EventDoorCheck += DoorStateChange;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.EventDoorCheck -= DoorStateChange;
+ 
+    }
 
     private void Start()
     {
         doorIsOpening = false;
         powerLevelReached = false;
         _player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
- 
-        _restorePower.SetActive(false);
-        _powerCoreRequired.SetActive(false);
+        _uIManager = GameObject.Find("UI_InGame").GetComponent<UIManager>();
+
+        switch (doorState)
+        {
+            case DoorState.unlocked:
+                plight1.color = Color.green;
+                plight2.color = Color.green;
+                break;
+            case DoorState.locked:
+                plight1.color = Color.red;
+                plight2.color = Color.red;
+                break;
+        }
+
     }
 
     private void Update()
     {
-        if (doorType == DoorType.powerAcquired)
+        if (_player.powerCoresCollected >= powerLevelRequirement )
         {
-            if(_playerInRange)
-            {
-                if (_player.powerCoresCollected < powerLevelRequirement)
-                {
-                    _powerCoreRequired.SetActive(true);
-                }
-                else if (_player.powerCoresCollected >= powerLevelRequirement && !powerLevelReached)
-                {
-                    _restorePower.SetActive(true);
-                }
-            }
-            else if (!_playerInRange)
-            {
-                _powerCoreRequired.SetActive(false);
-                _restorePower.SetActive(false);
-            }
-          
-
-            if (_player.powerCoresCollected >= powerLevelRequirement)
-            {
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    _restorePower.SetActive(true);
-                    powerLevelReached = true;
-                    plight1.color = Color.green;
-                    plight2.color = Color.green;
-                    _animator.SetBool("DoorActive", true);
-                    _doorSFX.Play();
-                    StartCoroutine(DoorOpenCheck());
-                }
-               
-            }
-            else if (!powerLevelReached)
-            {
-                plight1.color = Color.red;
-                plight2.color = Color.red;
-            }
-
+            powerLevelReached = true;
         }
-        else if (doorType == DoorType.automatic)
+        else
         {
-            plight1.color = Color.green;
-            plight2.color = Color.green;
+            powerLevelReached = false;
         }
-            
+
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-       
-        if (other.CompareTag("Player") /*|| other.CompareTag("Enemy")*/)
-        {
-            _playerInRange = true;
-
-            if (doorType == DoorType.powerAcquired)
-            {
-                
-
-                if (powerLevelReached && !doorIsOpening)
-                {
-                    _animator.SetBool("DoorActive", true);
-                    _doorSFX.Play();
-                    StartCoroutine(DoorOpenCheck());
-                }
-               
-            }
-            else if (doorType == DoorType.automatic && !doorIsOpening)
-            {
-                _animator.SetBool("DoorActive", true);
-                _doorSFX.Play();
-                StartCoroutine(DoorOpenCheck());
-            }
-          
-        }
-    }
 
     IEnumerator DoorOpenCheck()
     {
@@ -122,25 +77,54 @@ public class DoorActivate : MonoBehaviour {
         doorIsOpening = false;
     }
 
-    private void OnTriggerExit(Collider other)
+    public void DoorStateChange()
     {
-        _playerInRange = false;
-        if (other.CompareTag("Player"))
+        doorState = DoorState.unlocked;
+        plight1.color = Color.green;
+        plight2.color = Color.green;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        switch (doorState)
         {
-            if (doorType == DoorType.powerAcquired)
-            {
+            case DoorState.unlocked:
+                _animator.SetBool("DoorActive", true);
+                _doorSFX.Play();
+                StartCoroutine(DoorOpenCheck());
+                _uIManager.DoorPowerDisplay("");
+                break;
+            case DoorState.locked:
                 if (powerLevelReached)
                 {
-                    _animator.SetBool("DoorActive", false);
-                    _doorSFX.Play();
+                    _uIManager.DoorPowerDisplay("Restore power (R)");
                 }
-            }
-            else
+                else
+                {
+                    _uIManager.DoorPowerDisplay("Power cores required");
+                }
+                break;
+        }
+
+
+    }
+
+
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        //playerInRange = false;
+        if (other.CompareTag("Player"))
+        {
+            _uIManager.DoorPowerDisplay("");
+
+            if (doorState == DoorState.unlocked)
             {
                 _animator.SetBool("DoorActive", false);
                 _doorSFX.Play();
-            } 
-            
+            }
+
         }
 
         

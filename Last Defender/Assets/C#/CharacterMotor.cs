@@ -20,7 +20,7 @@ public class CharacterMotor : MonoBehaviour {
     public int powerCoresCollected = 0;
     public int lightRecoveryAmount;
     public float maxLightPower;
-    public Text lightPowerDisplay;
+
 
     private bool _cursorshown;
 
@@ -33,6 +33,15 @@ public class CharacterMotor : MonoBehaviour {
 
     public GameObject[] hitPos;
 
+    private void OnEnable()
+    {
+        GameEvents.EventPlayerDead += PlayerDead;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.EventPlayerDead -= PlayerDead;
+    }
     // Use this for initialization
     void Start ()
     {
@@ -50,7 +59,6 @@ public class CharacterMotor : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
         _translation = Input.GetAxis("Vertical") * _speed;
         _strafe = Input.GetAxis("Horizontal") * _speed;
 
@@ -74,7 +82,11 @@ public class CharacterMotor : MonoBehaviour {
         {
             _playerAnim.SetBool("IsWalking", false);
         }
-        lightPowerDisplay.text = "POWER: " + lightPower;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameEvents.DoorCheck();
+        }
     }
 
 
@@ -179,15 +191,6 @@ public class CharacterMotor : MonoBehaviour {
 
     }
 
-    private void OnEnable()
-    {
-        GameEvents.EventPlayerDead += PlayerDead;
-    }
-
-    private void OnDisable() 
-    {
-        GameEvents.EventPlayerDead -= PlayerDead;
-    }
 
     public void PlayerDead()
     {

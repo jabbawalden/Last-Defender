@@ -7,6 +7,7 @@ public static class GameEvents
 {
     public static event Action EventEnemyHit = null;
     public static event Action EventSaveData = null;
+    public static event Action EventDoorCheck = null;
     //save item lists
     //save ammo counts
     //save player position
@@ -41,8 +42,12 @@ public static class GameEvents
     public static void ReportPlayerDead()
     {
         if (EventPlayerDead != null)
-            EventPlayerDead();
+            EventPlayerDead(); 
     }
 
-
+    public static void DoorCheck()
+    {
+        if (EventDoorCheck != null)
+            EventDoorCheck();
+    }
 }
