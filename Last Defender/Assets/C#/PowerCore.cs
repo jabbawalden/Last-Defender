@@ -17,7 +17,6 @@ public class PowerCore : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         //set reference
         _player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
     }

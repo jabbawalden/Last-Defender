@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour {
     {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
-        DoorPowerDisplay("");
+        DoorPowerDisplay("", Color.black);
     }
 
 
@@ -58,10 +58,10 @@ public class UIManager : MonoBehaviour {
             _ammoDisplay.text = "AMMO: N/A";
     }
 
-    public void DoorPowerDisplay(string powerState)
+    public void DoorPowerDisplay(string powerState, Color colour)
     {
         _doorPowerDisplay.text = powerState;
-
+        _doorPowerDisplay.color = colour;
     }
 
     

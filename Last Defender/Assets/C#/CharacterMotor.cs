@@ -28,6 +28,7 @@ public class CharacterMotor : MonoBehaviour {
     float _strafe;
 
     public bool canShoot;
+    public DoorActivate currentDoorActive; 
 
     [SerializeField] private Animator _playerAnim;
 
@@ -83,10 +84,15 @@ public class CharacterMotor : MonoBehaviour {
             _playerAnim.SetBool("IsWalking", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (currentDoorActive != null)
         {
-            GameEvents.DoorCheck();
+            if (currentDoorActive.powerLevelReached && Input.GetKeyDown(KeyCode.R))
+            {
+                currentDoorActive.DoorStateChange();
+            }
+
         }
+        
     }
 
 

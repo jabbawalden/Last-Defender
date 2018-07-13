@@ -9,7 +9,6 @@ public class DoorActivate : MonoBehaviour {
     public enum DoorState {unlocked, locked}
     public DoorState doorState;
 
-
     public Light plight1, plight2;
     [SerializeField]
     private Animator _animator;
@@ -23,17 +22,6 @@ public class DoorActivate : MonoBehaviour {
     private UIManager _uIManager;
     public bool playerInRange;
     public bool unlocked;
-
-    private void OnEnable()
-    {
-        GameEvents.EventDoorCheck += DoorStateChange;
-    }
-
-    private void OnDisable()
-    {
-        GameEvents.EventDoorCheck -= DoorStateChange;
- 
-    }
 
     private void Start()
     {
@@ -53,7 +41,6 @@ public class DoorActivate : MonoBehaviour {
                 plight2.color = Color.red;
                 break;
         }
-
     }
 
     private void Update()
@@ -66,7 +53,6 @@ public class DoorActivate : MonoBehaviour {
         {
             powerLevelReached = false;
         }
-
     }
 
 
@@ -82,34 +68,37 @@ public class DoorActivate : MonoBehaviour {
         doorState = DoorState.unlocked;
         plight1.color = Color.green;
         plight2.color = Color.green;
+        print("DoorStateChange called");
     }
 
     private void OnTriggerStay(Collider other)
     {
-        switch (doorState)
+        if (other.CompareTag("Player"))
         {
-            case DoorState.unlocked:
-                _animator.SetBool("DoorActive", true);
-                _doorSFX.Play();
-                StartCoroutine(DoorOpenCheck());
-                _uIManager.DoorPowerDisplay("");
-                break;
-            case DoorState.locked:
-                if (powerLevelReached)
-                {
-                    _uIManager.DoorPowerDisplay("Restore power (R)");
-                }
-                else
-                {
-                    _uIManager.DoorPowerDisplay("Power cores required");
-                }
-                break;
+            _player.currentDoorActive = this;
+
+            switch (doorState)
+            {
+                case DoorState.unlocked:
+                    _animator.SetBool("DoorActive", true);
+                    _doorSFX.Play();
+                    StartCoroutine(DoorOpenCheck());
+                    _uIManager.DoorPowerDisplay("", Color.black);
+                    break;
+                case DoorState.locked:
+                    if (powerLevelReached)
+                    {
+                        _uIManager.DoorPowerDisplay("Restore power (R)", Color.cyan);
+                    }
+                    else
+                    {
+                        _uIManager.DoorPowerDisplay("Power cores required", Color.red);
+                    }
+                    break;
+            }
         }
-
-
+      
     }
-
-
 
     private void OnTriggerExit(Collider other)
     {
@@ -117,7 +106,7 @@ public class DoorActivate : MonoBehaviour {
         //playerInRange = false;
         if (other.CompareTag("Player"))
         {
-            _uIManager.DoorPowerDisplay("");
+            _uIManager.DoorPowerDisplay("", Color.clear);
 
             if (doorState == DoorState.unlocked)
             {
