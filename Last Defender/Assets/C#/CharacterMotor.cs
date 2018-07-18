@@ -90,6 +90,10 @@ public class CharacterMotor : MonoBehaviour {
             {
                 currentDoorActive.DoorStateChange();
             }
+            if (currentDoorActive.doorState == DoorActivate.DoorState.unlocked && Input.GetKeyDown(KeyCode.R))
+            {
+                currentDoorActive.OpenDoor();
+            }
 
         }
         

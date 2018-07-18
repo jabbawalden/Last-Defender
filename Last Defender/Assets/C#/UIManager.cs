@@ -46,16 +46,16 @@ public class UIManager : MonoBehaviour {
 
         //Ammo UI
         if (_pShoot.bCannonFire)
-            _ammoDisplay.text = "AMMO: " + _pShoot.bAmmo;
+            _ammoDisplay.text = "Blast Cannon: " + _pShoot.bAmmo;
 
         if (_pShoot.miniCannonFire)
-            _ammoDisplay.text = "AMMO: " + _pShoot.mAmmo;
+            _ammoDisplay.text = "Mini Cannon: " + _pShoot.mAmmo;
 
         if (_pShoot.hyperBlasterFire)
-            _ammoDisplay.text = "AMMO: " + _pShoot.hAmmo;
+            _ammoDisplay.text = "Hyper Blaster: " + _pShoot.hAmmo;
 
         if (_pShoot.rezoidFire)
-            _ammoDisplay.text = "AMMO: N/A";
+            _ammoDisplay.text = "Rezoid: Infinite";
     }
 
     public void DoorPowerDisplay(string powerState, Color colour)

@@ -3568,14 +3568,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a870ca0017218e4782cc085d432f3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorState: 1
   plight1: {fileID: 108841368010688742}
   plight2: {fileID: 108258919174762078}
-  doorType: 1
   _animator: {fileID: 95405469564250080}
   _doorSFX: {fileID: 82823812087684940}
+  doorClip: {fileID: 8300000, guid: ad1122da516b274458e0268262fde7e6, type: 3}
   powerLevelReached: 0
   powerLevelRequirement: 1
   doorIsOpening: 0
+  playerInRange: 0
+  unlocked: 0
+  doorOneOpenActivate: 0
 --- !u!208 &208365941715904628
 NavMeshObstacle:
   m_ObjectHideFlags: 1
