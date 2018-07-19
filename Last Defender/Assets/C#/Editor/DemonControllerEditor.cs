@@ -5,7 +5,7 @@ using UnityEditor;
 
 
 [CanEditMultipleObjects]
-[CustomEditor(typeof(DemonController))]
+[CustomEditor(typeof(StrongDemon))]
 public class DemonControllerEditor : Editor {
 
     public override void OnInspectorGUI()
@@ -13,11 +13,11 @@ public class DemonControllerEditor : Editor {
         DrawDefaultInspector();
 
         //casts target to DemonController
-        DemonController demonController = (DemonController)target;
+        StrongDemon enemy = (StrongDemon)target;
         if (GUILayout.Button("Generate ID"))
         {
-            demonController.enemyID = System.Guid.NewGuid().ToString();
-            EditorUtility.SetDirty(demonController);
+            enemy.enemyID = System.Guid.NewGuid().ToString();
+            EditorUtility.SetDirty(enemy);
         }
 
     }
