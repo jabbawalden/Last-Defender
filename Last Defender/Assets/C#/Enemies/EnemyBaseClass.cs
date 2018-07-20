@@ -41,7 +41,6 @@ public abstract class Enemy : MonoBehaviour
     public GameObject Player;
 
     public Rigidbody RB;
-    public BoxCollider TriggerCollider;
     public int Health;
     public float MovementSpeed;
     public GameManager gameManager;
@@ -49,10 +48,7 @@ public abstract class Enemy : MonoBehaviour
     public int EnemyDamage;
     public float FireRate;
     public float NewFireRate;
-    public bool PlayerInRange;
-    public bool AgressionFieldActive;
-    public bool StopField;
-    public bool InAction;
+    public bool PlayerStrike;
 
     public NavMeshAgent Agent;
     public Vector3 Direction;
@@ -67,16 +63,12 @@ public abstract class Enemy : MonoBehaviour
         //add common components
         RB = gameObject.AddComponent<Rigidbody>();
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
-        TriggerCollider = gameObject.AddComponent<BoxCollider>();
-        TriggerCollider.isTrigger = true;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Player = GameObject.Find("PlayerMain");
         gameObject.tag = "Enemy";
         Agent = gameObject.GetComponent<NavMeshAgent>();
         EnemyAnimator = GetComponent<Animator>();
-        StopField = false;
-        InAction = false;
     }
 
    
@@ -86,21 +78,6 @@ public abstract class Enemy : MonoBehaviour
         DistanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            PlayerInRange = true; 
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            PlayerInRange = false;
-        }
-    }
 
 }
 

@@ -16,7 +16,7 @@ public class HitPlayer : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if (strongDemon.playerStrike)
+            if (strongDemon.PlayerStrike)
             characterMotor.health -= strongDemon.EnemyDamage;
         }
     }

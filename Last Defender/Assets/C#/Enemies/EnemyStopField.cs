@@ -23,17 +23,4 @@ public class EnemyStopField : MonoBehaviour {
         transform.position = strongDemon.transform.position;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (enemyType == EnemyType.StrongDemon)
-            if (other.CompareTag("Player"))
-                strongDemon.StopField = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (enemyType == EnemyType.StrongDemon)
-            if (other.CompareTag("Player"))
-                strongDemon.StopField = false;
-    }
 }

@@ -41,14 +41,14 @@ public class RayCastShoot : MonoBehaviour {
 
             laserLine[0].SetPosition(1, hit.point);
             //gets script from hit object
-            ShootableBox health = hit.collider.GetComponent<ShootableBox>();
+            ShootableBox enemyCollider = hit.collider.GetComponent<ShootableBox>();
             //DemonController demonController = hit.collider.GetComponent<DemonController>();
 
             //checks if there is a shootablebox script
-            if (health != null)
+            if (enemyCollider != null)
             {
                 GameEvents.ReportEnemyHit();
-                health.currentHealth -= _pShoot.currentDamage;
+                enemyCollider.strongDemon.Health -= _pShoot.currentDamage;
             }
 
             if (hit.rigidbody != null)

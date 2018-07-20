@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StrongDemon : Enemy
 {
-    public bool playerStrike;
 
     private void OnEnable()
     {
@@ -19,9 +18,7 @@ public class StrongDemon : Enemy
     // Use this for initialization
     void Start ()
     {
-        playerStrike = false;
-        TriggerCollider.center = new Vector3(0.53f, 0.99f, 0.75f);
-        TriggerCollider.size = new Vector3(1.87f, 1.99f, 2.31f);
+        PlayerStrike = false;
     }
 
     protected override void MovementPattern()
@@ -42,6 +39,9 @@ public class StrongDemon : Enemy
             case EnemyState.Attack:
                 AttackBehaviour();
                 break;
+            case EnemyState.Death:
+                DeathBehaviour();
+                break;
         }
 
         if (DistanceToPlayer <= 8)
@@ -52,6 +52,11 @@ public class StrongDemon : Enemy
         if (DistanceToPlayer <= 2.5f)
         {
             enemyState = EnemyState.Attack;
+        }
+
+        if (Health <= 0)
+        {
+            enemyState = EnemyState.Death;
         }
 
         /*
@@ -123,9 +128,9 @@ public class StrongDemon : Enemy
         yield return new WaitForSeconds(.02f);
         EnemyAnimator.SetBool("Idle to Attack1", true);
         yield return new WaitForSeconds(.2f);
-        playerStrike = true;
+        PlayerStrike = true;
         yield return new WaitForSeconds(1.05f);
-        playerStrike = false;
+        PlayerStrike = false;
         yield return new WaitForSeconds(1.1f);
         EnemyAnimator.SetBool("Idle to Attack1", false);
     }
@@ -133,5 +138,13 @@ public class StrongDemon : Enemy
     public void DeathBehaviour()
     {
         Agent.isStopped = true;
+        Destroy(gameObject);
+        OnKill();
+    }
+
+    public void OnKill()
+    {
+        if (!gameManager.deadEnemies.Contains(enemyID))
+            gameManager.deadEnemies.Add(enemyID);
     }
 }
