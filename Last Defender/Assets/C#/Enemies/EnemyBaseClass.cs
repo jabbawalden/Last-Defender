@@ -46,7 +46,7 @@ public abstract class Enemy : MonoBehaviour
     public float MovementSpeed;
     public GameManager gameManager;
 
-    public float EnemyDamage;
+    public int EnemyDamage;
     public float FireRate;
     public float NewFireRate;
     public bool PlayerInRange;

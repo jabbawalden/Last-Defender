@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StrongDemon : Enemy
 {
-    public bool animationActive;
+    public bool playerStrike;
 
     private void OnEnable()
     {
@@ -19,7 +19,7 @@ public class StrongDemon : Enemy
     // Use this for initialization
     void Start ()
     {
-        animationActive = false;
+        playerStrike = false;
         TriggerCollider.center = new Vector3(0.53f, 0.99f, 0.75f);
         TriggerCollider.size = new Vector3(1.87f, 1.99f, 2.31f);
     }
@@ -49,7 +49,7 @@ public class StrongDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 3)
+        if (DistanceToPlayer <= 2.5f)
         {
             enemyState = EnemyState.Attack;
         }
@@ -90,17 +90,26 @@ public class StrongDemon : Enemy
 
     public void RunBehaviour()
     {
+        if (EnemyAnimator.GetBool("Idle to Attack1") == false)
+        {
+            StartCoroutine(RunRoutine());
+        }
+
+    }
+
+    IEnumerator RunRoutine()
+    {
+        EnemyAnimator.SetBool("Run", true);
+        yield return new WaitForSeconds(0.2f);
         Agent.isStopped = false;
         MovementPattern();
-        EnemyAnimator.SetBool("Run", true);
-
     }
 
     public void AttackBehaviour()
     {
         EnemyAnimator.SetBool("Run", false);
 
-        if (Time.time > NewFireRate && !animationActive)
+        if (Time.time > NewFireRate)
         {
             NewFireRate = Time.time + FireRate;
             StartCoroutine(AttackRoutine());
@@ -110,13 +119,15 @@ public class StrongDemon : Enemy
 
     IEnumerator AttackRoutine()
     {
-        EnemyAnimator.SetBool("Idle to Attack1", true);
         Agent.isStopped = true;
-        animationActive = true;
-        yield return new WaitForSeconds(2.5f);
-        animationActive = false;
+        yield return new WaitForSeconds(.02f);
+        EnemyAnimator.SetBool("Idle to Attack1", true);
+        yield return new WaitForSeconds(.2f);
+        playerStrike = true;
+        yield return new WaitForSeconds(1.05f);
+        playerStrike = false;
+        yield return new WaitForSeconds(1.1f);
         EnemyAnimator.SetBool("Idle to Attack1", false);
-
     }
 
     public void DeathBehaviour()
