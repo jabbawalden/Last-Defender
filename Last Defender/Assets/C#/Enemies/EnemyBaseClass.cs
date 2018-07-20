@@ -22,7 +22,6 @@ public class Enemy<T> where T : Enemy
     {
         gameObject = new GameObject(name);
         scriptComponent = gameObject.AddComponent<T>();
-
     }
 
 }
@@ -30,11 +29,18 @@ public class Enemy<T> where T : Enemy
 //abrasct is a modifier
 public abstract class Enemy : MonoBehaviour
 {
+    [System.Serializable]
+    public enum EnemyState { Idle, Shout, Run, Attack, Death }
+
+    public EnemyState enemyState;
+
+    public Animator EnemyAnimator;
+
     public string enemyID = "Undefined";
 
     public GameObject Player;
 
-    public Rigidbody Body;
+    public Rigidbody RB;
     public BoxCollider TriggerCollider;
     public int Health;
     public float MovementSpeed;
@@ -44,9 +50,13 @@ public abstract class Enemy : MonoBehaviour
     public float FireRate;
     public float NewFireRate;
     public bool PlayerInRange;
+    public bool AgressionFieldActive;
+    public bool StopField;
+    public bool InAction;
 
     public NavMeshAgent Agent;
     public Vector3 Direction;
+    public float DistanceToPlayer;
 
     //only classes that inherit from Enemy can see this field. 
     //abstract = must be overriden by inheriting class
@@ -55,25 +65,43 @@ public abstract class Enemy : MonoBehaviour
     private void Awake()
     {
         //add common components
-        Body = gameObject.AddComponent<Rigidbody>();
-        Body.constraints = RigidbodyConstraints.FreezeRotationX;
+        RB = gameObject.AddComponent<Rigidbody>();
+        RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         TriggerCollider = gameObject.AddComponent<BoxCollider>();
         TriggerCollider.isTrigger = true;
-        Body.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        Player = GameObject.Find("PlayerMain");
         gameObject.tag = "Enemy";
+        Agent = gameObject.GetComponent<NavMeshAgent>();
+        EnemyAnimator = GetComponent<Animator>();
+        StopField = false;
+        InAction = false;
     }
 
-    //initialize method - insert all unique values to be determined at instantiation
-    public virtual void Initialized(float movementSpeed, Vector3 direction, Vector3 position) 
+   
+
+    public void GetDistance()
     {
-        MovementSpeed = movementSpeed;
-        Direction = direction;
-        transform.position = position;
+        DistanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
     }
 
- 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerInRange = true; 
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerInRange = false;
+        }
+    }
+
 }
 
 /*
