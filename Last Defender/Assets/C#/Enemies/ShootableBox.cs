@@ -8,7 +8,7 @@ public class ShootableBox : MonoBehaviour {
     
     private void Start()
     {
-        strongDemon = transform.parent.GetComponent<StrongDemon>();
+        //strongDemon = transform.parent.GetComponent<StrongDemon>();
     }
 
 }

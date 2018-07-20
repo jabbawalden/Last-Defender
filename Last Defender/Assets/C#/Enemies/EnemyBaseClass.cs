@@ -35,6 +35,7 @@ public abstract class Enemy : MonoBehaviour
     public EnemyState enemyState;
 
     public Animator EnemyAnimator;
+    public GameObject bodyCollision;
 
     public string enemyID = "Undefined";
 
@@ -44,7 +45,6 @@ public abstract class Enemy : MonoBehaviour
     public int Health;
     public float MovementSpeed;
     public GameManager gameManager;
-
     public int EnemyDamage;
     public float FireRate;
     public float NewFireRate;
@@ -53,6 +53,7 @@ public abstract class Enemy : MonoBehaviour
     public NavMeshAgent Agent;
     public Vector3 Direction;
     public float DistanceToPlayer;
+    public float aggressionDistance;
 
     //only classes that inherit from Enemy can see this field. 
     //abstract = must be overriden by inheriting class
@@ -64,6 +65,7 @@ public abstract class Enemy : MonoBehaviour
         RB = gameObject.AddComponent<Rigidbody>();
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        RB.isKinematic = true;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Player = GameObject.Find("PlayerMain");
         gameObject.tag = "Enemy";

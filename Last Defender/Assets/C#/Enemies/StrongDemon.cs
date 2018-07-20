@@ -23,6 +23,7 @@ public class StrongDemon : Enemy
 
     protected override void MovementPattern()
     {
+        if (Agent != null)
         Agent.SetDestination(Player.transform.position);
     }
 
@@ -44,7 +45,7 @@ public class StrongDemon : Enemy
                 break;
         }
 
-        if (DistanceToPlayer <= 8)
+        if (DistanceToPlayer <= aggressionDistance)
         {
             enemyState = EnemyState.Run;
         }
@@ -138,7 +139,9 @@ public class StrongDemon : Enemy
     public void DeathBehaviour()
     {
         Agent.isStopped = true;
-        Destroy(gameObject);
+        EnemyAnimator.SetBool("Dead", true);
+        bodyCollision.SetActive(false);
+        Agent.radius = 0;
         OnKill();
     }
 
