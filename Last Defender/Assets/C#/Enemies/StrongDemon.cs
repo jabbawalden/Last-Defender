@@ -50,7 +50,7 @@ public class StrongDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 2.5f)
+        if (DistanceToPlayer <= 2.8f)
         {
             enemyState = EnemyState.Attack;
         }
@@ -114,7 +114,7 @@ public class StrongDemon : Enemy
     public void AttackBehaviour()
     {
         EnemyAnimator.SetBool("Run", false);
-
+        Agent.isStopped = true;
         if (Time.time > NewFireRate)
         {
             NewFireRate = Time.time + FireRate;
@@ -125,14 +125,14 @@ public class StrongDemon : Enemy
 
     IEnumerator AttackRoutine()
     {
-        Agent.isStopped = true;
-        yield return new WaitForSeconds(.02f);
+       
+        yield return new WaitForSeconds(0.2f);
         EnemyAnimator.SetBool("Idle to Attack1", true);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(0.3f);
         PlayerStrike = true;
-        yield return new WaitForSeconds(1.05f);
+        yield return new WaitForSeconds(0.65f);
         PlayerStrike = false;
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(0.78f);
         EnemyAnimator.SetBool("Idle to Attack1", false);
     }
 
