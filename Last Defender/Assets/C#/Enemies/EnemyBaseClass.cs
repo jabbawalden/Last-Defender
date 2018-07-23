@@ -40,7 +40,7 @@ public abstract class Enemy : MonoBehaviour
     public string enemyID = "Undefined";
 
     public GameObject Player;
-
+    public BoxCollider BoxCollider;
     public Rigidbody RB;
     public int Health;
     public float MovementSpeed;
@@ -71,6 +71,7 @@ public abstract class Enemy : MonoBehaviour
         gameObject.tag = "Enemy";
         Agent = gameObject.GetComponent<NavMeshAgent>();
         EnemyAnimator = GetComponent<Animator>();
+        BoxCollider = GetComponent<BoxCollider>();
     }
 
    

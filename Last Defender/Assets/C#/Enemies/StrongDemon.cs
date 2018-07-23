@@ -50,7 +50,7 @@ public class StrongDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 2.8f)
+        if (DistanceToPlayer <= 3f)
         {
             enemyState = EnemyState.Attack;
         }
@@ -106,7 +106,7 @@ public class StrongDemon : Enemy
     IEnumerator RunRoutine()
     {
         EnemyAnimator.SetBool("Run", true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
         Agent.isStopped = false;
         MovementPattern();
     }
@@ -132,7 +132,7 @@ public class StrongDemon : Enemy
         PlayerStrike = true;
         yield return new WaitForSeconds(0.65f);
         PlayerStrike = false;
-        yield return new WaitForSeconds(0.78f);
+        yield return new WaitForSeconds(0.77f);
         EnemyAnimator.SetBool("Idle to Attack1", false);
     }
 
@@ -140,7 +140,7 @@ public class StrongDemon : Enemy
     {
         Agent.isStopped = true;
         EnemyAnimator.SetBool("Dead", true);
-        bodyCollision.SetActive(false);
+        BoxCollider.enabled = false;
         Agent.radius = 0;
         OnKill();
     }

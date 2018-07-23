@@ -29,7 +29,7 @@ public class DemonController : MonoBehaviour {
     [SerializeField] int type;
 
     private GlobalEnemyStats _globalEnemyStats;
-    private ShootableBox _shootableBox;
+    private ShootableBoxStrongDemon _shootableBox;
     public bool playerInRange;
     //1 = speed, 2 = strong, 3 = range
 
@@ -55,7 +55,7 @@ public class DemonController : MonoBehaviour {
         _projSpeed = _globalEnemyStats.projectileSpeed * Time.deltaTime;
         _player = GameObject.Find("PlayerMain");
         _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
-        _shootableBox = GetComponent<ShootableBox>();
+        _shootableBox = GetComponent<ShootableBoxStrongDemon>();
         
 
     }
