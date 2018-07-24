@@ -12,6 +12,7 @@ TagManager:
   - Environment
   - Enemy
   - DoorTogether
+  - Upgrades
   layers:
   - Default
   - TransparentFX

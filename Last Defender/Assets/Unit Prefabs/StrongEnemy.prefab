@@ -1576,7 +1576,7 @@ MonoBehaviour:
   Health: 15
   MovementSpeed: 0
   gameManager: {fileID: 0}
-  EnemyDamage: 3
+  EnemyDamage: 5
   FireRate: 2
   NewFireRate: 0
   PlayerStrike: 0

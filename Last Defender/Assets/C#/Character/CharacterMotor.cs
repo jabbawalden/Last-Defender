@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class CharacterMotor : MonoBehaviour {
 
-    public int health;
-    public int maxHealth;
+    public float health;
+    public float maxHealth;
+    public float armour;
+
     //movement
-    [SerializeField] private float _speed;
+    public float speed;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _jump;
 
@@ -52,7 +54,7 @@ public class CharacterMotor : MonoBehaviour {
         lightRecoveryAmount = 1;
         lightOn = false;
         spotLight.SetActive(false);
-        _speed *= Time.deltaTime;
+        speed *= Time.deltaTime;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -60,8 +62,8 @@ public class CharacterMotor : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        _translation = Input.GetAxis("Vertical") * _speed;
-        _strafe = Input.GetAxis("Horizontal") * _speed;
+        _translation = Input.GetAxis("Vertical") * speed;
+        _strafe = Input.GetAxis("Horizontal") * speed;
 
         //movementfunction
         if (health >= 1)

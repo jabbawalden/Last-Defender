@@ -34,13 +34,13 @@ public class HitPlayer : MonoBehaviour {
             if (demonHitType == DemonHitType.StrongDemon)
             {
                 if (strongDemon.PlayerStrike)
-                    characterMotor.health -= strongDemon.EnemyDamage;
+                    characterMotor.health -= strongDemon.EnemyDamage - characterMotor.armour;
             }
          
             if (demonHitType == DemonHitType.FastDemon)
             {
                 if (fastDemon.PlayerStrike)
-                    characterMotor.health -= fastDemon.EnemyDamage;
+                    characterMotor.health -= fastDemon.EnemyDamage - characterMotor.armour;
             }
    
 
