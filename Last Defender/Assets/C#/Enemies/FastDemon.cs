@@ -45,7 +45,11 @@ public class FastDemon : Enemy
                 break;
         }
 
-        if (DistanceToPlayer <= aggressionDistance || attackPlayer)
+        if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
+        {
+            enemyState = EnemyState.Run;
+        }
+        else if (attackPlayer)
         {
             enemyState = EnemyState.Run;
         }
