@@ -54,6 +54,7 @@ public abstract class Enemy : MonoBehaviour
     public Vector3 Direction;
     public float DistanceToPlayer;
     public float aggressionDistance;
+    public bool attackPlayer;
 
     //only classes that inherit from Enemy can see this field. 
     //abstract = must be overriden by inheriting class

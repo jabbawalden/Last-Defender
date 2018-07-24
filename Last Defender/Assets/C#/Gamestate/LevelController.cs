@@ -15,10 +15,8 @@ public class LevelController : MonoBehaviour
     //if player is within trigger, all other areas will be setactive, otherwise not active
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            other.transform.parent = level.transform;
-        }
+        
+       
     }
 
     private void OnTriggerStay(Collider other)
@@ -27,8 +25,11 @@ public class LevelController : MonoBehaviour
         {
             level.SetActive(true);
         }
-     
 
+        if (other.CompareTag("Enemy"))
+        {
+            other.transform.parent = level.transform;
+        }
     } 
 
     private void OnTriggerExit(Collider other)
@@ -38,10 +39,11 @@ public class LevelController : MonoBehaviour
             level.SetActive(false);
         }
 
+        
         if (other.CompareTag("Enemy"))
         {
             other.transform.parent = null;
         }
-
+        
     }
 }

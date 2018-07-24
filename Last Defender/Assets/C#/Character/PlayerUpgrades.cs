@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerUpgrades : MonoBehaviour {
 
     private CharacterMotor _characterMotor;
+    private PShoot _pShoot;
     public GameObject playerUpgrades;
 	// Use this for initialization
 	void Start ()
     {
         playerUpgrades.SetActive(false);
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
-	}
+        _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+    }
 	
     public void MobilityUpgrade()
     {
@@ -19,7 +21,7 @@ public class PlayerUpgrades : MonoBehaviour {
         playerUpgrades.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        _characterMotor.canShoot = true;
+        _pShoot.canFire = true;
     }
 
     public void LightPowerUpgrade()
@@ -28,7 +30,7 @@ public class PlayerUpgrades : MonoBehaviour {
         playerUpgrades.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        _characterMotor.canShoot = true;
+        _pShoot.canFire = true;
     }
 
     public void ArmourUpgrade()
@@ -37,7 +39,7 @@ public class PlayerUpgrades : MonoBehaviour {
         playerUpgrades.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        _characterMotor.canShoot = true;
+        _pShoot.canFire = true;
     }
-    
+ 
 }

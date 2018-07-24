@@ -5,11 +5,11 @@ using UnityEngine;
 public class RepairKit : MonoBehaviour {
 
     public GameObject _playerUpgrades;
-    private CharacterMotor _characterMotor;
+    private PShoot _characterShoot;
 	// Use this for initialization
 	void Start ()
     {
-        _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
+        _characterShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -19,8 +19,8 @@ public class RepairKit : MonoBehaviour {
             _playerUpgrades.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Destroy(this);
-            _characterMotor.canShoot = false;
+            Destroy(gameObject);
+            _characterShoot.canFire = false;
         }
             
     }   
