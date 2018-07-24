@@ -25,11 +25,12 @@ public class LevelController : MonoBehaviour
         {
             level.SetActive(true);
         }
-
+        /*
         if (other.CompareTag("Enemy"))
         {
             other.transform.parent = level.transform;
         }
+        */
     } 
 
     private void OnTriggerExit(Collider other)
@@ -39,11 +40,11 @@ public class LevelController : MonoBehaviour
             level.SetActive(false);
         }
 
-        
+        /*
         if (other.CompareTag("Enemy"))
         {
             other.transform.parent = null;
         }
-        
+        */
     }
 }
