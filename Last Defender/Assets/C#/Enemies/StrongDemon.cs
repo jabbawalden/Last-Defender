@@ -41,7 +41,7 @@ public class StrongDemon : Enemy
                 AttackBehaviour();
                 break;
             case EnemyState.Death:
-                DeathBehaviour();
+                StartCoroutine(DeathBehaviour());
                 break;
         }
 
@@ -140,13 +140,15 @@ public class StrongDemon : Enemy
         EnemyAnimator.SetBool("Idle to Attack1", false);
     }
 
-    public void DeathBehaviour()
+    IEnumerator DeathBehaviour()
     {
         Agent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;
         Agent.radius = 0;
         OnKill();
+
     }
 
     public void OnKill()

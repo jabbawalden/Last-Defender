@@ -17,7 +17,7 @@ public class PlayerUpgrades : MonoBehaviour {
 	
     public void MobilityUpgrade()
     {
-        _characterMotor.speed += 1;
+        _characterMotor.speed += 0.025f;
         playerUpgrades.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
