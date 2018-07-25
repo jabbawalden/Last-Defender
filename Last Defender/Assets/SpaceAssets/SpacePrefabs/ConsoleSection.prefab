@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 4654743457290976}
   m_Layer: 0
   m_Name: ConsoleSection
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

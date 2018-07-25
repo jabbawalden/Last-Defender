@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23444982154587572}
   m_Layer: 0
   m_Name: ElevatedScreen 3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

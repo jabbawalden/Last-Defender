@@ -5,7 +5,7 @@ using UnityEngine;
 public class DemonProjectile : MonoBehaviour {
 
     private CharacterMotor _charMotor;
-
+    public float projectileDamage;
 	// Use this for initialization
 	void Start ()
     {
@@ -21,19 +21,19 @@ public class DemonProjectile : MonoBehaviour {
     IEnumerator DestroyProjectile()
     {
         yield return new WaitForSeconds(5);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _charMotor.health--;
-            Destroy(this.gameObject);
+            _charMotor.health -= projectileDamage;
+            Destroy(gameObject);
         }
         else if (other.CompareTag("Environment"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 

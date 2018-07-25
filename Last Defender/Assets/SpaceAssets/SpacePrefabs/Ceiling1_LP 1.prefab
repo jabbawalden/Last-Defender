@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 65458480200316104}
   m_Layer: 0
   m_Name: Ceiling1_LP 1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

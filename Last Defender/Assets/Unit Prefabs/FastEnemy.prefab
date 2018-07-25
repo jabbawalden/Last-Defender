@@ -698,7 +698,7 @@ Transform:
   m_GameObject: {fileID: 1438768703688320}
   m_LocalRotation: {x: -0, y: 0.50666815, z: -0, w: 0.8621412}
   m_LocalPosition: {x: -35.216827, y: 0.59788907, z: -68.260414}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_Children:
   - {fileID: 4476354300957424}
   - {fileID: 4001690532662556}
@@ -1167,6 +1167,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0, z: 0}
   DistanceToPlayer: 0
   aggressionDistance: 18
+  attackPlayer: 0
 --- !u!114 &114146964813661822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1354,7 +1355,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
-  m_Speed: 9.2
+  m_Speed: 8.8
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 450

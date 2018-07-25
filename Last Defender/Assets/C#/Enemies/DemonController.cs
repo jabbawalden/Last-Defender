@@ -101,11 +101,20 @@ public class DemonController : MonoBehaviour {
             if (hit.collider.CompareTag("Player"))
             {
                 FirePlayer();
-
             }
 
         }
 
+    }
+
+    private void FirePlayer()
+    {
+        if (Time.time > _newFireRate)
+        {
+            _newFireRate = Time.time + _fireRate;
+            GameObject shot1 = Instantiate(_projectile, _shootOrigin.transform.position, Quaternion.LookRotation(direction));
+            shot1.GetComponent<Rigidbody>().velocity = direction * _projSpeed;
+        }
     }
     private void EnemyFollow(int c)
     {
@@ -163,15 +172,7 @@ public class DemonController : MonoBehaviour {
   
     }
 
-    private void FirePlayer()
-    {   
-        if (Time.time > _newFireRate)
-        {
-            _newFireRate = Time.time + _fireRate;
-            GameObject shot1 = Instantiate(_projectile, _shootOrigin.transform.position, Quaternion.LookRotation(direction));
-            shot1.GetComponent<Rigidbody>().velocity = direction * _projSpeed;
-        }
-    }
+
 
     //if ID is not in deadEnemies, add it to list so we know which enemies are dead
     public void OnKill()

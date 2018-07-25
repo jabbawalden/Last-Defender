@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65632795911521380}
   m_Layer: 0
   m_Name: MiniFloor3_LP
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

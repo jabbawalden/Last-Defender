@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65409909356610154}
   m_Layer: 0
   m_Name: PillarPiece_LP 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

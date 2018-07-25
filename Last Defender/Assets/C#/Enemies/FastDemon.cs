@@ -54,7 +54,7 @@ public class FastDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 3.5f)
+        if (DistanceToPlayer <= 3.2f)
         {
             enemyState = EnemyState.Attack;
         }

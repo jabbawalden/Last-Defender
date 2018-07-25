@@ -1577,13 +1577,14 @@ MonoBehaviour:
   MovementSpeed: 0
   gameManager: {fileID: 0}
   EnemyDamage: 5
-  FireRate: 2
+  FireRate: 1.8
   NewFireRate: 0
   PlayerStrike: 0
   Agent: {fileID: 195945499384744406}
   Direction: {x: 0, y: 0, z: 0}
   DistanceToPlayer: 0
   aggressionDistance: 25
+  attackPlayer: 0
 --- !u!136 &136826439951579390
 CapsuleCollider:
   m_ObjectHideFlags: 1

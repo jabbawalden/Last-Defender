@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 4126198967970410}
   m_Layer: 0
   m_Name: DoorMain
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,8 +789,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844028811469202}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 45.241127, y: 39.819763, z: 31.39978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2405396, y: 38.821323, z: -51.5998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4931415809346248}
@@ -3118,8 +3118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.322424, y: 7.979806, z: 9.7356825}
-  m_Center: {x: -0.47159863, y: 3.060804, z: 3.0670948}
+  m_Size: {x: 18.913696, y: 7.979806, z: 9.7356825}
+  m_Center: {x: -0.59142303, y: 3.060804, z: 1.951776}
 --- !u!65 &65324148017371480
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3460,7 +3460,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 30
+  m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3532,7 +3532,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 30
+  m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3568,18 +3568,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a870ca0017218e4782cc085d432f3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorState: 1
+  doorState: 0
   plight1: {fileID: 108841368010688742}
   plight2: {fileID: 108258919174762078}
   _animator: {fileID: 95405469564250080}
   _doorSFX: {fileID: 82823812087684940}
   doorClip: {fileID: 8300000, guid: ad1122da516b274458e0268262fde7e6, type: 3}
   powerLevelReached: 0
-  powerLevelRequirement: 1
+  powerLevelRequirement: 0
   doorIsOpening: 0
   playerInRange: 0
   unlocked: 0
-  doorOneOpenActivate: 0
 --- !u!208 &208365941715904628
 NavMeshObstacle:
   m_ObjectHideFlags: 1
