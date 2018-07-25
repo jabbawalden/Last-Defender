@@ -9,6 +9,7 @@ public class CharacterLook : MonoBehaviour {
     [SerializeField] private float _smoothing;
     private Vector2 _mouseLook;
     private Vector2 _smoothV;
+    public bool canLook;
 
     private GameObject _character;
     private CharacterMotor _pCharMotor;
@@ -18,12 +19,13 @@ public class CharacterLook : MonoBehaviour {
     {
         _character = this.transform.parent.gameObject;
         _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
+        canLook = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (_pCharMotor.health >= 1)
+        if (_pCharMotor.health >= 1 && canLook)
         {
             CanMouseLook();
         }
@@ -32,6 +34,7 @@ public class CharacterLook : MonoBehaviour {
 
     private void CanMouseLook()
     {
+      
         //set input to getaxisraw
         var inputA = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxis("Mouse Y"));
         //getaxisraw vector2 takes two floats, sensitivity * smoothing

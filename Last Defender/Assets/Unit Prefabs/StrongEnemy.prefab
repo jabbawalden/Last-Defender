@@ -944,7 +944,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704842185175204}
   m_LocalRotation: {x: -0, y: 0.9998902, z: -0, w: 0.014818817}
-  m_LocalPosition: {x: 20.116547, y: 1.8881112, z: -9.172206}
+  m_LocalPosition: {x: -58.91, y: -22.633, z: -80.9}
   m_LocalScale: {x: 1.2000017, y: 1.1999999, z: 1.2000017}
   m_Children:
   - {fileID: 4174680342861034}
@@ -1521,8 +1521,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6499718, y: 2.1713095, z: 0.6826959}
-  m_Center: {x: 0.024985908, y: 0.5856552, z: 0.052624766}
+  m_Size: {x: 0.72489864, y: 1.8857669, z: 0.6826959}
+  m_Center: {x: 0.049040172, y: 0.91105235, z: 0.052624766}
 --- !u!95 &95247795158768618
 Animator:
   serializedVersion: 3
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   enemyState: 0
   EnemyAnimator: {fileID: 0}
   bodyCollision: {fileID: 0}
-  enemyID: 5785a2dd-8806-4460-9acb-ca47c63c801f
+  enemyID: 1061e17b-cd25-4929-ba24-6daaabe81dd4
   Player: {fileID: 0}
   BoxCollider: {fileID: 0}
   RB: {fileID: 0}
