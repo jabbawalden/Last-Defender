@@ -134,9 +134,9 @@ public class StrongDemon : Enemy
         EnemyAnimator.SetBool("Idle to Attack1", true);
         yield return new WaitForSeconds(0.3f);
         PlayerStrike = true;
-        yield return new WaitForSeconds(0.65f);
+        yield return new WaitForSeconds(0.63f);
         PlayerStrike = false;
-        yield return new WaitForSeconds(0.77f);
+        yield return new WaitForSeconds(0.7f);
         EnemyAnimator.SetBool("Idle to Attack1", false);
     }
 
