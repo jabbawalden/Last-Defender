@@ -43,6 +43,7 @@ public class RayCastShoot : MonoBehaviour {
             //gets script from hit object
             StrongDemon enemyCollider = hit.collider.GetComponent<StrongDemon>();
             FastDemon enemyCollider2 = hit.collider.GetComponent<FastDemon>();
+            RangeDemon enemyCollider3 = hit.collider.GetComponent<RangeDemon>();
             //DemonController demonController = hit.collider.GetComponent<DemonController>();
 
             //checks if there is a shootablebox script
@@ -55,6 +56,11 @@ public class RayCastShoot : MonoBehaviour {
             if (enemyCollider2 != null)
             {
                 enemyCollider2.Health -= _pShoot.currentDamage;
+            }
+
+            if (enemyCollider3 != null)
+            {
+                enemyCollider3.Health -= _pShoot.currentDamage;
             }
 
             if (hit.rigidbody != null)
