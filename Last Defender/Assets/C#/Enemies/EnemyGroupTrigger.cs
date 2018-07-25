@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGroupTrigger : MonoBehaviour {
 
-    public GameObject[] strongEnemies, fastEnemies;
+    public GameObject[] strongEnemies, fastEnemies, rangeEnemies;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +18,11 @@ public class EnemyGroupTrigger : MonoBehaviour {
             foreach (GameObject i in fastEnemies)
             {
                 i.GetComponent<FastDemon>().attackPlayer = true;
+            }
+
+            foreach (GameObject i in rangeEnemies)
+            {
+                i.GetComponent<RangeDemon>().attackPlayer = true;
             }
         }
        

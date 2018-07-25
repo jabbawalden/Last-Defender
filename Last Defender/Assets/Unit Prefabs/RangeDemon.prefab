@@ -2094,7 +2094,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443744781349646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.605, z: 0.205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4835586018938508}
@@ -2494,9 +2494,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601330207670008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70.58, y: 0.887869, z: -123.23}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalRotation: {x: -0, y: 0.68789655, z: -0, w: 0.7258088}
+  m_LocalPosition: {x: -45.844833, y: -22.876335, z: -81.57037}
+  m_LocalScale: {x: 1.3000004, y: 1.3, z: 1.3000004}
   m_Children:
   - {fileID: 4532602530200818}
   - {fileID: 4018336798457444}
@@ -2522,7 +2522,7 @@ Transform:
   - {fileID: 4848632536633702}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 86.928, z: 0}
 --- !u!4 &4838640979804788
 Transform:
   m_ObjectHideFlags: 1
@@ -2737,7 +2737,7 @@ MonoBehaviour:
   MovementSpeed: 0
   gameManager: {fileID: 0}
   EnemyDamage: 3
-  FireRate: 2
+  FireRate: 1.8
   NewFireRate: 0
   PlayerStrike: 0
   Agent: {fileID: 0}
@@ -2749,7 +2749,8 @@ MonoBehaviour:
     type: 2}
   _shootOrigin: {fileID: 1313067439571406}
   _projSpeed: 25
-  _rayOrigin: {x: 0, y: 0, z: 0}
+  rayOriginObject: {fileID: 1443744781349646}
+  playerInSight: 0
 --- !u!137 &137388456493746642
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
