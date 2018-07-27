@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 //enemy types: Meele, fast meele, ranged
 
@@ -31,10 +32,17 @@ public abstract class Enemy : MonoBehaviour
 {
     [System.Serializable]
     public enum EnemyState { Idle, Shout, Run, Attack, Death }
+    public enum EnemySound { Active, Silent}
 
     public EnemyState enemyState;
+    public EnemySound enemySound;
 
     public Animator EnemyAnimator;
+    public AudioSource EnemyAudio;
+    public AudioClip[] EnemyGrowl;
+    public AudioClip EnemyDeathGrowl;
+    public AudioMixerGroup EnemyAudioMixer;
+
     public GameObject bodyCollision;
 
     public string enemyID = "Undefined";
@@ -66,6 +74,11 @@ public abstract class Enemy : MonoBehaviour
         RB = gameObject.AddComponent<Rigidbody>();
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        EnemyAudio = gameObject.AddComponent<AudioSource>();
+        EnemyAudio.spatialBlend = 1;
+        EnemyAudio.maxDistance = 200;
+        EnemyAudio.outputAudioMixerGroup = EnemyAudioMixer;
+        EnemyAudio.minDistance = 0.5f;
         RB.isKinematic = true;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Player = GameObject.Find("PlayerMain");
