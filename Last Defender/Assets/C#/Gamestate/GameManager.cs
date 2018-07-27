@@ -21,6 +21,7 @@ public class GameManager : Singleton<GameManager> {
     public List<string> usedAmmo = new List<string>();
     public List<string> usedPowerCore = new List<string>();
     public List<string> usedHealthPack = new List<string>();
+    public List<string> usedRepairKits = new List<string>();
 
 
 }

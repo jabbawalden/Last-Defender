@@ -6,17 +6,18 @@ public class AmmoPack : MonoBehaviour {
 
     private GameManager _gameManager;
     public string ammoID = "Undefined";
+    public GameObject ammoRefill; 
+    private PShoot _characterShoot;
+    private CharacterLook _characterLook;
+    private CharacterMotor _characterMotor;
 
-    private PShoot _pShoot;
-    [SerializeField] private float bAmmount, mAmount, hAmount;
-    [System.Serializable]
-    public enum AmmoType {blastCannon, miniCannon, hyperCannon};
-    public AmmoType ammoType;
-    
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
-        _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+        // _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+        _characterShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+        _characterLook = GameObject.Find("Camera").GetComponent<CharacterLook>();
+        _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
 
         if (ammoID == "Undefined")
         {
@@ -35,9 +36,17 @@ public class AmmoPack : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
+        {     
             AddID();
-
+            ammoRefill.SetActive(true);
+            _characterMotor.canMove = false;
+            _characterLook.canLook = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            _characterShoot.canFire = false;
+            Destroy(gameObject);
+            //turn on AmmoReload
+            /*
             if (ammoType == AmmoType.blastCannon)
             {
                 _pShoot.bAmmo += bAmmount;
@@ -51,6 +60,7 @@ public class AmmoPack : MonoBehaviour {
             {
                 _pShoot.mAmmo += mAmount;
             }
+            */
             Destroy(gameObject);
         }
     }

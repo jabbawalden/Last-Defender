@@ -14,7 +14,7 @@ public class PShoot : MonoBehaviour {
     public int blastDamage, miniDamage, hyperDamage, rezoidDamage;
     [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster, _rezoid;
 
-    public float bAmmo, mAmmo, hAmmo;
+    public int bAmmo, mAmmo, hAmmo;
 
     [SerializeField] private float _fireRate; 
     private float _nextFire;

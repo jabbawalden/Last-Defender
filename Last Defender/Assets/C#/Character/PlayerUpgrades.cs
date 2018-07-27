@@ -9,6 +9,7 @@ public class PlayerUpgrades : MonoBehaviour {
     public GameObject playerUpgrades;
     private CharacterLook _characterLook;
 	// Use this for initialization
+
 	void Start ()
     {
         playerUpgrades.SetActive(false);
@@ -20,6 +21,7 @@ public class PlayerUpgrades : MonoBehaviour {
     public void MobilityUpgrade()
     {
         _characterMotor.speed += 0.018f;
+        _characterMotor.canMove = true;
         playerUpgrades.SetActive(false);
         _characterLook.canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
@@ -30,6 +32,7 @@ public class PlayerUpgrades : MonoBehaviour {
     public void LightPowerUpgrade()
     {
         _characterMotor.maxLightPower += 200;
+        _characterMotor.canMove = true;
         playerUpgrades.SetActive(false);
         _characterLook.canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
@@ -40,6 +43,7 @@ public class PlayerUpgrades : MonoBehaviour {
     public void ArmourUpgrade()
     {
         _characterMotor.armour += 0.5f;
+        _characterMotor.canMove = true;
         playerUpgrades.SetActive(false);
         _characterLook.canLook = true;
         Cursor.lockState = CursorLockMode.Locked;

@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Text _doorPowerDisplay; 
     private CharacterMotor _characterMotor;
     private PShoot _pShoot;
+    [SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
+    public AmmoRefill ammoRefill;
 
     private void OnEnable()
     {
@@ -26,6 +28,9 @@ public class UIManager : MonoBehaviour {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         DoorPowerDisplay("", Color.black);
+        bCAmmoDisplay.text = "Blast Cannon + " + ammoRefill.blastCannonA;
+        mCAmmoDisplay.text = "Mini Cannon + " + ammoRefill.miniCannonA;
+        hBAmmoDisplay.text = "Hyper Blaster + " + ammoRefill.hyperBlasterA;
     }
 
 

@@ -36,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191681092879912}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.41, y: 2.7455, z: -18.26}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -7.21, y: -22.23881, z: -51.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,7 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd932c2297ad9e342bc5428570f27209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bAmmount: 20
-  mAmount: 30
-  hAmount: 5
-  ammoType: 1
+  ammoID: ae04faa7-3963-4286-b63f-6f53d9584631
+  ammoRefill: {fileID: 0}

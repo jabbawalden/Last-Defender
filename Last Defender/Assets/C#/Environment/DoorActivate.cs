@@ -23,9 +23,11 @@ public class DoorActivate : MonoBehaviour {
     private UIManager _uIManager;
     public bool playerInRange;
     public bool unlocked;
+    public bool open;
 
     private void Start()
     {
+        open = false;
         doorIsOpening = false;
         powerLevelReached = false;
         _player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
@@ -80,6 +82,7 @@ public class DoorActivate : MonoBehaviour {
             _doorSFX.PlayOneShot(doorClip);
             StartCoroutine(DoorCheck());
             _uIManager.DoorPowerDisplay("", Color.black);
+            open = true;
         }
        
     }
@@ -89,6 +92,7 @@ public class DoorActivate : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             _player.currentDoorActive = this;
+            _player.canOpenDoor = true;
 
             switch (doorState)
             {
@@ -150,11 +154,12 @@ public class DoorActivate : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             _uIManager.DoorPowerDisplay("", Color.clear);
-
+            _player.canOpenDoor = false;
             if (doorState == DoorState.unlocked)
             {
                 _animator.SetBool("DoorActive", false);
                 _doorSFX.Play();
+                open = false;
             }
 
         }

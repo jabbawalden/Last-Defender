@@ -22,7 +22,8 @@ public class CharacterMotor : MonoBehaviour {
     public int powerCoresCollected = 0;
     public int lightRecoveryAmount;
     public float maxLightPower;
-
+    public bool canOpenDoor;
+    public bool canMove;
 
     private bool _cursorshown;
 
@@ -50,6 +51,7 @@ public class CharacterMotor : MonoBehaviour {
     {
         health = maxHealth;
         canShoot = true;
+        canMove = true;
         _cursorshown = false;
         lightRecoveryAmount = 1;
         lightOn = false;
@@ -66,7 +68,7 @@ public class CharacterMotor : MonoBehaviour {
         _strafe = Input.GetAxis("Horizontal") * speed;
 
         //movementfunction
-        if (health >= 1)
+        if (health >= 1 && canMove)
         {
             MovementInput();
             LightEnable();
@@ -88,11 +90,11 @@ public class CharacterMotor : MonoBehaviour {
 
         if (currentDoorActive != null)
         {
-            if (currentDoorActive.powerLevelReached && Input.GetKeyDown(KeyCode.E))
+            if (currentDoorActive.powerLevelReached && Input.GetKeyDown(KeyCode.E) && canOpenDoor && !currentDoorActive.open)
             {
                 currentDoorActive.DoorStateChange();
             }
-            if (currentDoorActive.doorState == DoorActivate.DoorState.unlocked && Input.GetKeyDown(KeyCode.E))
+            if (currentDoorActive.doorState == DoorActivate.DoorState.unlocked && Input.GetKeyDown(KeyCode.E) && canOpenDoor && !currentDoorActive.open)
             {
                 currentDoorActive.OpenDoor();
             }
