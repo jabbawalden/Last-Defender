@@ -43,6 +43,8 @@ public abstract class Enemy : MonoBehaviour
     public AudioClip EnemyDeathGrowl;
     public AudioMixerGroup EnemyAudioMixer;
     public bool growlPlayed;
+    public bool deathGrowlPlayed;
+
     public GameObject bodyCollision;
 
     public string enemyID = "Undefined";
@@ -75,11 +77,12 @@ public abstract class Enemy : MonoBehaviour
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
         EnemyAudio = gameObject.AddComponent<AudioSource>();
-        EnemyAudio.spatialBlend = 1;
-        EnemyAudio.maxDistance = 1000;
+        EnemyAudio.spatialBlend = 0.8f;
+        EnemyAudio.maxDistance = 2000;
         EnemyAudio.outputAudioMixerGroup = EnemyAudioMixer;
-        EnemyAudio.minDistance = 0.5f;
+        EnemyAudio.minDistance = 2f;
         growlPlayed = false;
+        deathGrowlPlayed = false;
         RB.isKinematic = true;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Player = GameObject.Find("PlayerMain");
@@ -89,7 +92,6 @@ public abstract class Enemy : MonoBehaviour
         BoxCollider = GetComponent<BoxCollider>();
     }
 
-   
 
     public void GetDistance()
     {
@@ -98,7 +100,8 @@ public abstract class Enemy : MonoBehaviour
 
     public void PlayGrowl()
     {
-        int r = Random.Range(0, EnemyGrowl.Length + 1);
+        int r = Random.Range(0, EnemyGrowl.Length);
+
         if (enemySound == EnemySound.Active && !growlPlayed)
         {
             EnemyAudio.PlayOneShot(EnemyGrowl[r]);
@@ -108,81 +111,14 @@ public abstract class Enemy : MonoBehaviour
 
     public void PlayDeathGrowl()
     {
-        EnemyAudio.PlayOneShot(EnemyDeathGrowl);
-    }
-
-}
-
-/*
-public class StrongDemon : Enemy
-{
-    private CharacterMotor _pCharMotor;
-
-    private void Start()
-    {
-        TriggerCollider.center = new Vector3(0.53f, 0.99f, 0.87f);
-        TriggerCollider.size = new Vector3(1.87f, 1.99f, 2.31f);
-        _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
-
-    }
-
-    protected override void MovementPattern()
-    {
-        Agent.SetDestination(_pCharMotor.transform.position);
-    }
-}
-
-public class SpeedDemon : Enemy
-{
-
-}
-
-public class RangedDemon : Enemy
-{
-    private CharacterMotor _pCharMotor;
-
-    private void Start()
-    {
-        _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
-    }
-
-    protected override void MovementPattern()
-    {
-        int r = Random.Range(0, 3);
-        Agent.SetDestination(_pCharMotor.hitPos[r].transform.position);
-    }
-
-    public void RayView()
-    {
-        Vector3 direction = transform.forward;
-        Vector3 rayOrigin = transform.position;
-        Debug.DrawRay(rayOrigin, direction * 40, Color.blue);
-        RaycastHit hit;
-
-        if (Physics.Raycast(rayOrigin, direction * 40, out hit))
+        if (!deathGrowlPlayed)
         {
-            if (hit.collider.CompareTag("Player"))
-            {
-                FirePlayer();
-
-            }
-
+            EnemyAudio.PlayOneShot(EnemyDeathGrowl);
+            deathGrowlPlayed = true;
         }
-
+        
     }
 
-    public void FirePlayer()
-    {
-        if (Time.time > NewFireRate)
-        {
-            NewFireRate = Time.time + FireRate;
-            
-            GameObject shot1 = Instantiate(_projectile, _shootOrigin.transform.position, Quaternion.LookRotation(direction));
-            shot1.GetComponent<Rigidbody>().velocity = direction * _projSpeed;
-            
-        }
-    }
-    
 }
-*/
+
 

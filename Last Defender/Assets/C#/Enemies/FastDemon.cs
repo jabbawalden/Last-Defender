@@ -80,11 +80,11 @@ public class FastDemon : Enemy
 
     public void RunBehaviour()
     {
-
         if (EnemyAnimator.GetBool("Attack2") == false)
         {
             StartCoroutine(RunRoutine());
         }
+        PlayGrowl();
     }
 
     IEnumerator RunRoutine()
@@ -103,8 +103,7 @@ public class FastDemon : Enemy
         {
             NewFireRate = Time.time + FireRate;
             StartCoroutine(AttackRoutine());
-        }
-
+        }  
     }
 
     IEnumerator AttackRoutine()
@@ -126,6 +125,7 @@ public class FastDemon : Enemy
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;
         Agent.radius = 0;
+        PlayDeathGrowl();
         OnKill();
     }
 

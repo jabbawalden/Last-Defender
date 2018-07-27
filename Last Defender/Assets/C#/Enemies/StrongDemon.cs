@@ -104,6 +104,7 @@ public class StrongDemon : Enemy
         {
             StartCoroutine(RunRoutine());
         }
+        PlayGrowl();
     }
 
     IEnumerator RunRoutine()
@@ -146,6 +147,7 @@ public class StrongDemon : Enemy
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;
         Agent.radius = 0;
+        PlayDeathGrowl();
         OnKill();
 
     }
