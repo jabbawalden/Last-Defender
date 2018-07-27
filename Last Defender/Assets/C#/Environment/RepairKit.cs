@@ -5,8 +5,8 @@ using UnityEngine;
 public class RepairKit : MonoBehaviour {
 
     private GameManager _gameManager;
+    private UIManager _uIManager;
     public string repairKitID = "Undefined";
-    public GameObject playerUpgrades;
     private PShoot _characterShoot;
     private CharacterLook _characterLook;
     private CharacterMotor _characterMotor;
@@ -14,6 +14,7 @@ public class RepairKit : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        _uIManager = GameObject.Find("UI").GetComponent<UIManager>();
         _characterShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         _characterLook = GameObject.Find("Camera").GetComponent<CharacterLook>();
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
@@ -32,7 +33,7 @@ public class RepairKit : MonoBehaviour {
         {
             AddID();
             _characterMotor.canMove = false;
-            playerUpgrades.SetActive(true);
+            _uIManager.UIplayerUpgrades.SetActive(true);
             _characterLook.canLook = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

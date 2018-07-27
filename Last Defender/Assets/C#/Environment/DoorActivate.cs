@@ -155,7 +155,7 @@ public class DoorActivate : MonoBehaviour {
         {
             _uIManager.DoorPowerDisplay("", Color.clear);
             _player.canOpenDoor = false;
-            if (doorState == DoorState.unlocked)
+            if (doorState == DoorState.unlocked && open)
             {
                 _animator.SetBool("DoorActive", false);
                 _doorSFX.Play();

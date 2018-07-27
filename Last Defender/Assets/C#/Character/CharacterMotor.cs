@@ -79,7 +79,7 @@ public class CharacterMotor : MonoBehaviour {
         }
         
         //head bob
-        if (IsWalking())
+        if (IsWalking() && canMove)
         {
             _playerAnim.SetBool("IsWalking", true);
         }

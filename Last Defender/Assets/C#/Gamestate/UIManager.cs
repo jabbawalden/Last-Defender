@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     private PShoot _pShoot;
     [SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
     public AmmoRefill ammoRefill;
+    public GameObject UIammoRefill, UIplayerUpgrades;
 
     private void OnEnable()
     {
@@ -25,6 +26,8 @@ public class UIManager : MonoBehaviour {
 
     void Start()
     {
+        UIammoRefill.SetActive(false);
+        UIplayerUpgrades.SetActive(false);
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         DoorPowerDisplay("", Color.black);

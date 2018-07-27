@@ -5,8 +5,8 @@ using UnityEngine;
 public class AmmoPack : MonoBehaviour {
 
     private GameManager _gameManager;
+    private UIManager _uIManager;
     public string ammoID = "Undefined";
-    public GameObject ammoRefill; 
     private PShoot _characterShoot;
     private CharacterLook _characterLook;
     private CharacterMotor _characterMotor;
@@ -14,7 +14,7 @@ public class AmmoPack : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        // _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+        _uIManager = GameObject.Find("UI").GetComponent<UIManager>();
         _characterShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         _characterLook = GameObject.Find("Camera").GetComponent<CharacterLook>();
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
@@ -38,7 +38,7 @@ public class AmmoPack : MonoBehaviour {
         if (other.CompareTag("Player"))
         {     
             AddID();
-            ammoRefill.SetActive(true);
+            _uIManager.UIammoRefill.SetActive(true);
             _characterMotor.canMove = false;
             _characterLook.canLook = false;
             Cursor.lockState = CursorLockMode.None;
