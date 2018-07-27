@@ -43,6 +43,15 @@ public class StrongDemon : Enemy
             case EnemyState.Death:
                 StartCoroutine(DeathBehaviour());
                 break;
+            case EnemyState.Idle:
+                IdleBehaviour();
+                break;
+        }
+
+        if (DistanceToPlayer > aggressionDistance)
+        {
+            enemyState = EnemyState.Idle;
+            EnemyAnimator.SetBool("Run", false);
         }
 
         if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
@@ -143,7 +152,7 @@ public class StrongDemon : Enemy
     IEnumerator DeathBehaviour()
     {
         Agent.isStopped = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;
         Agent.radius = 0;

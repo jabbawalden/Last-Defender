@@ -43,6 +43,15 @@ public class FastDemon : Enemy
             case EnemyState.Death:
                 DeathBehaviour();
                 break;
+            case EnemyState.Idle:
+                IdleBehaviour();
+                break;
+        }
+
+        if (DistanceToPlayer > aggressionDistance)
+        {
+            enemyState = EnemyState.Idle;
+            EnemyAnimator.SetBool("Run", false);
         }
 
         if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
@@ -71,6 +80,7 @@ public class FastDemon : Enemy
     public void IdleBehaviour()
     {
         Agent.isStopped = true;
+        EnemyAnimator.SetBool("Run", false);
     }
 
     public void ShoutBehaviour()
@@ -115,7 +125,7 @@ public class FastDemon : Enemy
         PlayerStrike = true;
         yield return new WaitForSeconds(0.44f);
         PlayerStrike = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.49f);
         EnemyAnimator.SetBool("Attack2", false);
     }
 

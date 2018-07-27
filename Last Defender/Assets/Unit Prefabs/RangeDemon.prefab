@@ -2727,7 +2727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
-  enemySound: 0
+  enemySound: 1
   EnemyAnimator: {fileID: 0}
   EnemyAudio: {fileID: 0}
   EnemyGrowl:
@@ -2737,6 +2737,8 @@ MonoBehaviour:
   EnemyDeathGrowl: {fileID: 8300000, guid: 8cc98f19b3e30f046b5589f6a907c1be, type: 3}
   EnemyAudioMixer: {fileID: 243369112106232790, guid: 5542c126a5afd0a4b9225acc62f6ae58,
     type: 2}
+  growlPlayed: 0
+  deathGrowlPlayed: 0
   bodyCollision: {fileID: 0}
   enemyID: Undefined
   Player: {fileID: 0}

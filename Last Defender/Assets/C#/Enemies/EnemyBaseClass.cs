@@ -77,10 +77,11 @@ public abstract class Enemy : MonoBehaviour
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
         EnemyAudio = gameObject.AddComponent<AudioSource>();
-        EnemyAudio.spatialBlend = 0.8f;
-        EnemyAudio.maxDistance = 2000;
+        EnemyAudio.spatialBlend = 1;
+        EnemyAudio.maxDistance = 2600;
         EnemyAudio.outputAudioMixerGroup = EnemyAudioMixer;
         EnemyAudio.minDistance = 2f;
+        EnemyAudio.pitch = 0.8f;
         growlPlayed = false;
         deathGrowlPlayed = false;
         RB.isKinematic = true;

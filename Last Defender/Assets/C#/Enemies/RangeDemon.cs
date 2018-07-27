@@ -45,6 +45,16 @@ public class RangeDemon : Enemy
             case EnemyState.Death:
                 StartCoroutine(DeathBehaviour());
                 break;
+            case EnemyState.Idle:
+                IdleBehaviour();
+                break;
+        }
+
+
+        if (DistanceToPlayer > aggressionDistance)
+        {
+            enemyState = EnemyState.Idle;
+            EnemyAnimator.SetBool("Run", false);
         }
 
         if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
@@ -56,7 +66,7 @@ public class RangeDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 20f && playerInSight)
+        if (DistanceToPlayer <= 25f && playerInSight)
         {
             enemyState = EnemyState.Attack;
         }

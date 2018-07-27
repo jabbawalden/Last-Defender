@@ -90,11 +90,11 @@ public class CharacterMotor : MonoBehaviour {
 
         if (currentDoorActive != null)
         {
-            if (currentDoorActive.powerLevelReached && Input.GetKeyDown(KeyCode.E) && canOpenDoor && !currentDoorActive.open)
+            if (currentDoorActive.powerLevelReached && Input.GetKeyDown(KeyCode.Q) && canOpenDoor && !currentDoorActive.open)
             {
                 currentDoorActive.DoorStateChange();
             }
-            if (currentDoorActive.doorState == DoorActivate.DoorState.unlocked && Input.GetKeyDown(KeyCode.E) && canOpenDoor && !currentDoorActive.open)
+            if (currentDoorActive.doorState == DoorActivate.DoorState.unlocked && Input.GetKeyDown(KeyCode.Q) && canOpenDoor && !currentDoorActive.open)
             {
                 currentDoorActive.OpenDoor();
             }
@@ -172,11 +172,11 @@ public class CharacterMotor : MonoBehaviour {
 
     private void LightEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && !lightOn)
+        if (Input.GetKeyDown(KeyCode.E) && !lightOn)
         {
             lightOn = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && lightOn)
+        else if (Input.GetKeyDown(KeyCode.E) && lightOn)
         {
             lightOn = false;
         }

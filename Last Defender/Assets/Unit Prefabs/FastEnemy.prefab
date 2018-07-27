@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
-  enemySound: 0
+  enemySound: 1
   EnemyAnimator: {fileID: 0}
   EnemyAudio: {fileID: 0}
   EnemyGrowl:
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   MovementSpeed: 0
   gameManager: {fileID: 0}
   EnemyDamage: 3
-  FireRate: 1.5
+  FireRate: 1.3
   NewFireRate: 0
   PlayerStrike: 0
   Agent: {fileID: 195392618394753236}

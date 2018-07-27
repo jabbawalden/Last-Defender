@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
-  enemySound: 0
+  enemySound: 1
   EnemyAnimator: {fileID: 0}
   EnemyAudio: {fileID: 0}
   EnemyGrowl:
@@ -1576,6 +1576,8 @@ MonoBehaviour:
   EnemyDeathGrowl: {fileID: 8300000, guid: 17046986e3467f948a5834fd93ea74ae, type: 3}
   EnemyAudioMixer: {fileID: 243369112106232790, guid: 5542c126a5afd0a4b9225acc62f6ae58,
     type: 2}
+  growlPlayed: 0
+  deathGrowlPlayed: 0
   bodyCollision: {fileID: 0}
   enemyID: 1061e17b-cd25-4929-ba24-6daaabe81dd4
   Player: {fileID: 0}
@@ -1591,7 +1593,7 @@ MonoBehaviour:
   Agent: {fileID: 195945499384744406}
   Direction: {x: 0, y: 0, z: 0}
   DistanceToPlayer: 0
-  aggressionDistance: 25
+  aggressionDistance: 30
   attackPlayer: 0
 --- !u!136 &136826439951579390
 CapsuleCollider:

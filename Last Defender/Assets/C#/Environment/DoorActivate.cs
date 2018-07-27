@@ -97,12 +97,12 @@ public class DoorActivate : MonoBehaviour {
             switch (doorState)
             {
                 case DoorState.unlocked:
-                        _uIManager.DoorPowerDisplay("Open Door (E)", Color.blue);
+                        _uIManager.DoorPowerDisplay("Open Door (Q)", Color.blue);
                     break;
                 case DoorState.locked:
                     if (powerLevelReached)
                     {
-                        _uIManager.DoorPowerDisplay("Restore power (E)", Color.cyan);
+                        _uIManager.DoorPowerDisplay("Restore power (Q)", Color.cyan);
                     }
                     else
                     {
