@@ -871,7 +871,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481920580496326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000023842, y: -0.00000047684, z: -0.0000027418}
+  m_LocalPosition: {x: 0.36000085, y: -2.020001, z: -2.1200054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4931415809346248}
@@ -923,7 +923,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939508133176770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000012666, y: 4, z: 4}
+  m_LocalPosition: {x: 0.36, y: 1.98, z: 1.88}
   m_LocalScale: {x: 1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 4931415809346248}
@@ -1297,7 +1297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043753514286470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.36, y: 2.02, z: 2.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4232333424598626}
@@ -3118,8 +3118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.913696, y: 7.979806, z: 9.7356825}
-  m_Center: {x: -0.59142303, y: 3.060804, z: 1.951776}
+  m_Size: {x: 6.506382, y: 4.9854383, z: 8.0278015}
+  m_Center: {x: -0.30877113, y: 0.40670633, z: -0.036678314}
 --- !u!65 &65324148017371480
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3310,7 +3310,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243598162881525792, guid: 5542c126a5afd0a4b9225acc62f6ae58,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ad1122da516b274458e0268262fde7e6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4a9dc137947d07646b1cd75beeb4db89, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3320,7 +3320,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3.1134415
   MaxDistance: 700
   Pan2D: 0
   rolloffMode: 2
@@ -3533,7 +3533,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 20
+  m_Range: 30
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3605,7 +3605,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 20
+  m_Range: 30
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3646,7 +3646,7 @@ MonoBehaviour:
   plight2: {fileID: 108258919174762078}
   _animator: {fileID: 95405469564250080}
   _doorSFX: {fileID: 82823812087684940}
-  doorClip: {fileID: 8300000, guid: ad1122da516b274458e0268262fde7e6, type: 3}
+  doorClip: {fileID: 8300000, guid: 4a9dc137947d07646b1cd75beeb4db89, type: 3}
   powerLevelReached: 0
   powerLevelRequirement: 0
   doorIsOpening: 0
