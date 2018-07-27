@@ -43,7 +43,7 @@ public class AmmoPack : MonoBehaviour {
             _characterLook.canLook = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            _characterShoot.canFire = false;
+            _characterShoot.inAmmoMode = true;
             Destroy(gameObject);
             //turn on AmmoReload
             /*

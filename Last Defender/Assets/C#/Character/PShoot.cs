@@ -26,6 +26,7 @@ public class PShoot : MonoBehaviour {
     //to tell which weapon is active
     public bool bCannonFire, miniCannonFire, hyperBlasterFire, rezoidFire;
     public bool canFire;
+    public bool inAmmoMode;
 
     [SerializeField] private int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
@@ -34,6 +35,7 @@ public class PShoot : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        inAmmoMode = false;
         _cameraPos = GameObject.Find("Camera");
         bCannonFire = false;
         miniCannonFire = false;
@@ -55,22 +57,22 @@ public class PShoot : MonoBehaviour {
     
     private void WeaponShootInput()
     {
-        if (bCannonFire)
+        if (bCannonFire && !inAmmoMode)
         {
             BlastCannonWep();
         }
 
-        if (miniCannonFire)
+        if (miniCannonFire && !inAmmoMode)
         {
             MiniCannonWep();
         }
 
-        if (hyperBlasterFire)
+        if (hyperBlasterFire && !inAmmoMode)
         {
             HyperBlasterWep();
         }
 
-        if (rezoidFire)
+        if (rezoidFire && !inAmmoMode)
         {
             RezoidWep();
         }

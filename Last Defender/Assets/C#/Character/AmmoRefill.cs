@@ -28,7 +28,7 @@ public class AmmoRefill : MonoBehaviour {
         _characterLook.canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        _pShoot.canFire = true;
+        _pShoot.inAmmoMode = false;
     }
 
     public void MiniCannonRefill()
@@ -39,7 +39,7 @@ public class AmmoRefill : MonoBehaviour {
         _characterLook.canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        _pShoot.canFire = true;
+        _pShoot.inAmmoMode = false;
     }
 
     public void HyperCannonRefill()
@@ -50,6 +50,6 @@ public class AmmoRefill : MonoBehaviour {
         _characterLook.canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        _pShoot.canFire = true;
+        _pShoot.inAmmoMode = false;
     }
 }
