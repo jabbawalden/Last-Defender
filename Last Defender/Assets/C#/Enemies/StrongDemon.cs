@@ -104,7 +104,6 @@ public class StrongDemon : Enemy
         {
             StartCoroutine(RunRoutine());
         }
-
     }
 
     IEnumerator RunRoutine()

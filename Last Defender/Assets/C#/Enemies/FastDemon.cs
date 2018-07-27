@@ -80,18 +80,11 @@ public class FastDemon : Enemy
 
     public void RunBehaviour()
     {
-        int r = Random.Range(0, EnemyGrowl.Length + 1);
 
         if (EnemyAnimator.GetBool("Attack2") == false)
         {
             StartCoroutine(RunRoutine());
         }
-
-        if (enemySound == EnemySound.Active)
-        {
-            EnemyAudio.PlayOneShot(EnemyGrowl[r]);
-        }
-
     }
 
     IEnumerator RunRoutine()

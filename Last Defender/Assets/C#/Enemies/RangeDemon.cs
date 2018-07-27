@@ -159,6 +159,7 @@ public class RangeDemon : Enemy
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;
         Agent.radius = 0;
+        EnemyAudio.PlayOneShot(EnemyDeathGrowl);
         OnKill();
 
     }

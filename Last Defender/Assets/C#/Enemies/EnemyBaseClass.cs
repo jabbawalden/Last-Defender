@@ -42,7 +42,7 @@ public abstract class Enemy : MonoBehaviour
     public AudioClip[] EnemyGrowl;
     public AudioClip EnemyDeathGrowl;
     public AudioMixerGroup EnemyAudioMixer;
-
+    public bool growlPlayed;
     public GameObject bodyCollision;
 
     public string enemyID = "Undefined";
@@ -76,9 +76,10 @@ public abstract class Enemy : MonoBehaviour
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
         EnemyAudio = gameObject.AddComponent<AudioSource>();
         EnemyAudio.spatialBlend = 1;
-        EnemyAudio.maxDistance = 200;
+        EnemyAudio.maxDistance = 1000;
         EnemyAudio.outputAudioMixerGroup = EnemyAudioMixer;
         EnemyAudio.minDistance = 0.5f;
+        growlPlayed = false;
         RB.isKinematic = true;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Player = GameObject.Find("PlayerMain");
@@ -95,6 +96,20 @@ public abstract class Enemy : MonoBehaviour
         DistanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
     }
 
+    public void PlayGrowl()
+    {
+        int r = Random.Range(0, EnemyGrowl.Length + 1);
+        if (enemySound == EnemySound.Active && !growlPlayed)
+        {
+            EnemyAudio.PlayOneShot(EnemyGrowl[r]);
+            growlPlayed = true;
+        }
+    }
+
+    public void PlayDeathGrowl()
+    {
+        EnemyAudio.PlayOneShot(EnemyDeathGrowl);
+    }
 
 }
 

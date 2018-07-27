@@ -696,8 +696,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1438768703688320}
-  m_LocalRotation: {x: -0, y: 0.50666815, z: -0, w: 0.8621412}
-  m_LocalPosition: {x: -35.216827, y: 0.59788907, z: -68.260414}
+  m_LocalRotation: {x: -0, y: 0.9956527, z: -0, w: 0.09314403}
+  m_LocalPosition: {x: 45.156494, y: 2.1622353, z: -34.128193}
   m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_Children:
   - {fileID: 4476354300957424}
@@ -707,7 +707,7 @@ Transform:
   - {fileID: 4096192725317730}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 60.884003, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 169.311, z: 0}
 --- !u!4 &4294892216385962
 Transform:
   m_ObjectHideFlags: 1
@@ -1150,9 +1150,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
+  enemySound: 0
   EnemyAnimator: {fileID: 0}
+  EnemyAudio: {fileID: 0}
+  EnemyGrowl:
+  - {fileID: 8300000, guid: c188b17e729aeae42bab5982863c4a49, type: 3}
+  - {fileID: 8300000, guid: ff90d1fd3e87f584c8496f30b1b6a397, type: 3}
+  - {fileID: 8300000, guid: 2d5b9d7d9db33f04b8ab141f8fa0cde7, type: 3}
+  EnemyDeathGrowl: {fileID: 8300000, guid: 5c5f2b772a643e84499fa1b95feb497b, type: 3}
+  EnemyAudioMixer: {fileID: 243369112106232790, guid: 5542c126a5afd0a4b9225acc62f6ae58,
+    type: 2}
   bodyCollision: {fileID: 0}
-  enemyID: d41bcdbf-42ec-412a-a1d9-5379b06d0fc2
+  enemyID: 70edaee6-6a2c-48b0-bbfa-065c49eee246
   Player: {fileID: 0}
   BoxCollider: {fileID: 0}
   RB: {fileID: 0}
@@ -1166,7 +1175,7 @@ MonoBehaviour:
   Agent: {fileID: 195392618394753236}
   Direction: {x: 0, y: 0, z: 0}
   DistanceToPlayer: 0
-  aggressionDistance: 18
+  aggressionDistance: 30
   attackPlayer: 0
 --- !u!114 &114146964813661822
 MonoBehaviour:
@@ -1355,8 +1364,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
-  m_Speed: 8.8
-  m_Acceleration: 20
+  m_Speed: 8.6
+  m_Acceleration: 25
   avoidancePriority: 50
   m_AngularSpeed: 450
   m_StoppingDistance: 3

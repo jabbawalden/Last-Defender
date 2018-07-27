@@ -2495,7 +2495,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601330207670008}
   m_LocalRotation: {x: -0, y: 0.68789655, z: -0, w: 0.7258088}
-  m_LocalPosition: {x: -45.844833, y: -22.876335, z: -81.57037}
+  m_LocalPosition: {x: 61.03, y: 1.8893472, z: -31.61}
   m_LocalScale: {x: 1.3000004, y: 1.3, z: 1.3000004}
   m_Children:
   - {fileID: 4532602530200818}
@@ -2727,7 +2727,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
+  enemySound: 0
   EnemyAnimator: {fileID: 0}
+  EnemyAudio: {fileID: 0}
+  EnemyGrowl:
+  - {fileID: 8300000, guid: 6d18767b01102434299ab413ee194291, type: 3}
+  - {fileID: 8300000, guid: bb71007ae28cf4940978b88568d08595, type: 3}
+  - {fileID: 8300000, guid: 4ae04b9fa73167747a60267c1bf42081, type: 3}
+  EnemyDeathGrowl: {fileID: 8300000, guid: 8cc98f19b3e30f046b5589f6a907c1be, type: 3}
+  EnemyAudioMixer: {fileID: 243369112106232790, guid: 5542c126a5afd0a4b9225acc62f6ae58,
+    type: 2}
   bodyCollision: {fileID: 0}
   enemyID: Undefined
   Player: {fileID: 0}
