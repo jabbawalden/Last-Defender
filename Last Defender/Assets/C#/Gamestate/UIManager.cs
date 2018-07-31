@@ -8,12 +8,14 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Text _healthDisplay;
     [SerializeField] private Text _ammoDisplay;
     [SerializeField] private Text _lightPowerDisplay;
-    [SerializeField] private Text _doorPowerDisplay; 
+    [SerializeField] private Text _doorPowerDisplay;
+    public Text interactE;
     private CharacterMotor _characterMotor;
     private PShoot _pShoot;
     [SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
     public AmmoRefill ammoRefill;
     public GameObject UIammoRefill, UIplayerUpgrades;
+    public GameObject SuitInstructions;
 
     private void OnEnable()
     {
@@ -26,11 +28,14 @@ public class UIManager : MonoBehaviour {
 
     void Start()
     {
+        SuitInstructions.SetActive(false);
+        interactE.gameObject.SetActive(false);
         UIammoRefill.SetActive(false);
         UIplayerUpgrades.SetActive(false);
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         DoorPowerDisplay("", Color.black);
+        interactE.text = "";
         bCAmmoDisplay.text = "Blast Cannon + " + ammoRefill.blastCannonA;
         mCAmmoDisplay.text = "Mini Cannon + " + ammoRefill.miniCannonA;
         hBAmmoDisplay.text = "Hyper Blaster + " + ammoRefill.hyperBlasterA;
@@ -46,6 +51,7 @@ public class UIManager : MonoBehaviour {
         _lightPowerDisplay.text = "POWER: " + _characterMotor.lightPower;
 
         AmmoDisplay();
+        SuitInstructionsController();
 
     }
 
@@ -72,5 +78,16 @@ public class UIManager : MonoBehaviour {
         _doorPowerDisplay.color = colour;
     }
 
+    public void SuitInstructionsController()
+    {
+        if (SuitInstructions.activeInHierarchy == false)
+        {
+            interactE.text = "Interact (E)";
+        }
+        else if (SuitInstructions.activeInHierarchy == true)
+        {
+            interactE.text = "Exit Application (E)";
+        }
+    }
     
 }

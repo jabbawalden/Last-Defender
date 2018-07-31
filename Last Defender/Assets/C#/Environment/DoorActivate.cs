@@ -157,14 +157,18 @@ public class DoorActivate : MonoBehaviour {
             _player.canOpenDoor = false;
             if (doorState == DoorState.unlocked && open)
             {
-                _animator.SetBool("DoorActive", false);
-                _doorSFX.Play();
-                open = false;
+                StartCoroutine(DoorCloseBehaviour());
             }
 
         }
 
-        
     }
 
+    IEnumerator DoorCloseBehaviour()
+    {
+        yield return new WaitForSeconds(3);
+        _animator.SetBool("DoorActive", false);
+        _doorSFX.Play();
+        open = false;
+    }
 }

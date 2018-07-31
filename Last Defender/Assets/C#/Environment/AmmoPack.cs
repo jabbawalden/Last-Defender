@@ -61,7 +61,6 @@ public class AmmoPack : MonoBehaviour {
                 _pShoot.mAmmo += mAmount;
             }
             */
-            Destroy(gameObject);
         }
     }
 

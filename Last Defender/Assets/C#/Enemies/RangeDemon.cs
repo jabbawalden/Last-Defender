@@ -110,7 +110,6 @@ public class RangeDemon : Enemy
     }
 
 
-
     public void IdleBehaviour()
     {
         Agent.velocity = Vector3.zero;

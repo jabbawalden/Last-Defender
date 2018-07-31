@@ -1584,7 +1584,7 @@ MonoBehaviour:
   BoxCollider: {fileID: 0}
   RB: {fileID: 0}
   CurrentHealth: 0
-  MaxHealth: 28
+  MaxHealth: 15
   MovementSpeed: 6
   gameManager: {fileID: 0}
   EnemyDamage: 5

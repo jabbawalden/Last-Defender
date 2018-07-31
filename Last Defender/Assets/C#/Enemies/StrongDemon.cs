@@ -158,6 +158,65 @@ public class StrongDemon : Enemy
         EnemyAnimator.SetBool("Idle to Attack1", false);
     }
 
+    public void HitActivate()
+    {
+        StartCoroutine(HitBehaviour());
+    }
+
+    IEnumerator HitBehaviour()
+    {
+        if (enemyState == EnemyState.Run)
+        {
+            if (CurrentHealth <= 0)
+            {
+                enemyState = EnemyState.Death;
+            }
+            else
+            {
+                Agent.speed = 0;
+                EnemyAnimator.SetBool("RunToHit", true);
+                yield return new WaitForSeconds(0.5f);
+                EnemyAnimator.SetBool("RunToHit", false);
+                Agent.speed = MovementSpeed;
+            }
+
+        }
+
+        if (enemyState == EnemyState.Attack)
+        {
+            if (CurrentHealth <= 0)
+            {
+                enemyState = EnemyState.Death;
+            }
+            else
+            {
+                Agent.speed = 0;
+                EnemyAnimator.SetBool("AttackToHit", true);
+                yield return new WaitForSeconds(0.5f);
+                EnemyAnimator.SetBool("AttackToHit", false);
+                Agent.speed = MovementSpeed;
+            }
+
+        }
+
+        if (enemyState == EnemyState.Idle)
+        {
+            if (CurrentHealth <= 0)
+            {
+                enemyState = EnemyState.Death;
+            }
+            else
+            {
+                Agent.speed = 0;
+                EnemyAnimator.SetBool("IdleToHit", true);
+                yield return new WaitForSeconds(0.5f);
+                EnemyAnimator.SetBool("IdleToHit", false);
+                Agent.speed = MovementSpeed;
+            }
+
+        }
+
+    }
 
     IEnumerator DeathBehaviour()
     {

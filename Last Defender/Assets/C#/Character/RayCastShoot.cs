@@ -60,8 +60,6 @@ public class RayCastShoot : MonoBehaviour {
             {
                 enemyCollider2.CurrentHealth -= _pShoot.currentDamage;
 
-                if (_pShoot.currentWeapon == 3)
-                    enemyCollider2.HitActivate();
             }
 
             if (enemyCollider3 != null)

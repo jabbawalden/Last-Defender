@@ -789,8 +789,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844028811469202}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -76.738464, y: 32.82165, z: -8.599802}
+  m_LocalRotation: {x: -0, y: 0.000000059604645, z: -0, w: 1}
+  m_LocalPosition: {x: 88.24269, y: 39.82256, z: 28.404057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4931415809346248}
@@ -871,7 +871,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481920580496326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.36000085, y: -2.02, z: -1.99}
+  m_LocalPosition: {x: 0.36000085, y: -2.02, z: -2.01002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4931415809346248}
@@ -923,7 +923,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939508133176770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.36, y: 1.98, z: 2.01}
+  m_LocalPosition: {x: 0.36, y: 1.98, z: 1.99}
   m_LocalScale: {x: 1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 4931415809346248}
@@ -1297,7 +1297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043753514286470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.36, y: 2.02, z: 1.99}
+  m_LocalPosition: {x: -0.36, y: 2.02, z: 2.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4232333424598626}
@@ -3118,8 +3118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.506382, y: 4.9854383, z: 8.0278015}
-  m_Center: {x: -0.30877113, y: 0.40670633, z: -0.036678314}
+  m_Size: {x: 3.776085, y: 4.9854383, z: 4.539095}
+  m_Center: {x: -0.30877447, y: 0.40670633, z: -0.011399269}
 --- !u!65 &65324148017371480
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3320,8 +3320,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2.3695679
-  MaxDistance: 700
+  MinDistance: 5.5373726
+  MaxDistance: 1700
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -3531,9 +3531,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 1
-  m_Range: 30
+  m_Color: {r: 1, g: 0, b: 0.09067249, a: 1}
+  m_Intensity: 0.8
+  m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3604,8 +3604,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 1
-  m_Range: 30
+  m_Intensity: 0.8
+  m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3641,14 +3641,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a870ca0017218e4782cc085d432f3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorState: 1
+  doorState: 0
   plight1: {fileID: 108841368010688742}
   plight2: {fileID: 108258919174762078}
   _animator: {fileID: 95405469564250080}
   _doorSFX: {fileID: 82823812087684940}
   doorClip: {fileID: 8300000, guid: 4a9dc137947d07646b1cd75beeb4db89, type: 3}
   powerLevelReached: 0
-  powerLevelRequirement: 2
+  powerLevelRequirement: 0
   doorIsOpening: 0
   playerInRange: 0
   unlocked: 0

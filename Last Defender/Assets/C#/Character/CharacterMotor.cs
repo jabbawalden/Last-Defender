@@ -31,7 +31,13 @@ public class CharacterMotor : MonoBehaviour {
     float _strafe;
 
     public bool canShoot;
-    public DoorActivate currentDoorActive; 
+    public DoorActivate currentDoorActive;
+    public bool interactE;
+    public bool instructionsE;
+
+    private UIManager _uiManager;
+    private PShoot _pShoot;
+    private CharacterLook _characterLook;
 
     [SerializeField] private Animator _playerAnim;
 
@@ -57,8 +63,13 @@ public class CharacterMotor : MonoBehaviour {
         lightOn = false;
         spotLight.SetActive(false);
         speed *= Time.deltaTime;
+        interactE = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        _uiManager = GameObject.Find("UI").GetComponent<UIManager>();
+        _pShoot = GetComponent<PShoot>();
+        _characterLook = GameObject.Find("Camera").GetComponent<CharacterLook>();
+
     }
 	
 	// Update is called once per frame
@@ -67,7 +78,8 @@ public class CharacterMotor : MonoBehaviour {
         _translation = Input.GetAxis("Vertical") * speed;
         _strafe = Input.GetAxis("Horizontal") * speed;
 
-        //movementfunction
+        InteractSuitInstruction();
+
         if (health >= 1 && canMove)
         {
             MovementInput();
@@ -161,6 +173,30 @@ public class CharacterMotor : MonoBehaviour {
         return true;
     }
 
+    public void InteractSuitInstruction()
+    {
+        if (instructionsE)
+        {
+            if (Input.GetKeyDown(KeyCode.E) && _uiManager.SuitInstructions.activeInHierarchy == false)
+            {
+                canMove = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                _pShoot.canFire = false;
+                _characterLook.canLook = false;
+                _uiManager.SuitInstructions.SetActive(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && _uiManager.SuitInstructions.activeInHierarchy == true)
+            {
+                canMove = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                _pShoot.canFire = true;
+                _characterLook.canLook = true;
+                _uiManager.SuitInstructions.SetActive(false);
+            }
+        }
+    }
     /*
     private IEnumerator Death()
     {
@@ -172,11 +208,11 @@ public class CharacterMotor : MonoBehaviour {
 
     private void LightEnable()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !lightOn)
+        if (Input.GetMouseButtonDown(1) && !lightOn)
         {
             lightOn = true;
         }
-        else if (Input.GetKeyDown(KeyCode.E) && lightOn)
+        else if (Input.GetMouseButtonDown(1) && lightOn)
         {
             lightOn = false;
         }
