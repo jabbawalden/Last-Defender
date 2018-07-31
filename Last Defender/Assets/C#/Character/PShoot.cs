@@ -28,7 +28,7 @@ public class PShoot : MonoBehaviour {
     public bool canFire;
     public bool inAmmoMode;
 
-    [SerializeField] private int currentWeapon;
+    public int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
     
 

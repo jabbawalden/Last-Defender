@@ -53,6 +53,9 @@ public class RangeDemon : Enemy
             case EnemyState.Idle:
                 IdleBehaviour();
                 break;
+            case EnemyState.Hit:
+                StartCoroutine(HitBehaviour());
+                break;
         }
 
 
@@ -60,6 +63,7 @@ public class RangeDemon : Enemy
         {
             enemyState = EnemyState.Idle;
             EnemyAnimator.SetBool("Run", false);
+            Agent.velocity = Vector3.zero;
         }
 
         if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
@@ -107,12 +111,12 @@ public class RangeDemon : Enemy
 
     public void IdleBehaviour()
     {
-        Agent.isStopped = true;
+        Agent.velocity = Vector3.zero;
     }
 
     public void ShoutBehaviour()
     {
-        Agent.isStopped = true;
+        Agent.velocity = Vector3.zero;
     }
 
     public void RunBehaviour()
@@ -127,8 +131,7 @@ public class RangeDemon : Enemy
     IEnumerator WalkRoutine()
     {
         EnemyAnimator.SetBool("Walk", true);
-        yield return new WaitForSeconds(0.3f);
-        Agent.isStopped = false;
+        yield return new WaitForSeconds(0.2f);
         MovementPattern();
     }
 
@@ -138,8 +141,7 @@ public class RangeDemon : Enemy
         FireRate = randomFireRate;
 
         EnemyAnimator.SetBool("Walk", false);
-        Agent.isStopped = true;
-
+        Agent.velocity = Vector3.zero;
         transform.LookAt(Player.transform.position);
 
         if (Time.time > NewFireRate)
@@ -167,9 +169,14 @@ public class RangeDemon : Enemy
         EnemyAnimator.SetBool("Attack", false);
     }
 
+    IEnumerator HitBehaviour()
+    {
+        yield return new WaitForSeconds(1);
+    }
+
     IEnumerator DeathBehaviour()
     {
-        Agent.isStopped = true;
+        Agent.velocity = Vector3.zero;
         yield return new WaitForSeconds(0.5f);
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;

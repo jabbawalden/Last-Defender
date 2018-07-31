@@ -51,6 +51,9 @@ public class FastDemon : Enemy
             case EnemyState.Idle:
                 IdleBehaviour();
                 break;
+            case EnemyState.Hit:
+                StartCoroutine(HitBehaviour());
+                break;
         }
 
         if (DistanceToPlayer > aggressionDistance)
@@ -68,7 +71,7 @@ public class FastDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 3.2f)
+        if (DistanceToPlayer <= 2.5f)
         {
             enemyState = EnemyState.Attack;
         }
@@ -84,13 +87,13 @@ public class FastDemon : Enemy
   
     public void IdleBehaviour()
     {
-        Agent.isStopped = true;
+        Agent.velocity = Vector3.zero;
         EnemyAnimator.SetBool("Run", false);
     }
 
     public void ShoutBehaviour()
     {
-        Agent.isStopped = true;
+        Agent.velocity = Vector3.zero;
     }
 
     public void RunBehaviour()
@@ -105,15 +108,14 @@ public class FastDemon : Enemy
     IEnumerator RunRoutine()
     {
         EnemyAnimator.SetBool("Run", true);
-        yield return new WaitForSeconds(0.23f);
-        Agent.isStopped = false;
+        yield return new WaitForSeconds(0.1f);
         MovementPattern();
     }
 
     public void AttackBehaviour()
     {
         EnemyAnimator.SetBool("Run", false);
-        Agent.isStopped = true;
+        Agent.velocity = Vector3.zero;
         if (Time.time > NewFireRate)
         {
             NewFireRate = Time.time + FireRate;
@@ -134,9 +136,14 @@ public class FastDemon : Enemy
         EnemyAnimator.SetBool("Attack2", false);
     }
 
+    IEnumerator HitBehaviour()
+    {
+        yield return new WaitForSeconds(1);
+    }
+
     public void DeathBehaviour()
     {
-        Agent.isStopped = true;
+        Agent.velocity = Vector3.zero;
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;
         Agent.radius = 0;

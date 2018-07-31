@@ -51,6 +51,9 @@ public class RayCastShoot : MonoBehaviour {
             {
                 GameEvents.ReportEnemyHit();
                 enemyCollider.Health -= _pShoot.currentDamage;
+
+                if (_pShoot.currentWeapon == 3)
+                    enemyCollider.HitActivate();
             }
 
             if (enemyCollider2 != null)

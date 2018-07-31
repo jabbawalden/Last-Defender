@@ -89,6 +89,7 @@ public abstract class Enemy : MonoBehaviour
         Player = GameObject.Find("PlayerMain");
         gameObject.tag = "Enemy";
         Agent = gameObject.GetComponent<NavMeshAgent>();
+        Agent.speed = MovementSpeed;
         EnemyAnimator = GetComponent<Animator>();
         BoxCollider = GetComponent<BoxCollider>();
     }
