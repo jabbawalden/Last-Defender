@@ -20,7 +20,8 @@ public class PlayerUpgrades : MonoBehaviour {
 	
     public void MobilityUpgrade()
     {
-        _characterMotor.speed += 0.018f;
+        _characterMotor.speed += 0.019f;
+        _characterMotor.jump += 0.4f;
         _characterMotor.canMove = true;
         playerUpgrades.SetActive(false);
         _characterLook.canLook = true;

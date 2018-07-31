@@ -13,7 +13,7 @@ public class CharacterMotor : MonoBehaviour {
     //movement
     public float speed;
     [SerializeField] private Rigidbody _rb;
-    [SerializeField] private float _jump;
+    public float jump;
 
     //Light capabilities
     public GameObject spotLight;
@@ -127,7 +127,7 @@ public class CharacterMotor : MonoBehaviour {
         {
             if (CanJump())
             {
-                _rb.AddForce(_jump * transform.up, ForceMode.Impulse);
+                _rb.AddForce(jump * transform.up, ForceMode.Impulse);
             }
         }
 
