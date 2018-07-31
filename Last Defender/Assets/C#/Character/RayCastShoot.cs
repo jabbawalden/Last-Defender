@@ -9,7 +9,7 @@ public class RayCastShoot : MonoBehaviour {
     public float hitForce = 160;
     public Transform gunEnd1;
     private CharacterMotor _characterMotor;
-
+    private Animator _hitTarget;
     [SerializeField] private Camera fpsCam;
     [SerializeField] private LineRenderer[] laserLine;
     private PShoot _pShoot;
@@ -22,6 +22,7 @@ public class RayCastShoot : MonoBehaviour {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _gunLight.SetActive(false);
         _pShoot = GetComponent<PShoot>();
+        _hitTarget = GameObject.Find("HitTarget").GetComponent<Animator>();
     }
 
     public void RayShoot(int c)
@@ -51,7 +52,7 @@ public class RayCastShoot : MonoBehaviour {
             {
                 GameEvents.ReportEnemyHit();
                 enemyCollider.CurrentHealth -= _pShoot.currentDamage;
-
+                StartCoroutine(HitTargetIndicator());
                 if (_pShoot.currentWeapon == 3)
                     enemyCollider.HitActivate();
             }
@@ -59,12 +60,13 @@ public class RayCastShoot : MonoBehaviour {
             if (enemyCollider2 != null)
             {
                 enemyCollider2.CurrentHealth -= _pShoot.currentDamage;
-
+                StartCoroutine(HitTargetIndicator());
             }
 
             if (enemyCollider3 != null)
             {
                 enemyCollider3.CurrentHealth -= _pShoot.currentDamage;
+                StartCoroutine(HitTargetIndicator());
             }
 
             if (hit.rigidbody != null)
@@ -96,6 +98,13 @@ public class RayCastShoot : MonoBehaviour {
             StopCoroutine(ShotEffect(1));
         }
    
+    }
+
+    IEnumerator HitTargetIndicator()
+    {
+        _hitTarget.SetBool("HitTargetCircle", true);
+        yield return new WaitForSeconds(0.001f);
+        _hitTarget.SetBool("HitTargetCircle", false);
     }
 
     private void OnEnable()

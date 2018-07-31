@@ -17,6 +17,7 @@ public static class GameEvents
     public static event Action EventUnpauseGame = null;
     public static event Action EventPlayerDead = null;
     public static event Action EventEnemyDeath = null;
+    public static event Action EventPlayerHit = null;
 
     public static void ReportEnemyHit() 
     {
@@ -56,5 +57,12 @@ public static class GameEvents
     {
         if (EventEnemyDeath != null)
             EventEnemyDeath();
+    }
+
+
+    public static void PlayerEventHit()
+    {
+        if (EventPlayerHit != null)
+            EventPlayerHit();
     }
 }

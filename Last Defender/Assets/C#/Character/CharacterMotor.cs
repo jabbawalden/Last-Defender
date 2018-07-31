@@ -9,7 +9,7 @@ public class CharacterMotor : MonoBehaviour {
     public float health;
     public float maxHealth;
     public float armour;
-
+    
     //movement
     public float speed;
     [SerializeField] private Rigidbody _rb;
@@ -40,8 +40,9 @@ public class CharacterMotor : MonoBehaviour {
     private CharacterLook _characterLook;
 
     [SerializeField] private Animator _playerAnim;
-
     public GameObject[] hitPos;
+
+   
 
     private void OnEnable()
     {

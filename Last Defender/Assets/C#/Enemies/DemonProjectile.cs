@@ -28,6 +28,7 @@ public class DemonProjectile : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            GameEvents.PlayerEventHit();
             _charMotor.health -= projectileDamage - _charMotor.armour;
             Destroy(gameObject);
         }
