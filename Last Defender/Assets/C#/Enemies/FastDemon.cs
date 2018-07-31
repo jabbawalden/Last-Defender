@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FastDemon : Enemy
 {
+    public GameObject rayOriginObject;
 
     private void OnEnable()
     {
@@ -36,6 +37,8 @@ public class FastDemon : Enemy
     void Update()
     {
         GetDistance();
+        newPlayerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y - 1f, Player.transform.position.z);
+        Direction = (newPlayerPosition - transform.position).normalized;
 
         switch (enemyState)
         {
@@ -76,6 +79,7 @@ public class FastDemon : Enemy
         if (DistanceToPlayer <= 2.5f)
         {
             enemyState = EnemyState.Attack;
+            RotateTowards();
         }
 
         if (CurrentHealth <= 0)
@@ -83,7 +87,6 @@ public class FastDemon : Enemy
             enemyState = EnemyState.Death;
         }
 
-    
     }
 
   
@@ -127,14 +130,13 @@ public class FastDemon : Enemy
 
     IEnumerator AttackRoutine()
     {
-
         yield return new WaitForSeconds(0.15f);
         EnemyAnimator.SetBool("Attack2", true);
         yield return new WaitForSeconds(0.21f);
         PlayerStrike = true;
-        yield return new WaitForSeconds(0.44f);
+        yield return new WaitForSeconds(0.43f);
         PlayerStrike = false;
-        yield return new WaitForSeconds(0.49f);
+        yield return new WaitForSeconds(0.47f);
         EnemyAnimator.SetBool("Attack2", false);
     }
 

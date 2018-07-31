@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RangeDemon : Enemy
 {
-    Vector3 direction;
+    
     [SerializeField] private GameObject _projectile;
     [SerializeField] private GameObject _shootOrigin;
     [SerializeField] private float _projSpeed;
     public GameObject rayOriginObject;
-    public bool playerInSight;
+    
 
     // Use this for initialization
     void Start()
@@ -34,9 +34,8 @@ public class RangeDemon : Enemy
     {
         GetDistance();
         Vector3 newPlayerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y - 0.5f, Player.transform.position.z);
-        direction = (newPlayerPosition - transform.position).normalized;
+        Direction = (newPlayerPosition - transform.position).normalized;
         
-
         switch (enemyState)
         {
             case EnemyState.Run:
@@ -91,10 +90,10 @@ public class RangeDemon : Enemy
     {
         //Vector3 direction = transform.position - Player.transform.position;
         Vector3 rayOrigin = rayOriginObject.transform.position;
-        Debug.DrawRay(rayOrigin, direction * 40, Color.blue);
+        Debug.DrawRay(rayOrigin, Direction * 40, Color.blue);
         RaycastHit hit;
 
-        if (Physics.Raycast(rayOrigin, direction * 40, out hit))
+        if (Physics.Raycast(rayOrigin, Direction * 40, out hit))
         {
             if (hit.collider.CompareTag("Player"))
             {
@@ -155,8 +154,8 @@ public class RangeDemon : Enemy
 
     public void FireBehaviour()
     {
-        GameObject shot1 = Instantiate(_projectile, _shootOrigin.transform.position, Quaternion.LookRotation(direction));
-        shot1.GetComponent<Rigidbody>().velocity = direction * _projSpeed;
+        GameObject shot1 = Instantiate(_projectile, _shootOrigin.transform.position, Quaternion.LookRotation(Direction));
+        shot1.GetComponent<Rigidbody>().velocity = Direction * _projSpeed;
     }
 
     IEnumerator AttackRoutine()

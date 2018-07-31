@@ -36,7 +36,6 @@ public abstract class Enemy : MonoBehaviour
 
     public EnemyState enemyState;
     public EnemySound enemySound;
-
     public Animator EnemyAnimator;
     public AudioSource EnemyAudio;
     public AudioClip[] EnemyGrowl;
@@ -60,13 +59,15 @@ public abstract class Enemy : MonoBehaviour
     public float FireRate;
     public float NewFireRate;
     public bool PlayerStrike;
+    public bool playerInSight;
 
     public NavMeshAgent Agent;
     public Vector3 Direction;
     public float DistanceToPlayer;
     public float aggressionDistance;
     public bool attackPlayer;
-
+    public Vector3 newPlayerPosition;
+ 
     //only classes that inherit from Enemy can see this field. 
     //abstract = must be overriden by inheriting class
     protected abstract void MovementPattern();
@@ -74,6 +75,7 @@ public abstract class Enemy : MonoBehaviour
     private void Awake()
     {
         //add common components
+        
         RB = gameObject.AddComponent<Rigidbody>();
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -120,10 +122,13 @@ public abstract class Enemy : MonoBehaviour
             EnemyAudio.PlayOneShot(EnemyDeathGrowl);
             deathGrowlPlayed = true;
         }
-        
     }
 
-    
+    public void RotateTowards()
+    {
+        Quaternion lookRotation = Quaternion.LookRotation(Direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
+    }
 
 }
 

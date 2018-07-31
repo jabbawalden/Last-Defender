@@ -36,6 +36,7 @@ public class StrongDemon : Enemy
     void Update ()
     {
         GetDistance();
+        newPlayerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y - 0.5f, Player.transform.position.z);
 
         switch (enemyState)
         {
@@ -78,6 +79,7 @@ public class StrongDemon : Enemy
         if (DistanceToPlayer <= 3f)
         {
             enemyState = EnemyState.Attack;
+            RotateTowards();
         }
 
         if (CurrentHealth <= 0)
@@ -131,7 +133,7 @@ public class StrongDemon : Enemy
     IEnumerator RunRoutine()
     {
         EnemyAnimator.SetBool("Run", true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         MovementPattern();
     }
 
@@ -139,6 +141,7 @@ public class StrongDemon : Enemy
     {
         EnemyAnimator.SetBool("Run", false);
         Agent.velocity = Vector3.zero;
+
         if (Time.time > NewFireRate)
         {
             NewFireRate = Time.time + FireRate;
