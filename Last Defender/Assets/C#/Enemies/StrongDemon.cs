@@ -37,6 +37,7 @@ public class StrongDemon : Enemy
     {
         GetDistance();
         newPlayerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y - 0.5f, Player.transform.position.z);
+        Direction = (newPlayerPosition - transform.position).normalized;
 
         switch (enemyState)
         {
@@ -76,7 +77,7 @@ public class StrongDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 3f)
+        if (DistanceToPlayer <= 3f && CurrentHealth > 0)
         {
             enemyState = EnemyState.Attack;
             RotateTowards();

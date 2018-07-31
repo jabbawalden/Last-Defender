@@ -76,7 +76,7 @@ public class FastDemon : Enemy
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 2.5f)
+        if (DistanceToPlayer <= 2.5f && CurrentHealth > 0)
         {
             enemyState = EnemyState.Attack;
             RotateTowards();
@@ -113,7 +113,7 @@ public class FastDemon : Enemy
     IEnumerator RunRoutine()
     {
         EnemyAnimator.SetBool("Run", true);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.09f);
         MovementPattern();
     }
 

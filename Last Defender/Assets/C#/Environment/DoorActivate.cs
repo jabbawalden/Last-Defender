@@ -166,7 +166,7 @@ public class DoorActivate : MonoBehaviour {
 
     IEnumerator DoorCloseBehaviour()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.5f);
         _animator.SetBool("DoorActive", false);
         _doorSFX.Play();
         open = false;
