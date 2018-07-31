@@ -50,7 +50,7 @@ public class RayCastShoot : MonoBehaviour {
             if (enemyCollider != null)
             {
                 GameEvents.ReportEnemyHit();
-                enemyCollider.Health -= _pShoot.currentDamage;
+                enemyCollider.CurrentHealth -= _pShoot.currentDamage;
 
                 if (_pShoot.currentWeapon == 3)
                     enemyCollider.HitActivate();
@@ -58,12 +58,15 @@ public class RayCastShoot : MonoBehaviour {
 
             if (enemyCollider2 != null)
             {
-                enemyCollider2.Health -= _pShoot.currentDamage;
+                enemyCollider2.CurrentHealth -= _pShoot.currentDamage;
+
+                if (_pShoot.currentWeapon == 3)
+                    enemyCollider2.HitActivate();
             }
 
             if (enemyCollider3 != null)
             {
-                enemyCollider3.Health -= _pShoot.currentDamage;
+                enemyCollider3.CurrentHealth -= _pShoot.currentDamage;
             }
 
             if (hit.rigidbody != null)

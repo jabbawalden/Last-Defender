@@ -69,7 +69,7 @@ public class DemonController : MonoBehaviour {
             EnemyFollow(type);
             transform.LookAt(_player.transform.position);
         }
-        else if (_shootableBox.strongDemon.Health < 3)
+        else if (_shootableBox.strongDemon.CurrentHealth < 3)
         {
             EnemyFollow(type);
             transform.LookAt(_player.transform.position);

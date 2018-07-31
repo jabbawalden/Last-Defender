@@ -31,7 +31,7 @@ public class Enemy<T> where T : Enemy
 public abstract class Enemy : MonoBehaviour
 {
     [System.Serializable]
-    public enum EnemyState { Idle, Shout, Run, Attack, Death, Hit }
+    public enum EnemyState { Idle, Shout, Run, Attack, Death, Hit}
     public enum EnemySound { Active, Silent}
 
     public EnemyState enemyState;
@@ -52,7 +52,8 @@ public abstract class Enemy : MonoBehaviour
     public GameObject Player;
     public BoxCollider BoxCollider;
     public Rigidbody RB;
-    public int Health;
+    public int CurrentHealth;
+    public int MaxHealth;
     public float MovementSpeed;
     public GameManager gameManager;
     public int EnemyDamage;
@@ -92,6 +93,7 @@ public abstract class Enemy : MonoBehaviour
         Agent.speed = MovementSpeed;
         EnemyAnimator = GetComponent<Animator>();
         BoxCollider = GetComponent<BoxCollider>();
+        CurrentHealth = MaxHealth;
     }
 
 
@@ -119,6 +121,66 @@ public abstract class Enemy : MonoBehaviour
             deathGrowlPlayed = true;
         }
         
+    }
+
+    public void HitActivate()
+    {
+        StartCoroutine(HitBehaviour());
+    }
+
+    IEnumerator HitBehaviour()
+    {
+        if (enemyState == EnemyState.Run)
+        {
+            if (CurrentHealth <= 0)
+            {
+                enemyState = EnemyState.Death;
+            }
+            else
+            {
+                Agent.speed = 0;
+                EnemyAnimator.SetBool("RunToHit", true);
+                yield return new WaitForSeconds(0.5f);
+                EnemyAnimator.SetBool("RunToHit", false);
+                Agent.speed = MovementSpeed;
+            }
+
+        }
+
+        if (enemyState == EnemyState.Attack)
+        {
+            if (CurrentHealth <= 0)
+            {
+                enemyState = EnemyState.Death;
+            }
+            else
+            {
+                Agent.speed = 0;
+                EnemyAnimator.SetBool("AttackToHit", true);
+                yield return new WaitForSeconds(0.5f);
+                EnemyAnimator.SetBool("AttackToHit", false);
+                Agent.speed = MovementSpeed;
+            }
+
+        }
+
+        if (enemyState == EnemyState.Idle)
+        {
+            if (CurrentHealth <= 0)
+            {
+                enemyState = EnemyState.Death;
+            }
+            else
+            {
+                Agent.speed = 0;
+                EnemyAnimator.SetBool("IdleToHit", true);
+                yield return new WaitForSeconds(0.5f);
+                EnemyAnimator.SetBool("IdleToHit", false);
+                Agent.speed = MovementSpeed;
+            }
+
+        }
+
     }
 
 }

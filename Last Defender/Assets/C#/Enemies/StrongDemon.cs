@@ -51,11 +51,12 @@ public class StrongDemon : Enemy
             case EnemyState.Idle:
                 IdleBehaviour();
                 break;
-                /*
-            case EnemyState.Hit:
-                StartCoroutine(HitBehaviour());
-                break;
-                */
+
+        }
+
+        if (CurrentHealth < MaxHealth)
+        {
+            attackPlayer = true;
         }
 
         if (DistanceToPlayer > aggressionDistance)
@@ -79,7 +80,7 @@ public class StrongDemon : Enemy
             enemyState = EnemyState.Attack;
         }
 
-        if (Health <= 0)
+        if (CurrentHealth <= 0)
         {
             enemyState = EnemyState.Death;
         }
@@ -142,13 +143,11 @@ public class StrongDemon : Enemy
         {
             NewFireRate = Time.time + FireRate;
             StartCoroutine(AttackRoutine());
-        }
-        
+        } 
     }
 
     IEnumerator AttackRoutine()
     {
-       
         yield return new WaitForSeconds(0.2f);
         EnemyAnimator.SetBool("Idle to Attack1", true);
         yield return new WaitForSeconds(0.3f);
@@ -159,24 +158,6 @@ public class StrongDemon : Enemy
         EnemyAnimator.SetBool("Idle to Attack1", false);
     }
 
-    public void HitActivate()
-    {
-        StartCoroutine(HitBehaviour());
-    }
-
-    IEnumerator HitBehaviour()
-    {
-        
-        if (enemyState == EnemyState.Run)
-        {
-            Agent.velocity = Vector3.zero;
-            EnemyAnimator.SetBool("RunToHit", true);
-            yield return new WaitForSeconds(0.5f);
-            EnemyAnimator.SetBool("RunToHit", false);
-            //MovementPattern();
-        }
-        
-    }
 
     IEnumerator DeathBehaviour()
     {

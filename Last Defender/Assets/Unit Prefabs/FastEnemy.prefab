@@ -697,7 +697,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1438768703688320}
   m_LocalRotation: {x: -0, y: 0.76989555, z: -0, w: -0.63817}
-  m_LocalPosition: {x: 32.75929, y: 1.8891164, z: 38.197235}
+  m_LocalPosition: {x: 36.75, y: 1.8891164, z: 36.02}
   m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_Children:
   - {fileID: 4476354300957424}
@@ -1167,7 +1167,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   BoxCollider: {fileID: 0}
   RB: {fileID: 0}
-  Health: 6
+  CurrentHealth: 0
+  MaxHealth: 6
   MovementSpeed: 8.6
   gameManager: {fileID: 0}
   EnemyDamage: 3

@@ -53,11 +53,12 @@ public class RangeDemon : Enemy
             case EnemyState.Idle:
                 IdleBehaviour();
                 break;
-            case EnemyState.Hit:
-                StartCoroutine(HitBehaviour());
-                break;
         }
 
+        if (CurrentHealth < MaxHealth)
+        {
+            attackPlayer = true;
+        }
 
         if (DistanceToPlayer > aggressionDistance)
         {
@@ -80,7 +81,7 @@ public class RangeDemon : Enemy
             enemyState = EnemyState.Attack;
         }
 
-        if (Health <= 0)
+        if (CurrentHealth <= 0)
         {
             enemyState = EnemyState.Death;
         }
@@ -107,6 +108,7 @@ public class RangeDemon : Enemy
         }
 
     }
+
 
 
     public void IdleBehaviour()
@@ -169,10 +171,6 @@ public class RangeDemon : Enemy
         EnemyAnimator.SetBool("Attack", false);
     }
 
-    IEnumerator HitBehaviour()
-    {
-        yield return new WaitForSeconds(1);
-    }
 
     IEnumerator DeathBehaviour()
     {

@@ -51,9 +51,11 @@ public class FastDemon : Enemy
             case EnemyState.Idle:
                 IdleBehaviour();
                 break;
-            case EnemyState.Hit:
-                StartCoroutine(HitBehaviour());
-                break;
+        }
+
+        if (CurrentHealth < MaxHealth)
+        {
+            attackPlayer = true;
         }
 
         if (DistanceToPlayer > aggressionDistance)
@@ -76,7 +78,7 @@ public class FastDemon : Enemy
             enemyState = EnemyState.Attack;
         }
 
-        if (Health <= 0)
+        if (CurrentHealth <= 0)
         {
             enemyState = EnemyState.Death;
         }
@@ -136,10 +138,7 @@ public class FastDemon : Enemy
         EnemyAnimator.SetBool("Attack2", false);
     }
 
-    IEnumerator HitBehaviour()
-    {
-        yield return new WaitForSeconds(1);
-    }
+    
 
     public void DeathBehaviour()
     {
