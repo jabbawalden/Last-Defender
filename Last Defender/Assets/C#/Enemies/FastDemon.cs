@@ -18,6 +18,11 @@ public class FastDemon : Enemy
     // Use this for initialization
     void Start()
     {
+        if (gameManager.deadEnemies.Contains(enemyID))
+        {
+            Destroy(gameObject);
+            return;
+        }
         PlayerStrike = false;
     }
 

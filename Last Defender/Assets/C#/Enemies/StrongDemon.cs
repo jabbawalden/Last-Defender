@@ -18,6 +18,11 @@ public class StrongDemon : Enemy
     // Use this for initialization
     void Start ()
     {
+        if (gameManager.deadEnemies.Contains(enemyID))
+        {
+            Destroy(gameObject);
+            return;
+        }
         PlayerStrike = false;
     }
 
@@ -45,6 +50,9 @@ public class StrongDemon : Enemy
                 break;
             case EnemyState.Idle:
                 IdleBehaviour();
+                break;
+            case EnemyState.Hit:
+                StartCoroutine(HitBehaviour());
                 break;
         }
 
@@ -147,6 +155,11 @@ public class StrongDemon : Enemy
         PlayerStrike = false;
         yield return new WaitForSeconds(0.7f);
         EnemyAnimator.SetBool("Idle to Attack1", false);
+    }
+
+    IEnumerator HitBehaviour()
+    {
+        yield return new WaitForSeconds(1);
     }
 
     IEnumerator DeathBehaviour()

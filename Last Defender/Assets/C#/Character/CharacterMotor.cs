@@ -209,11 +209,17 @@ public class CharacterMotor : MonoBehaviour {
     public void PlayerDead()
     {
         Debug.Log("Player is dead");
+        StartCoroutine(PlayerRestart());
         //animate camera death
         //add in blood image overlay
         //play sound
         //
     }
 
+    IEnumerator PlayerRestart()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
+    }
 
 }

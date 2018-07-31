@@ -790,7 +790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844028811469202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2405396, y: 38.821323, z: -51.5998}
+  m_LocalPosition: {x: -76.738464, y: 32.82165, z: -8.599802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4931415809346248}
@@ -3312,7 +3312,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 4a9dc137947d07646b1cd75beeb4db89, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.776
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3641,14 +3641,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a870ca0017218e4782cc085d432f3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorState: 0
+  doorState: 1
   plight1: {fileID: 108841368010688742}
   plight2: {fileID: 108258919174762078}
   _animator: {fileID: 95405469564250080}
   _doorSFX: {fileID: 82823812087684940}
   doorClip: {fileID: 8300000, guid: 4a9dc137947d07646b1cd75beeb4db89, type: 3}
   powerLevelReached: 0
-  powerLevelRequirement: 0
+  powerLevelRequirement: 2
   doorIsOpening: 0
   playerInRange: 0
   unlocked: 0

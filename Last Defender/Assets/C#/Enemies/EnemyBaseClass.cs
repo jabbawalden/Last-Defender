@@ -31,7 +31,7 @@ public class Enemy<T> where T : Enemy
 public abstract class Enemy : MonoBehaviour
 {
     [System.Serializable]
-    public enum EnemyState { Idle, Shout, Run, Attack, Death }
+    public enum EnemyState { Idle, Shout, Run, Attack, Death, Hit }
     public enum EnemySound { Active, Silent}
 
     public EnemyState enemyState;
@@ -81,7 +81,7 @@ public abstract class Enemy : MonoBehaviour
         EnemyAudio.maxDistance = 2600;
         EnemyAudio.outputAudioMixerGroup = EnemyAudioMixer;
         EnemyAudio.minDistance = 2f;
-        EnemyAudio.pitch = 0.8f;
+        EnemyAudio.pitch = 0.75f;
         growlPlayed = false;
         deathGrowlPlayed = false;
         RB.isKinematic = true;
