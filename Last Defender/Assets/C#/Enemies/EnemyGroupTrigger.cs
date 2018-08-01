@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyGroupTrigger : MonoBehaviour {
 
+    [System.Serializable]
+    public enum TriggerType {AttackTrue, SetActive}
+    public TriggerType triggerType;
+
     public GameObject[] strongEnemies, fastEnemies, rangeEnemies;
     private AudioSource _audioSource;
     public bool playScream;
@@ -11,32 +15,81 @@ public class EnemyGroupTrigger : MonoBehaviour {
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+
+        if (triggerType == TriggerType.SetActive)
+        {
+            foreach (GameObject i in strongEnemies)
+            {
+                i.SetActive(false);
+            }
+
+            foreach (GameObject i in fastEnemies)
+            {
+                i.SetActive(false);
+            }
+
+            foreach (GameObject i in rangeEnemies)
+            {
+                i.SetActive(false);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (playScream)
+            if (triggerType == TriggerType.AttackTrue)
             {
-                _audioSource.Play();
-                playScream = false;
-            }
-            
-            foreach (GameObject i in strongEnemies)
-            {
-                i.GetComponent<StrongDemon>().attackPlayer = true;
-            }
+                if (playScream)
+                {
+                    _audioSource.Play();
+                    playScream = false;
+                }
 
-            foreach (GameObject i in fastEnemies)
-            {
-                i.GetComponent<FastDemon>().attackPlayer = true;
-            }
+                foreach (GameObject i in strongEnemies)
+                {
+                    i.GetComponent<StrongDemon>().attackPlayer = true;
+                }
 
-            foreach (GameObject i in rangeEnemies)
+                foreach (GameObject i in fastEnemies)
+                {
+                    i.GetComponent<FastDemon>().attackPlayer = true;
+                }
+
+                foreach (GameObject i in rangeEnemies)
+                {
+                    i.GetComponent<RangeDemon>().attackPlayer = true;
+                }
+            } 
+
+            if (triggerType == TriggerType.SetActive)
             {
-                i.GetComponent<RangeDemon>().attackPlayer = true;
+                if (playScream)
+                {
+                    _audioSource.Play();
+                    playScream = false;
+                }
+
+                foreach (GameObject i in strongEnemies)
+                {
+                    i.SetActive(true);
+                    i.GetComponent<StrongDemon>().attackPlayer = true;
+                }
+
+                foreach (GameObject i in fastEnemies)
+                {
+                    i.SetActive(true);
+                    i.GetComponent<FastDemon>().attackPlayer = true;
+                }
+
+                foreach (GameObject i in rangeEnemies)
+                {
+                    i.SetActive(true);
+                    i.GetComponent<RangeDemon>().attackPlayer = true;
+                }
             }
+       
         }
        
     }
