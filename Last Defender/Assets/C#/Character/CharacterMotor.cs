@@ -42,8 +42,7 @@ public class CharacterMotor : MonoBehaviour {
     [SerializeField] private Animator _playerAnim;
     public GameObject[] hitPos;
 
-   
-
+     
     private void OnEnable()
     {
         GameEvents.EventPlayerDead += PlayerDead;
