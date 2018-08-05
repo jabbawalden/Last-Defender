@@ -14,8 +14,10 @@ public class UIManager : MonoBehaviour {
     private PShoot _pShoot;
     [SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
     public AmmoRefill ammoRefill;
-    public GameObject UIammoRefill, UIplayerUpgrades;
-    public GameObject SuitInstructions;
+    public GameObject uIammoRefill, uIplayerUpgrades;
+    public GameObject suitInstructions;
+    public GameObject inGameMenu;
+    public bool menuShown;
 
     private void OnEnable()
     {
@@ -28,10 +30,12 @@ public class UIManager : MonoBehaviour {
 
     void Start()
     {
-        SuitInstructions.SetActive(false);
+        menuShown = false;
+        inGameMenu.SetActive(false);
+        suitInstructions.SetActive(false);
         interactE.gameObject.SetActive(false);
-        UIammoRefill.SetActive(false);
-        UIplayerUpgrades.SetActive(false);
+        uIammoRefill.SetActive(false);
+        uIplayerUpgrades.SetActive(false);
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         DoorPowerDisplay("", Color.black);
@@ -48,7 +52,7 @@ public class UIManager : MonoBehaviour {
         _healthDisplay.text = "HEALTH: " + _characterMotor.health;
 
         //Light UI
-        _lightPowerDisplay.text = "POWER: " + _characterMotor.lightPower;
+        _lightPowerDisplay.text = "Light Power: " + _characterMotor.lightPower;
 
         AmmoDisplay();
         SuitInstructionsController();
@@ -80,11 +84,11 @@ public class UIManager : MonoBehaviour {
 
     public void SuitInstructionsController()
     {
-        if (SuitInstructions.activeInHierarchy == false)
+        if (suitInstructions.activeInHierarchy == false)
         {
             interactE.text = "Interact (E)";
         }
-        else if (SuitInstructions.activeInHierarchy == true)
+        else if (suitInstructions.activeInHierarchy == true)
         {
             interactE.text = "Exit Application (E)";
         }

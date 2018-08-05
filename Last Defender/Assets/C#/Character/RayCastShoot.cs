@@ -42,7 +42,8 @@ public class RayCastShoot : MonoBehaviour {
 
             laserLine[0].SetPosition(1, hit.point);
             //gets script from hit object
-            StrongDemon enemyCollider = hit.collider.GetComponent<StrongDemon>();
+            StrongDemon enemyCollider = hit.collider.transform.GetComponentInParent<StrongDemon>();
+            //StrongDemon enemyCollider = hit.collider.GetComponent<StrongDemon>();
             FastDemon enemyCollider2 = hit.collider.GetComponent<FastDemon>();
             RangeDemon enemyCollider3 = hit.collider.GetComponent<RangeDemon>();
             //DemonController demonController = hit.collider.GetComponent<DemonController>();
@@ -51,10 +52,27 @@ public class RayCastShoot : MonoBehaviour {
             if (enemyCollider != null)
             {
                 GameEvents.ReportEnemyHit();
-                enemyCollider.CurrentHealth -= _pShoot.currentDamage;
                 StartCoroutine(HitTargetIndicator());
-                if (_pShoot.currentWeapon == 3)
-                    enemyCollider.HitActivate();
+
+                if (hit.collider.CompareTag("Enemy"))
+                {
+                    enemyCollider.CurrentHealth -= _pShoot.currentDamage;
+
+                    if (_pShoot.currentWeapon == 3 && enemyCollider.CurrentHealth > 0)
+                    {
+                        enemyCollider.HitActivate();
+                    }
+                }  
+                else if (hit.collider.CompareTag("EnemyHead"))
+                {
+                    enemyCollider.CurrentHealth -= _pShoot.currentDamage * 2;
+
+                    if (_pShoot.currentWeapon == 3 && enemyCollider.CurrentHealth > 0)
+                    {
+                        enemyCollider.HitActivate();
+                    }
+                }
+                    
             }
 
             if (enemyCollider2 != null)

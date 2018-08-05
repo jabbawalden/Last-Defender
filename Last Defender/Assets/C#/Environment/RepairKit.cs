@@ -33,7 +33,7 @@ public class RepairKit : MonoBehaviour {
         {
             AddID();
             _characterMotor.canMove = false;
-            _uIManager.UIplayerUpgrades.SetActive(true);
+            _uIManager.uIplayerUpgrades.SetActive(true);
             _characterLook.canLook = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

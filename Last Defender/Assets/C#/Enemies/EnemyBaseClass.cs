@@ -61,6 +61,7 @@ public abstract class Enemy : MonoBehaviour
     public bool PlayerStrike;
     public bool playerInSight;
 
+    public GameObject Joints;
     public NavMeshAgent Agent;
     public Vector3 Direction;
     public float DistanceToPlayer;

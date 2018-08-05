@@ -7,7 +7,8 @@ public class PowerCore : MonoBehaviour
     public string powerCoreID = "Undefined";
     private GameManager _gameManager;
     //create reference
-    private CharacterMotor _player;
+    //private CharacterMotor _player;
+
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class PowerCore : MonoBehaviour
             return;
         }
         //set reference
-        _player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
+        //_player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,12 +27,12 @@ public class PowerCore : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //+1 to power cores collected
-            _player.powerCoresCollected++;
+            GameEvents.PowerCore();
+            _gameManager.gm_PowerCores++;
             AddID();
             Destroy(this.gameObject, 1f);
         }
     }
-
 
     void AddID()
     {

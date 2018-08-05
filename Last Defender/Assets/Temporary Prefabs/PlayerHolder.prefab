@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566536030198070}
   m_LocalRotation: {x: -0, y: 0.7120362, z: -0, w: 0.7021428}
-  m_LocalPosition: {x: 137.18, y: 2.73977, z: -0.36}
+  m_LocalPosition: {x: 234.28, y: 16.01, z: 21.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4758531686056194}
@@ -259,14 +259,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1227307040002208}
-  m_LocalRotation: {x: -0, y: -0.0538865, z: -0, w: -0.9985471}
-  m_LocalPosition: {x: -37.46798, y: -0.00020694733, z: -121.428894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.6, y: -12.5, z: -221.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987061697916668}
   m_Father: {fileID: 4751626953335770}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 366.178, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4868567913460380
 Transform:
   m_ObjectHideFlags: 1
@@ -646,18 +646,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ad8c669f81b2f40a0649428cffb22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
-  maxHealth: 40000
+  health: 50
+  maxHealth: 50
   armour: 0
   speed: 6.5
   _rb: {fileID: 54800562517440174}
   jump: 7
   spotLight: {fileID: 1128594682970450}
-  lightPower: 600
+  lightPower: 1000
   lightOn: 0
-  powerCoresCollected: 0
   lightRecoveryAmount: 0
-  maxLightPower: 600
+  maxLightPower: 1000
   canOpenDoor: 0
   canMove: 0
   canShoot: 0

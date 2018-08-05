@@ -21,6 +21,7 @@ public class DoorActivate : MonoBehaviour {
     public bool doorIsOpening;
     private CharacterMotor _player;
     private UIManager _uIManager;
+    private GameManager _gameManager;
     public bool playerInRange;
     public bool unlocked;
     public bool open;
@@ -32,6 +33,7 @@ public class DoorActivate : MonoBehaviour {
         powerLevelReached = false;
         _player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _uIManager = GameObject.Find("UI").GetComponent<UIManager>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         switch (doorState)
         {
@@ -48,7 +50,7 @@ public class DoorActivate : MonoBehaviour {
 
     private void Update()
     {
-        if (_player.powerCoresCollected >= powerLevelRequirement )
+        if (_gameManager.gm_PowerCores >= powerLevelRequirement )
         {
             powerLevelReached = true;
         }
@@ -97,7 +99,7 @@ public class DoorActivate : MonoBehaviour {
             switch (doorState)
             {
                 case DoorState.unlocked:
-                        _uIManager.DoorPowerDisplay("Open Door (Q)", Color.blue);
+                        _uIManager.DoorPowerDisplay("Open Door (Q)", Color.yellow);
                     break;
                 case DoorState.locked:
                     if (powerLevelReached)

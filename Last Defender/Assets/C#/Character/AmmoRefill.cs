@@ -22,6 +22,7 @@ public class AmmoRefill : MonoBehaviour {
 	
     public void BlastCannonRefill()
     {
+        GameEvents.AmmoRefillPlayer();
         ammoRefill.SetActive(false);
         _characterMotor.canMove = true;
         _pShoot.bAmmo += blastCannonA;
@@ -33,6 +34,7 @@ public class AmmoRefill : MonoBehaviour {
 
     public void MiniCannonRefill()
     {
+        GameEvents.AmmoRefillPlayer();
         ammoRefill.SetActive(false);
         _characterMotor.canMove = true;
         _pShoot.mAmmo += miniCannonA;
@@ -44,6 +46,7 @@ public class AmmoRefill : MonoBehaviour {
 
     public void HyperCannonRefill()
     {
+        GameEvents.AmmoRefillPlayer();
         ammoRefill.SetActive(false);
         _characterMotor.canMove = true;
         _pShoot.hAmmo += hyperBlasterA;

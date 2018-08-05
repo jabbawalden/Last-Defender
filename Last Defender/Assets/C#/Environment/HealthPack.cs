@@ -16,14 +16,18 @@ public class HealthPack : MonoBehaviour {
     {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            
             if (_characterMotor.health < _characterMotor.maxHealth)
             {
+                GameEvents.PlayerHeal();
+
                 if (_characterMotor.health <= _characterMotor.maxHealth - healthAmount)
                 {
                     _characterMotor.health += healthAmount;
