@@ -17,14 +17,14 @@ public class AudioManager : MonoBehaviour {
 
     private void OnEnable()
     {
-        GameEvents.EventPlayerHeal += PlayHealPack;
+        GameEvents.EventItemAcquired += PlayHealPack;
         GameEvents.EventPowerCore += PlayPowerCore;
         GameEvents.EventAmmoRefill += PlayAmmoRefill;
     }
 
     private void OnDisable()
     {
-        GameEvents.EventPlayerHeal -= PlayHealPack;
+        GameEvents.EventItemAcquired -= PlayHealPack;
         GameEvents.EventPowerCore -= PlayPowerCore;
         GameEvents.EventAmmoRefill -= PlayAmmoRefill;
     }

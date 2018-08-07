@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Text _ammoDisplay;
     [SerializeField] private Text _lightPowerDisplay;
     [SerializeField] private Text _doorPowerDisplay;
+    [SerializeField] private Text _itemAcquiredDisplay;
     public Text interactE;
     private CharacterMotor _characterMotor;
     private PShoot _pShoot;
@@ -80,6 +81,11 @@ public class UIManager : MonoBehaviour {
     {
         _doorPowerDisplay.text = powerState;
         _doorPowerDisplay.color = colour;
+    }
+
+    public void ItemAcquiredDisplay(string itemType)
+    {
+        _itemAcquiredDisplay.text = itemType;
     }
 
     public void SuitInstructionsController()

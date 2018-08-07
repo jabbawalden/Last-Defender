@@ -18,7 +18,7 @@ public static class GameEvents
     public static event Action EventPlayerDead = null;
     public static event Action EventEnemyDeath = null;
     public static event Action EventPlayerHit = null;
-    public static event Action EventPlayerHeal = null;
+    public static event Action EventItemAcquired = null;
     public static event Action EventPowerCore = null;
     public static event Action EventCreepyMomentOne = null;
     public static event Action EventAmmoRefill = null;
@@ -69,10 +69,10 @@ public static class GameEvents
             EventPlayerHit();
     }
 
-    public static void PlayerHeal()
+    public static void ItemAcquired()
     {
-        if (EventPlayerHeal != null)
-            EventPlayerHeal();
+        if (EventItemAcquired != null)
+            EventItemAcquired();
     }
 
     public static void PowerCore()

@@ -11,11 +11,12 @@ public class HealthPack : MonoBehaviour {
 
     private GameManager _gameManager;
     private CharacterMotor _characterMotor;
-
+    private UIManager _uIManager;
     private void Start()
     {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _uIManager = GameObject.Find("UI").GetComponent<UIManager>();
 
     }
 
@@ -26,7 +27,8 @@ public class HealthPack : MonoBehaviour {
             
             if (_characterMotor.health < _characterMotor.maxHealth)
             {
-                GameEvents.PlayerHeal();
+                GameEvents.ItemAcquired();
+                _uIManager.ItemAcquiredDisplay("Health Pack Acquired");
 
                 if (_characterMotor.health <= _characterMotor.maxHealth - healthAmount)
                 {

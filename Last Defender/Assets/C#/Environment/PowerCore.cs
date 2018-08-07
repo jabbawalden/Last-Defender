@@ -6,12 +6,14 @@ public class PowerCore : MonoBehaviour
 {
     public string powerCoreID = "Undefined";
     private GameManager _gameManager;
+    private UIManager _uIManager;
     //create reference
     //private CharacterMotor _player;
 
 
     void Start()
     {
+        _uIManager = GameObject.Find("UI").GetComponent<UIManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (_gameManager.usedPowerCore.Contains(powerCoreID))
         {
@@ -27,6 +29,9 @@ public class PowerCore : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //+1 to power cores collected
+            GameEvents.ItemAcquired();
+            _uIManager.ItemAcquiredDisplay("Power Core Acquired");
+
             GameEvents.PowerCore();
             _gameManager.gm_PowerCores++;
             AddID();

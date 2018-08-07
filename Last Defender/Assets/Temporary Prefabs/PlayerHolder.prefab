@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566536030198070}
   m_LocalRotation: {x: -0, y: 0.7120362, z: -0, w: 0.7021428}
-  m_LocalPosition: {x: 234.28, y: 16.01, z: 21.43}
+  m_LocalPosition: {x: 234.7, y: 16.01, z: 21.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4758531686056194}
@@ -653,10 +653,9 @@ MonoBehaviour:
   _rb: {fileID: 54800562517440174}
   jump: 7
   spotLight: {fileID: 1128594682970450}
-  lightPower: 1000
   lightOn: 0
-  lightRecoveryAmount: 0
   maxLightPower: 1000
+  lightPower: 1000
   canOpenDoor: 0
   canMove: 0
   canShoot: 0

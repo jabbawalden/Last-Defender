@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPackAnimation : MonoBehaviour {
+public class ItemAcquiredAnimation : MonoBehaviour {
 
     private Animator _animator;
 
@@ -13,12 +13,12 @@ public class HealthPackAnimation : MonoBehaviour {
 
     private void OnEnable()
     {
-        GameEvents.EventPlayerHeal += AnimationTrigger;
+        GameEvents.EventItemAcquired += AnimationTrigger;
     }
 
     private void OnDisable()
     {
-        GameEvents.EventPlayerHeal -= AnimationTrigger;
+        GameEvents.EventItemAcquired -= AnimationTrigger;
     }
 
 
