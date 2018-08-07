@@ -12,8 +12,18 @@ public class EnemyGroupTrigger : MonoBehaviour {
     private AudioSource _audioSource;
     public bool playScream;
 
+    public string enemyGroupTriggerID = "Undefined";
+    private GameManager _gameManager;
+
     private void Start()
     {
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (_gameManager.triggeredEnemyGroups.Contains(enemyGroupTriggerID))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         _audioSource = GetComponent<AudioSource>();
 
         if (triggerType == TriggerType.SetActive)
@@ -39,6 +49,8 @@ public class EnemyGroupTrigger : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            AddID();
+
             if (triggerType == TriggerType.AttackTrue)
             {
                 if (playScream)
@@ -94,5 +106,12 @@ public class EnemyGroupTrigger : MonoBehaviour {
        
     }
 
-	
+    void AddID()
+    {
+        if (!_gameManager.triggeredEnemyGroups.Contains(enemyGroupTriggerID))
+        {
+            _gameManager.triggeredEnemyGroups.Add(enemyGroupTriggerID);
+        }
+    }
+
 }
