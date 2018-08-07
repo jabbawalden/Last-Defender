@@ -103,11 +103,11 @@ public class CharacterMotor : MonoBehaviour {
 
         if (currentDoorActive != null)
         {
-            if (currentDoorActive.powerLevelReached && Input.GetKeyDown(KeyCode.Q) && canOpenDoor && !currentDoorActive.open)
+            if (currentDoorActive.powerLevelReached && Input.GetKeyDown(KeyCode.E) && canOpenDoor && !currentDoorActive.open)
             {
                 currentDoorActive.DoorStateChange();
             }
-            if (currentDoorActive.doorState == DoorActivate.DoorState.unlocked && Input.GetKeyDown(KeyCode.Q) && canOpenDoor && !currentDoorActive.open)
+            if (currentDoorActive.doorState == DoorActivate.DoorState.unlocked && Input.GetKeyDown(KeyCode.E) && canOpenDoor && !currentDoorActive.open)
             {
                 currentDoorActive.OpenDoor();
             }
