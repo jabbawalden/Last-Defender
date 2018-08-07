@@ -22,6 +22,13 @@ public class GameManager : Singleton<GameManager> {
     public List<string> usedPowerCore = new List<string>();
     public List<string> usedHealthPack = new List<string>();
     public List<string> usedRepairKits = new List<string>();
+    public List<string> triggeredEnemyGroups = new List<string>();
     public int gm_PowerCores;
+
+    //player data
+    //player position
+    //player armour
+    //player movement speed
+    //player light power
 
 }

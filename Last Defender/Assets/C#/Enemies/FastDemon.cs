@@ -147,6 +147,7 @@ public class FastDemon : Enemy
         Agent.velocity = Vector3.zero;
         EnemyAnimator.SetBool("Dead", true);
         BoxCollider.enabled = false;
+        Joints.SetActive(false);
         Agent.radius = 0;
         PlayDeathGrowl();
         OnKill();

@@ -44,7 +44,7 @@ public class RayCastShoot : MonoBehaviour {
             //gets script from hit object
             StrongDemon enemyCollider = hit.collider.transform.GetComponentInParent<StrongDemon>();
             //StrongDemon enemyCollider = hit.collider.GetComponent<StrongDemon>();
-            FastDemon enemyCollider2 = hit.collider.GetComponent<FastDemon>();
+            FastDemon enemyCollider2 = hit.collider.transform.GetComponentInParent<FastDemon>();
             RangeDemon enemyCollider3 = hit.collider.GetComponent<RangeDemon>();
             //DemonController demonController = hit.collider.GetComponent<DemonController>();
 
@@ -77,8 +77,13 @@ public class RayCastShoot : MonoBehaviour {
 
             if (enemyCollider2 != null)
             {
-                enemyCollider2.CurrentHealth -= _pShoot.currentDamage;
                 StartCoroutine(HitTargetIndicator());
+
+                if (hit.collider.CompareTag("Enemy"))
+                    enemyCollider2.CurrentHealth -= _pShoot.currentDamage;
+                else if (hit.collider.CompareTag("EnemyHead"))
+                    enemyCollider2.CurrentHealth -= _pShoot.currentDamage * 2;
+
             }
 
             if (enemyCollider3 != null)

@@ -17,11 +17,11 @@ public class CharacterMotor : MonoBehaviour {
 
     //Light capabilities
     public GameObject spotLight;
-    public float lightPower;
     public bool lightOn;
     //public int powerCoresCollected = 0;
-    public int lightRecoveryAmount;
+    //public int lightRecoveryAmount;
     public float maxLightPower;
+    public float lightPower;
     public bool canOpenDoor;
     public bool canMove;
 
@@ -60,7 +60,6 @@ public class CharacterMotor : MonoBehaviour {
         canShoot = true;
         canMove = true;
         _cursorshown = false;
-        lightRecoveryAmount = 1;
         lightOn = false;
         spotLight.SetActive(false);
         speed *= Time.deltaTime;
@@ -246,7 +245,10 @@ public class CharacterMotor : MonoBehaviour {
 
             if (lightPower < maxLightPower)
             {
-                lightPower += lightRecoveryAmount;
+                lightPower += maxLightPower / 600;
+
+                if (lightPower > maxLightPower)
+                    lightPower = maxLightPower;
             }
         }
 
