@@ -39,6 +39,7 @@ public abstract class Enemy : MonoBehaviour
     public Animator EnemyAnimator;
     public AudioSource EnemyAudio;
     public AudioClip[] EnemyGrowl;
+    public AudioClip[] EnemyFootstep;
     public AudioClip EnemyDeathGrowl;
     public AudioMixerGroup EnemyAudioMixer;
     public bool growlPlayed;
@@ -67,6 +68,7 @@ public abstract class Enemy : MonoBehaviour
     public float DistanceToPlayer;
     public float aggressionDistance;
     public bool attackPlayer;
+    public bool canMove;
     public Vector3 newPlayerPosition;
  
     //only classes that inherit from Enemy can see this field. 
@@ -76,7 +78,7 @@ public abstract class Enemy : MonoBehaviour
     private void Awake()
     {
         //add common components
-        
+        canMove = true;
         RB = gameObject.AddComponent<Rigidbody>();
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -114,6 +116,17 @@ public abstract class Enemy : MonoBehaviour
             EnemyAudio.PlayOneShot(EnemyGrowl[r]);
             growlPlayed = true;
         }
+    }
+     
+    public void Step()
+    {
+        AudioClip clip = GetRandomClip();
+        EnemyAudio.PlayOneShot(clip);
+    }
+
+    public AudioClip GetRandomClip()
+    {
+        return EnemyFootstep[UnityEngine.Random.Range(0, EnemyFootstep.Length)];
     }
 
     public void PlayDeathGrowl()

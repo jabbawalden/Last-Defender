@@ -956,7 +956,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704842185175204}
   m_LocalRotation: {x: -0, y: 0.94181705, z: -0, w: -0.3361261}
-  m_LocalPosition: {x: 8.033604, y: 0.8901254, z: -60.826633}
+  m_LocalPosition: {x: 34.567997, y: 2.1789038, z: 38.55735}
   m_LocalScale: {x: 1.2000017, y: 1.1999999, z: 1.2000017}
   m_Children:
   - {fileID: 4174680342861034}
@@ -1603,12 +1603,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
-  enemySound: 1
+  enemySound: 0
   EnemyAnimator: {fileID: 0}
   EnemyAudio: {fileID: 0}
   EnemyGrowl:
   - {fileID: 8300000, guid: 839b03324b92b3646b13505139a010cb, type: 3}
   - {fileID: 8300000, guid: 4884077903aac2a4f93f0f986ab9a7ad, type: 3}
+  EnemyFootstep:
+  - {fileID: 8300000, guid: a2a3969dd552e4c49af40f26702ef6d7, type: 3}
+  - {fileID: 8300000, guid: d3ae440667b028e4fad35a3017543b52, type: 3}
+  - {fileID: 8300000, guid: d47f692a5276df547b239b6438b44a99, type: 3}
+  - {fileID: 8300000, guid: 3ad04c66571d7154697f1ffd984fc0eb, type: 3}
+  - {fileID: 8300000, guid: ef8030b4593c3bc4995703eb0c688e8c, type: 3}
+  - {fileID: 8300000, guid: 3ec17139ae628e3438535c3232cf90f5, type: 3}
+  - {fileID: 8300000, guid: 911204ea2c3e3634eaba34390dad5d49, type: 3}
   EnemyDeathGrowl: {fileID: 8300000, guid: 17046986e3467f948a5834fd93ea74ae, type: 3}
   EnemyAudioMixer: {fileID: 243369112106232790, guid: 5542c126a5afd0a4b9225acc62f6ae58,
     type: 2}
@@ -1624,7 +1632,7 @@ MonoBehaviour:
   MovementSpeed: 6
   gameManager: {fileID: 0}
   EnemyDamage: 5
-  FireRate: 1.7
+  FireRate: 1.8
   NewFireRate: 0
   PlayerStrike: 0
   playerInSight: 0
@@ -1634,6 +1642,7 @@ MonoBehaviour:
   DistanceToPlayer: 0
   aggressionDistance: 30
   attackPlayer: 0
+  canMove: 0
   newPlayerPosition: {x: 0, y: 0, z: 0}
 --- !u!135 &135635266156847682
 SphereCollider:

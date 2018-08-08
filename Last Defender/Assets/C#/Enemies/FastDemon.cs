@@ -103,10 +103,9 @@ public class FastDemon : Enemy
 
     public void RunBehaviour()
     {
-        if (EnemyAnimator.GetBool("Attack2") == false)
-        {
+        if (canMove)
             StartCoroutine(RunRoutine());
-        }
+
         PlayGrowl();
     }
 
@@ -130,6 +129,7 @@ public class FastDemon : Enemy
 
     IEnumerator AttackRoutine()
     {
+        canMove = false;
         yield return new WaitForSeconds(0.15f);
         EnemyAnimator.SetBool("Attack2", true);
         yield return new WaitForSeconds(0.21f);
@@ -138,6 +138,7 @@ public class FastDemon : Enemy
         PlayerStrike = false;
         yield return new WaitForSeconds(0.47f);
         EnemyAnimator.SetBool("Attack2", false);
+        canMove = true;
     }
 
     
