@@ -702,9 +702,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1438768703688320}
-  m_LocalRotation: {x: -0, y: 0.84905493, z: -0, w: -0.52830464}
-  m_LocalPosition: {x: 33.013985, y: 2.706213, z: 36.87264}
-  m_LocalScale: {x: 1, y: 0.9, z: 1}
+  m_LocalRotation: {x: -0, y: 0.952029, z: -0, w: -0.30600795}
+  m_LocalPosition: {x: 22.01, y: 2.4290009, z: -5.81}
+  m_LocalScale: {x: 1.0000004, y: 0.9, z: 1.0000004}
   m_Children:
   - {fileID: 4476354300957424}
   - {fileID: 4001690532662556}
@@ -713,7 +713,7 @@ Transform:
   - {fileID: 4096192725317730}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 243.782, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 215.638, z: 0}
 --- !u!4 &4294892216385962
 Transform:
   m_ObjectHideFlags: 1
@@ -1187,13 +1187,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c188b17e729aeae42bab5982863c4a49, type: 3}
   - {fileID: 8300000, guid: ff90d1fd3e87f584c8496f30b1b6a397, type: 3}
   - {fileID: 8300000, guid: 2d5b9d7d9db33f04b8ab141f8fa0cde7, type: 3}
+  EnemyFootstep: []
   EnemyDeathGrowl: {fileID: 8300000, guid: 5c5f2b772a643e84499fa1b95feb497b, type: 3}
   EnemyAudioMixer: {fileID: 243369112106232790, guid: 5542c126a5afd0a4b9225acc62f6ae58,
     type: 2}
   growlPlayed: 0
   deathGrowlPlayed: 0
   bodyCollision: {fileID: 0}
-  enemyID: 815b64e8-261e-436d-ad11-285c7fc646ee
+  enemyID: 5d5c0a04-1772-4ec2-a4e5-bfe54dbf8b58
   Player: {fileID: 0}
   BoxCollider: {fileID: 0}
   RB: {fileID: 0}
@@ -1202,7 +1203,7 @@ MonoBehaviour:
   MovementSpeed: 8.6
   gameManager: {fileID: 0}
   EnemyDamage: 3
-  FireRate: 1.3
+  FireRate: 1
   NewFireRate: 0
   PlayerStrike: 0
   playerInSight: 0
@@ -1212,6 +1213,7 @@ MonoBehaviour:
   DistanceToPlayer: 0
   aggressionDistance: 25
   attackPlayer: 0
+  canMove: 0
   newPlayerPosition: {x: 0, y: 0, z: 0}
   rayOriginObject: {fileID: 0}
 --- !u!114 &114146964813661822
@@ -1264,9 +1266,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.1354744
-  m_Height: 1.435731
+  m_Height: 1.5844789
   m_Direction: 1
-  m_Center: {x: 0.03242708, y: 0.50920653, z: -0.036929607}
+  m_Center: {x: 0.032082196, y: 0.583731, z: -0.040178716}
 --- !u!136 &136209762330169410
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1316,9 +1318,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.1353032
-  m_Height: 1.4276462
+  m_Height: 1.5295724
   m_Direction: 1
-  m_Center: {x: 0.011506817, y: 0.48209482, z: 0.0152375875}
+  m_Center: {x: 0.011082304, y: 0.53314877, z: 0.017273335}
 --- !u!137 &137191190502060700
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

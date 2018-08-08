@@ -81,6 +81,12 @@ public class CharacterMotor : MonoBehaviour {
 
         InteractSuitInstruction();
 
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    speed += 0.4f;
+        //}
+            
+
         if (health >= 1 && canMove)
         {
             MovementInput();
