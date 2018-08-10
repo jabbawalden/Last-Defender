@@ -19,11 +19,11 @@ public class FastDemon : Enemy
     // Use this for initialization
     void Start()
     {
-        if (gameManager.deadEnemies.Contains(enemyID))
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if (gameManager.deadEnemies.Contains(enemyID))
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
         PlayerStrike = false;
     }
 
@@ -56,7 +56,7 @@ public class FastDemon : Enemy
                 break;
         }
 
-        if (CurrentHealth < MaxHealth)
+        if (CurrentHealth < MaxHealth && ReturnPlayerLife())
         {
             attackPlayer = true;
         }
@@ -67,16 +67,16 @@ public class FastDemon : Enemy
             EnemyAnimator.SetBool("Run", false);
         }
 
-        if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
+        if (!attackPlayer && DistanceToPlayer <= aggressionDistance && ReturnPlayerLife())
         {
             enemyState = EnemyState.Run;
         }
-        else if (attackPlayer)
+        else if (attackPlayer && ReturnPlayerLife())
         {
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 2.4f && CurrentHealth > 0)
+        if (DistanceToPlayer <= 2.4f && CurrentHealth > 0 && ReturnPlayerLife())
         {
             enemyState = EnemyState.Attack;
             RotateTowards();

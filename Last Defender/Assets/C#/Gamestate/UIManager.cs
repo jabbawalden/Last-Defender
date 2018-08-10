@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
 
-    [SerializeField] private Text _healthDisplay;
     [SerializeField] private Text _ammoDisplay;
     [SerializeField] private Text _lightPowerDisplay;
     [SerializeField] private Text _doorPowerDisplay;
     [SerializeField] private Text _itemAcquiredDisplay;
     public Text interactE;
+    public GameObject interactBG;
     private CharacterMotor _characterMotor;
     private PShoot _pShoot;
     [SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
@@ -18,23 +19,30 @@ public class UIManager : MonoBehaviour {
     public GameObject uIammoRefill, uIplayerUpgrades;
     public GameObject suitInstructions;
     public GameObject inGameMenu;
+    public GameObject deathScreen;
+    public GameObject winScreen;
+    public Slider healthBar;
+    public Slider powerBar;
     public bool menuShown;
 
     private void OnEnable()
     {
-        
+        GameEvents.EventGameWon += GameWonUI;
     }
     private void OnDisable()
     {
-        
+        GameEvents.EventGameWon -= GameWonUI;
     }
 
     void Start()
     {
         menuShown = false;
+        winScreen.SetActive(false);
+        deathScreen.SetActive(false);
         inGameMenu.SetActive(false);
         suitInstructions.SetActive(false);
         interactE.gameObject.SetActive(false);
+        interactBG.gameObject.SetActive(false);
         uIammoRefill.SetActive(false);
         uIplayerUpgrades.SetActive(false);
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
@@ -46,18 +54,28 @@ public class UIManager : MonoBehaviour {
         hBAmmoDisplay.text = "Hyper Blaster + " + ammoRefill.hyperBlasterA;
     }
 
-
     void Update()
     {
-        //Health UI
-        _healthDisplay.text = "HEALTH: " + _characterMotor.health;
-
+        HealthBarDisplay();
+        PowerBarDisplay();
         //Light UI
-        _lightPowerDisplay.text = "Light Power: " + _characterMotor.lightPower;
+        _lightPowerDisplay.text = "Light Power:";
 
         AmmoDisplay();
         SuitInstructionsController();
 
+    }
+
+    public void HealthBarDisplay()
+    {
+        healthBar.value = Mathf.Lerp(healthBar.value, _characterMotor.health, Time.deltaTime * 10F);
+
+    }
+
+    public void PowerBarDisplay()
+    {
+        float percentageAmount = _characterMotor.lightPower / _characterMotor.maxLightPower;
+        powerBar.value = percentageAmount;
     }
 
     void AmmoDisplay()
@@ -93,11 +111,23 @@ public class UIManager : MonoBehaviour {
         if (suitInstructions.activeInHierarchy == false)
         {
             interactE.text = "Interact (E)";
+            
         }
         else if (suitInstructions.activeInHierarchy == true)
         {
             interactE.text = "Exit Application (E)";
+            
         }
     }
+
     
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void GameWonUI()
+    {
+        winScreen.SetActive(true);
+    }
 }

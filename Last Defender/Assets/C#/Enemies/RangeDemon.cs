@@ -9,16 +9,11 @@ public class RangeDemon : Enemy
     [SerializeField] private GameObject _shootOrigin;
     [SerializeField] private float _projSpeed;
     public GameObject rayOriginObject;
-    
+    [SerializeField] private int _shootRange;
 
     // Use this for initialization
     void Start()
     {
-        if (gameManager.deadEnemies.Contains(enemyID))
-        {
-            Destroy(gameObject);
-            return;
-        }
         PlayerStrike = false;
     }
 
@@ -54,7 +49,7 @@ public class RangeDemon : Enemy
                 break;
         }
 
-        if (CurrentHealth < MaxHealth)
+        if (CurrentHealth < MaxHealth && ReturnPlayerLife())
         {
             attackPlayer = true;
         }
@@ -62,20 +57,20 @@ public class RangeDemon : Enemy
         if (DistanceToPlayer > aggressionDistance)
         {
             enemyState = EnemyState.Idle;
-            EnemyAnimator.SetBool("Run", false);
+            EnemyAnimator.SetBool("Walk", false);
             Agent.velocity = Vector3.zero;
         }
 
-        if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
+        if (!attackPlayer && DistanceToPlayer <= aggressionDistance && ReturnPlayerLife())
         {
             enemyState = EnemyState.Run;
         }
-        else if (attackPlayer)
+        else if (attackPlayer && ReturnPlayerLife())
         {
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 25f && playerInSight)
+        if (DistanceToPlayer <= _shootRange && playerInSight && ReturnPlayerLife())
         {
             enemyState = EnemyState.Attack;
         }

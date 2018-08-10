@@ -6,6 +6,8 @@ public class DemonProjectile : MonoBehaviour {
 
     private CharacterMotor _charMotor;
     public float projectileDamage;
+    public GameObject explosion;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -28,12 +30,15 @@ public class DemonProjectile : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            
             GameEvents.PlayerEventHit();
+            Instantiate(explosion, transform.position, Quaternion.identity);
             _charMotor.health -= projectileDamage - _charMotor.armour;
             Destroy(gameObject);
         }
         else if (other.CompareTag("Environment"))
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

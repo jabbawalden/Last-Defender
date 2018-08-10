@@ -70,7 +70,8 @@ public abstract class Enemy : MonoBehaviour
     public bool attackPlayer;
     public bool canMove;
     public Vector3 newPlayerPosition;
- 
+    public CharacterMotor characterMotor;
+
     //only classes that inherit from Enemy can see this field. 
     //abstract = must be overriden by inheriting class
     protected abstract void MovementPattern();
@@ -79,6 +80,7 @@ public abstract class Enemy : MonoBehaviour
     {
         //add common components
         canMove = true;
+        characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         RB = gameObject.AddComponent<Rigidbody>();
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionZ;
         RB.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -142,6 +144,18 @@ public abstract class Enemy : MonoBehaviour
     {
         Quaternion lookRotation = Quaternion.LookRotation(Direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
+    }
+
+    public bool ReturnPlayerLife()
+    {
+        if (characterMotor.health >= 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

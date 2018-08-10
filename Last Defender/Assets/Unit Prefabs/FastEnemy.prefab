@@ -1187,7 +1187,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c188b17e729aeae42bab5982863c4a49, type: 3}
   - {fileID: 8300000, guid: ff90d1fd3e87f584c8496f30b1b6a397, type: 3}
   - {fileID: 8300000, guid: 2d5b9d7d9db33f04b8ab141f8fa0cde7, type: 3}
-  EnemyFootstep: []
+  EnemyFootstep:
+  - {fileID: 8300000, guid: d43fbb7fcd997004bb617941d99fa55b, type: 3}
+  - {fileID: 8300000, guid: c6f6a57cc78a36d44946fae0a01f4a51, type: 3}
+  - {fileID: 8300000, guid: fa7946475c9cb2e4084318e646ecf039, type: 3}
+  - {fileID: 8300000, guid: 4f83273f2e2bb9c48a743eca3ecabd64, type: 3}
+  - {fileID: 8300000, guid: 824027f2c768ac24dbfb01b4f8987eb8, type: 3}
   EnemyDeathGrowl: {fileID: 8300000, guid: 5c5f2b772a643e84499fa1b95feb497b, type: 3}
   EnemyAudioMixer: {fileID: 243369112106232790, guid: 5542c126a5afd0a4b9225acc62f6ae58,
     type: 2}

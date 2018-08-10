@@ -30,7 +30,18 @@ public class PShoot : MonoBehaviour {
 
     public int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
-    
+
+    private void OnEnable()
+    {
+        GameEvents.EventPlayerDead += PlayerShootDisable;  
+        GameEvents.EventGameWon += PlayerShootDisable;
+    }
+     
+    private void OnDisable()
+    {
+        GameEvents.EventPlayerDead -= PlayerShootDisable;
+        GameEvents.EventGameWon -= PlayerShootDisable;
+    }
 
     // Use this for initialization
     void Start ()
@@ -55,6 +66,11 @@ public class PShoot : MonoBehaviour {
         
 	}
     
+    public void PlayerShootDisable()
+    {
+        canFire = false;
+    }
+
     private void WeaponShootInput()
     {
         if (bCannonFire && !inAmmoMode)

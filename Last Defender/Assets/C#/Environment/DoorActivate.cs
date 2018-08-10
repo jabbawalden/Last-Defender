@@ -7,7 +7,9 @@ public class DoorActivate : MonoBehaviour {
 
     [System.Serializable]
     public enum DoorState {unlocked, locked}
+    public enum DoorType {automatic, triggered};
     public DoorState doorState;
+    public DoorType doorType;
 
     public Light plight1, plight2;
     [SerializeField]
@@ -26,6 +28,16 @@ public class DoorActivate : MonoBehaviour {
     public bool unlocked;
     public bool open;
 
+    private void OnEnable()
+    {
+        GameEvents.EventPlayerDoorCheck += PlayerInRangeDoor;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.EventPlayerDoorCheck -= PlayerInRangeDoor;
+    }
+
     private void Start()
     {
         open = false;
@@ -38,12 +50,23 @@ public class DoorActivate : MonoBehaviour {
         switch (doorState)
         {
             case DoorState.unlocked:
-                plight1.color = Color.green;
-                plight2.color = Color.green;
+
+                if (plight1 != null && plight2 != null)
+                {
+                    plight1.color = Color.green;
+                    plight2.color = Color.green;
+                }
+                
                 break;
+
             case DoorState.locked:
-                plight1.color = Color.red;
-                plight2.color = Color.red;
+
+                if (plight1 != null && plight2 != null)
+                {
+                    plight1.color = Color.red;
+                    plight2.color = Color.red;
+                }
+
                 break;
         }
     }
@@ -71,8 +94,11 @@ public class DoorActivate : MonoBehaviour {
     public void DoorStateChange()
     {
         doorState = DoorState.unlocked;
-        plight1.color = Color.green;
-        plight2.color = Color.green;
+        if (plight1 != null && plight2 != null)
+        {
+            plight1.color = Color.green;
+            plight2.color = Color.green;
+        }
         print("DoorStateChange called");
     }
 
@@ -89,10 +115,17 @@ public class DoorActivate : MonoBehaviour {
        
     }
 
+    public void PlayerInRangeDoor(DoorActivate script)
+    {
+        playerInRange = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && doorType == DoorType.automatic)
         {
+            GameEvents.ReportEventPlayerDoorCheck(this);
+
             _player.currentDoorActive = this;
             _player.canOpenDoor = true;
 
@@ -113,47 +146,15 @@ public class DoorActivate : MonoBehaviour {
                     break;
             }
         }
-    }
 
-    /*
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _player.currentDoorActive = this;
 
-            switch (doorState)
-            {
-                case DoorState.unlocked:
-                    if (!doorIsOpening)
-                    {
-                        _animator.SetBool("DoorActive", true);
-                        _doorSFX.PlayOneShot(doorClip);
-                        StartCoroutine(DoorCheck());
-                        _uIManager.DoorPowerDisplay("", Color.black);
-                    }
-                    break;
-                case DoorState.locked:
-                    if (powerLevelReached)
-                    {
-                        _uIManager.DoorPowerDisplay("Restore power (R)", Color.cyan);
-                    }
-                    else
-                    {
-                        _uIManager.DoorPowerDisplay("Power cores required", Color.red);
-                    }
-                    break;
-            }
-        }
-      
     }
-    */
 
     private void OnTriggerExit(Collider other)
     {
 
         //playerInRange = false;
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && doorType == DoorType.automatic)
         {
             _uIManager.DoorPowerDisplay("", Color.clear);
             _player.canOpenDoor = false;

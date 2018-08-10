@@ -14,6 +14,18 @@ public class CharacterLook : MonoBehaviour {
     private GameObject _character;
     private CharacterMotor _pCharMotor;
 
+    private void OnEnable()
+    {
+        GameEvents.EventPlayerDead += PlayerLookDisable;
+        GameEvents.EventGameWon += PlayerLookDisable;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.EventPlayerDead -= PlayerLookDisable;
+        GameEvents.EventGameWon -= PlayerLookDisable;
+    }
+
     // Use this for initialization
     void Start ()
     {
@@ -30,6 +42,11 @@ public class CharacterLook : MonoBehaviour {
             CanMouseLook();
         }
 
+    }
+
+    public void PlayerLookDisable()
+    {
+        canLook = false;
     }
 
     private void CanMouseLook()

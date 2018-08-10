@@ -19,6 +19,7 @@ public class SuitInstructions : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             _uiManager.interactE.gameObject.SetActive(true);
+            _uiManager.interactBG.SetActive(true);
             _characterMotor.instructionsE = true;
         }
     }
@@ -28,6 +29,7 @@ public class SuitInstructions : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             _uiManager.interactE.gameObject.SetActive(false);
+            _uiManager.interactBG.SetActive(false);
             _characterMotor.instructionsE = false;
         }
             

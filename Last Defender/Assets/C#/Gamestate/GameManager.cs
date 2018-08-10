@@ -5,10 +5,12 @@ using UnityEngine;
 public enum GameState
 {
     Menu,
-    Start,
+    Play,
     Pause,
     Dead,
-    Win
+    Won,
+    Save,
+    Load
         
 }
 
@@ -25,6 +27,25 @@ public class GameManager : Singleton<GameManager> {
     public List<string> triggeredEnemyGroups = new List<string>();
     public int gm_PowerCores;
 
+    private void Start()
+    {
+        gameState = GameState.Play;
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.EventPlayerDead += StateDead;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.EventPlayerDead -= StateDead;
+    }
+
+    public void StateDead()
+    {
+        gameState = GameState.Dead;
+    }
     //player data
     //player position
     //player armour

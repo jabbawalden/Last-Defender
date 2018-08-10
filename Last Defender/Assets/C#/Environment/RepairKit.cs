@@ -20,11 +20,11 @@ public class RepairKit : MonoBehaviour {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        if (_gameManager.usedRepairKits.Contains(repairKitID))
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if (_gameManager.usedRepairKits.Contains(repairKitID))
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)

@@ -18,11 +18,11 @@ public class StrongDemon : Enemy
     // Use this for initialization
     void Start ()
     {
-        if (gameManager.deadEnemies.Contains(enemyID))
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if (gameManager.deadEnemies.Contains(enemyID))
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
         PlayerStrike = false;
     }
 
@@ -56,7 +56,7 @@ public class StrongDemon : Enemy
 
         }
 
-        if (CurrentHealth < MaxHealth)
+        if (CurrentHealth < MaxHealth && ReturnPlayerLife())
         {
             attackPlayer = true;
         }
@@ -68,16 +68,16 @@ public class StrongDemon : Enemy
             Agent.velocity = Vector3.zero;
         }
 
-        if (!attackPlayer && DistanceToPlayer <= aggressionDistance)
+        if (!attackPlayer && DistanceToPlayer <= aggressionDistance && ReturnPlayerLife())
         {
             enemyState = EnemyState.Run;
         }
-        else if (attackPlayer)
+        else if (attackPlayer && ReturnPlayerLife())
         {
             enemyState = EnemyState.Run;
         }
 
-        if (DistanceToPlayer <= 2.7f && CurrentHealth > 0)
+        if (DistanceToPlayer <= 2.7f && CurrentHealth > 0 && ReturnPlayerLife())
         {
             enemyState = EnemyState.Attack;
             RotateTowards();

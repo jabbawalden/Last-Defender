@@ -26,7 +26,6 @@ public class CharacterMotor : MonoBehaviour {
     public bool canMove;
 
     private bool _cursorshown;
-
     float _translation;
     float _strafe;
 
@@ -43,16 +42,16 @@ public class CharacterMotor : MonoBehaviour {
     [SerializeField] private Animator _playerAnim;
     public GameObject[] hitPos;
 
-     
     private void OnEnable()
     {
-        GameEvents.EventPlayerDead += PlayerDead;
+        GameEvents.EventGameWon += PlayerWon;
     }
 
     private void OnDisable()
     {
-        GameEvents.EventPlayerDead -= PlayerDead;
+        GameEvents.EventGameWon -= PlayerWon;
     }
+
     // Use this for initialization
     void Start ()
     {
@@ -81,21 +80,21 @@ public class CharacterMotor : MonoBehaviour {
 
         InteractSuitInstruction();
 
-        //if (Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    speed += 0.4f;
-        //}
-            
-
-        if (health >= 1 && canMove)
+        if (canMove)
         {
             MovementInput();
             LightEnable();
         }
-        else if (health <= 0)
+        
+        if (health <= 0)
         {
+            canMove = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             GameEvents.ReportPlayerDead();
+            PlayerDead();
         }
+
         
         //head bob
         if (IsWalking() && canMove)
@@ -122,6 +121,12 @@ public class CharacterMotor : MonoBehaviour {
         
     }
 
+    public void PlayerWon()
+    { 
+        canMove = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     private void MovementInput()
     {
@@ -270,17 +275,9 @@ public class CharacterMotor : MonoBehaviour {
     public void PlayerDead()
     {
         Debug.Log("Player is dead");
-        StartCoroutine(PlayerRestart());
-        //animate camera death
-        //add in blood image overlay
-        //play sound
-        //
+        _uiManager.deathScreen.SetActive(true);
+
     }
 
-    IEnumerator PlayerRestart()
-    {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(0);
-    }
 
 }

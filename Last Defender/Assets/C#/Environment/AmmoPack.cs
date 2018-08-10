@@ -25,11 +25,11 @@ public class AmmoPack : MonoBehaviour {
         }
 
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        if (_gameManager.usedAmmo.Contains(ammoID))
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if (_gameManager.usedAmmo.Contains(ammoID))
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
     }
 
 

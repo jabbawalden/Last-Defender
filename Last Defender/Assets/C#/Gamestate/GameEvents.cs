@@ -14,6 +14,7 @@ public static class GameEvents
     //checkpoint reached uses SaveData but only once - then use boolean and set to true, cannot be triggered again.
     //save bool state of each checkpoint
     public static event Action EventPauseGame = null;
+    public static event Action EventGameWon = null; 
     public static event Action EventUnpauseGame = null;
     public static event Action EventPlayerDead = null;
     public static event Action EventEnemyDeath = null;
@@ -22,6 +23,16 @@ public static class GameEvents
     public static event Action EventPowerCore = null;
     public static event Action EventCreepyMomentOne = null;
     public static event Action EventAmmoRefill = null;
+    public static event Action<DoorActivate>EventPlayerDoorCheck = null;
+   
+    public static void ReportEventPlayerDoorCheck(DoorActivate instance)
+    {
+        if (EventPlayerDoorCheck != null)
+        {
+            EventPlayerDoorCheck(instance);
+        }
+    }
+
     public static void ReportEnemyHit() 
     {
         if (EventEnemyHit != null)
@@ -42,6 +53,12 @@ public static class GameEvents
     public static void ReportUnpauseGame()
     {
 
+    }
+
+    public static void ReportGameWon()
+    {
+        if (EventGameWon != null)
+            EventGameWon();
     }
 
     public static void ReportPlayerDead()
