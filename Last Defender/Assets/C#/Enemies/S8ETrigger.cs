@@ -32,7 +32,7 @@ public class S8ETrigger : MonoBehaviour {
 
     IEnumerator EventDelay()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.1f);
         e1.SetActive(true);
         e2.SetActive(true);
         e3.SetActive(true);
