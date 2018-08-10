@@ -55,7 +55,7 @@ public class CharacterMotor : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        health = maxHealth;
+        health = maxHealth - 10;
         canShoot = true;
         canMove = true;
         _cursorshown = false;

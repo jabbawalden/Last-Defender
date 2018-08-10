@@ -15,6 +15,7 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster, _rezoid;
 
     public int bAmmo, mAmmo, hAmmo;
+    public bool beginWeapon;
 
     [SerializeField] private float _fireRate; 
     private float _nextFire;
@@ -46,6 +47,7 @@ public class PShoot : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        beginWeapon = true;
         inAmmoMode = false;
         _cameraPos = GameObject.Find("Camera");
         bCannonFire = false;
@@ -63,7 +65,11 @@ public class PShoot : MonoBehaviour {
     {
         PInputWepChange();
         WeaponShootInput();
-        
+        if (beginWeapon)
+        {
+            WeaponChange(1);
+            beginWeapon = false;
+        }
 	}
     
     public void PlayerShootDisable()
