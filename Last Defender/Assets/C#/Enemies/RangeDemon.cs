@@ -117,9 +117,8 @@ public class RangeDemon : Enemy
     public void RunBehaviour()
     {
         if (EnemyAnimator.GetBool("Attack") == false)
-        {
             StartCoroutine(WalkRoutine());
-        }
+
         PlayGrowl();
     }
 
@@ -144,7 +143,6 @@ public class RangeDemon : Enemy
             NewFireRate = Time.time + FireRate;
             StartCoroutine(AttackRoutine());
         }
-
     }
 
     public void FireBehaviour()
@@ -155,7 +153,6 @@ public class RangeDemon : Enemy
 
     IEnumerator AttackRoutine()
     {
-
         yield return new WaitForSeconds(0.15f);
         EnemyAnimator.SetBool("Attack", true);
         yield return new WaitForSeconds(0.4f);
@@ -174,7 +171,6 @@ public class RangeDemon : Enemy
         Agent.radius = 0;
         PlayDeathGrowl();
         OnKill();
-
     }
 
     public void OnKill()
