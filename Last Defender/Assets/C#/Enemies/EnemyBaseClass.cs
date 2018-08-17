@@ -31,7 +31,7 @@ public class Enemy<T> where T : Enemy
 public abstract class Enemy : MonoBehaviour
 {
     [System.Serializable]
-    public enum EnemyState { Idle, Shout, Run, Attack, Death, Hit}
+    public enum EnemyState { Idle, Shout, Run, Attack, Dead, Hit}
     public enum EnemySound { Active, Silent}
 
     public EnemyState enemyState;

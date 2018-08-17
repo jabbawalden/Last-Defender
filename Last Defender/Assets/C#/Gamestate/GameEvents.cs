@@ -6,7 +6,6 @@ using UnityEngine;
 public static class GameEvents
 {
     public static event Action EventEnemyHit = null;
-    public static event Action EventSaveData = null;
     public static event Action EventDoorCheck = null;
     //save item lists
     //save ammo counts
@@ -24,6 +23,8 @@ public static class GameEvents
     public static event Action EventCreepyMomentOne = null;
     public static event Action EventAmmoRefill = null;
     public static event Action<DoorActivate>EventPlayerDoorCheck = null;
+    public static event Action EventLoadLastSave = null;
+    public static event Action EventSaveGameData = null;
    
     public static void ReportEventPlayerDoorCheck(DoorActivate instance)
     {
@@ -40,9 +41,16 @@ public static class GameEvents
 
     }
     
-    public static void ReportSavedData()
+    public static void ReportLoadLastSave()
     {
+        if (EventLoadLastSave != null)
+            EventLoadLastSave();
+    }
 
+    public static void ReportSaveData()
+    {
+        if (EventSaveGameData != null)
+            EventSaveGameData();
     }
 
     public static void ReportPausedGame()

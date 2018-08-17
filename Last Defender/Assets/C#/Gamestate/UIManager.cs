@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     public Text interactE;
     public GameObject interactBG;
     private CharacterMotor _characterMotor;
+    private GameManager _gameManager;
     private PShoot _pShoot;
     [SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
     public AmmoRefill ammoRefill;
@@ -47,6 +48,7 @@ public class UIManager : MonoBehaviour {
         uIplayerUpgrades.SetActive(false);
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         DoorPowerDisplay("", Color.black);
         interactE.text = "";
         bCAmmoDisplay.text = "Blast Cannon + " + ammoRefill.blastCannonA;
@@ -120,10 +122,15 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void DeleteData()
+    {
+        _gameManager.DeleteData();
+    }
     
     public void RestartGame()
     {
         SceneManager.LoadScene(0);
+        _gameManager.LoadData();
     }
 
     public void GameWonUI()

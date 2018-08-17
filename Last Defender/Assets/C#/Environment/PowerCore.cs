@@ -15,11 +15,11 @@ public class PowerCore : MonoBehaviour
     {
         _uIManager = GameObject.Find("UI").GetComponent<UIManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        //if (_gameManager.usedPowerCore.Contains(powerCoreID))
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
+        if (_gameManager.usedPowerCore.Contains(powerCoreID))
+        {
+            Destroy(gameObject);
+            return;
+        }
         //set reference
         //_player = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
     }

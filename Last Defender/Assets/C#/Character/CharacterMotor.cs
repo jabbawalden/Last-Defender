@@ -95,7 +95,34 @@ public class CharacterMotor : MonoBehaviour {
             PlayerDead();
         }
 
-        
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_uiManager.menuShown == false)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                _cursorshown = true;
+                canMove = false;
+                _characterLook.canLook = false;
+                _uiManager.inGameMenu.SetActive(true);
+                _pShoot.canFire = false;
+                _uiManager.menuShown = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                _cursorshown = false;
+                canMove = true;
+                _characterLook.canLook = true;
+                _uiManager.inGameMenu.SetActive(false);
+                _pShoot.canFire = true;
+                _uiManager.menuShown = false;
+            }
+        }
+
         //head bob
         if (IsWalking() && canMove)
         {
@@ -142,34 +169,8 @@ public class CharacterMotor : MonoBehaviour {
             }
         }
 
-        /*
-        //add ingame menu
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (_uiManager.menuShown == false)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                _cursorshown = true;
-                canMove = false;
-                _characterLook.canLook = false;
-                _uiManager.inGameMenu.SetActive(true);
-                _pShoot.canFire = false;
-                _uiManager.menuShown = true;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                _cursorshown = false;
-                canMove = true;
-                _characterLook.canLook = true;
-                _uiManager.inGameMenu.SetActive(false);
-                _pShoot.canFire = true;
-                _uiManager.menuShown = false;
-            }
-        }
-        */
+
+
 
       
     }

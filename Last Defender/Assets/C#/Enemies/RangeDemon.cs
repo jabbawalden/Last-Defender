@@ -14,6 +14,11 @@ public class RangeDemon : Enemy
     // Use this for initialization
     void Start()
     {
+        if (gameManager.deadEnemies.Contains(enemyID))
+        {
+            enemyState = EnemyState.Dead;
+            return;
+        }
         PlayerStrike = false;
     }
 
@@ -41,7 +46,7 @@ public class RangeDemon : Enemy
                 AttackBehaviour();
                 RayView();
                 break;
-            case EnemyState.Death:
+            case EnemyState.Dead:
                 StartCoroutine(DeathBehaviour());
                 break;
             case EnemyState.Idle:
@@ -77,7 +82,7 @@ public class RangeDemon : Enemy
 
         if (CurrentHealth <= 0)
         {
-            enemyState = EnemyState.Death;
+            enemyState = EnemyState.Dead;
         }
     }
 

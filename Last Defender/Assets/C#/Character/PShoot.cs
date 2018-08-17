@@ -22,8 +22,6 @@ public class PShoot : MonoBehaviour {
 
     public float hCannon, bCannon, sGun;
 
-    [SerializeField] private GameObject _cameraPos;
-
     //to tell which weapon is active
     public bool bCannonFire, miniCannonFire, hyperBlasterFire, rezoidFire;
     public bool canFire;
@@ -49,7 +47,6 @@ public class PShoot : MonoBehaviour {
     {
         beginWeapon = true;
         inAmmoMode = false;
-        _cameraPos = GameObject.Find("Camera");
         bCannonFire = false;
         miniCannonFire = false;
         hyperBlasterFire = false;

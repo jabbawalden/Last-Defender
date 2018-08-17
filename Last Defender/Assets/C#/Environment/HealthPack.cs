@@ -17,11 +17,11 @@ public class HealthPack : MonoBehaviour {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _uIManager = GameObject.Find("UI").GetComponent<UIManager>();
-        //if (_gameManager.usedHealthPack.Contains(healthPackID))
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
+        if (_gameManager.usedHealthPack.Contains(healthPackID))
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

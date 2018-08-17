@@ -19,11 +19,11 @@ public class FastDemon : Enemy
     // Use this for initialization
     void Start()
     {
-        //if (gameManager.deadEnemies.Contains(enemyID))
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
+        if (gameManager.deadEnemies.Contains(enemyID))
+        {
+            enemyState = EnemyState.Dead;
+            return;
+        }
         PlayerStrike = false;
     }
 
@@ -48,7 +48,7 @@ public class FastDemon : Enemy
             case EnemyState.Attack:
                 AttackBehaviour();
                 break;
-            case EnemyState.Death:
+            case EnemyState.Dead:
                 DeathBehaviour();
                 break;
             case EnemyState.Idle:
@@ -84,7 +84,7 @@ public class FastDemon : Enemy
 
         if (CurrentHealth <= 0)
         {
-            enemyState = EnemyState.Death;
+            enemyState = EnemyState.Dead;
         }
 
     }
