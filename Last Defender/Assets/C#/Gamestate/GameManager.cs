@@ -49,6 +49,7 @@ public class GameManager : Singleton<GameManager> {
         test = checkPoints;
     }
 
+    /*
     private void OnEnable()
     {
         GameEvents.EventPlayerDead += StateDead;
@@ -62,6 +63,7 @@ public class GameManager : Singleton<GameManager> {
         GameEvents.EventSaveGameData -= SaveData;
         GameEvents.EventLoadLastSave -= LoadData;
     }
+    */
 
     public void StateDead()
     {
@@ -107,6 +109,9 @@ public class GameManager : Singleton<GameManager> {
         data.data_MCannonAmmo = _pShoot.mAmmo;
         data.data_HBlasterAmmo = _pShoot.hAmmo;
         data.data_PlayerArmour = _characterMotor.armour;
+        data.data_bCannonPickUp = _pShoot.blastCannonPickUp;
+        data.data_mCannonPickUp = _pShoot.miniCannonPickUp;
+        data.data_hBlasterPickUp = _pShoot.hyperBlasterPickUp;
 
         bf.Serialize(file, data);
         file.Close();
@@ -141,6 +146,9 @@ public class GameManager : Singleton<GameManager> {
             _pShoot.mAmmo = data.data_MCannonAmmo;
             _pShoot.hAmmo = data.data_HBlasterAmmo;
             _characterMotor.armour = data.data_PlayerArmour;
+            _pShoot.blastCannonPickUp = data.data_bCannonPickUp;
+            _pShoot.miniCannonPickUp = data.data_mCannonPickUp;
+            _pShoot.hyperBlasterPickUp = data.data_hBlasterPickUp;
 
             file.Close();
         }
@@ -168,6 +176,7 @@ public class DataContainer
     public int data_MCannonAmmo;
     public int data_HBlasterAmmo;
     public float data_PlayerArmour;
+    public bool data_bCannonPickUp, data_mCannonPickUp, data_hBlasterPickUp; 
 }
 
 [Serializable]

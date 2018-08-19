@@ -39,6 +39,8 @@ public class CharacterMotor : MonoBehaviour {
     private CharacterLook _characterLook;
     private GameManager _gameManager;
 
+    
+
     [SerializeField] private Animator _playerAnim;
     public GameObject[] hitPos;
 

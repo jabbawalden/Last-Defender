@@ -52,8 +52,8 @@ public abstract class Enemy : MonoBehaviour
     public GameObject Player;
     public BoxCollider BoxCollider;
     public Rigidbody RB;
-    public int CurrentHealth;
-    public int MaxHealth;
+    public float CurrentHealth;
+    public float MaxHealth;
     public float MovementSpeed;
     public GameManager gameManager;
     public int EnemyDamage;

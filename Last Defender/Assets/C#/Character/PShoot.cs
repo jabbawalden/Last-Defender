@@ -10,8 +10,8 @@ public class PShoot : MonoBehaviour {
     [SerializeField] private AudioClip[] _miniCannonSFX;
     [SerializeField] private AudioClip[] _hyperBlasterSFX;
     [SerializeField] private AudioClip[] _rezoidSFX;
-    public int currentDamage;
-    public int blastDamage, miniDamage, hyperDamage, rezoidDamage;
+    public float currentDamage;
+    public float blastDamage, miniDamage, hyperDamage, rezoidDamage;
     [SerializeField] private GameObject _blastCannon, _miniCannon, _hyperBlaster, _rezoid;
 
     public int bAmmo, mAmmo, hAmmo;
@@ -21,6 +21,7 @@ public class PShoot : MonoBehaviour {
     private float _nextFire;
 
     public float hCannon, bCannon, sGun;
+    public bool blastCannonPickUp, miniCannonPickUp, hyperBlasterPickUp;
 
     //to tell which weapon is active
     public bool bCannonFire, miniCannonFire, hyperBlasterFire, rezoidFire;
@@ -45,6 +46,10 @@ public class PShoot : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        blastCannonPickUp = false;
+        miniCannonPickUp = false;
+        hyperBlasterPickUp = false;
+
         beginWeapon = true;
         inAmmoMode = false;
         bCannonFire = false;
@@ -64,7 +69,7 @@ public class PShoot : MonoBehaviour {
         WeaponShootInput();
         if (beginWeapon)
         {
-            WeaponChange(1);
+            WeaponChange(4);
             beginWeapon = false;
         }
 	}
@@ -103,24 +108,24 @@ public class PShoot : MonoBehaviour {
     {
         //weapon 1
         //check if weapon not selected before changing
-        if (Input.GetKeyDown("1") && !bCannonFire)
+        if (Input.GetKeyDown("2") && !bCannonFire && blastCannonPickUp)
         {
             WeaponChange(1);
         }
         
         //weapon 2
-        if (Input.GetKeyDown("2") && !miniCannonFire)
+        if (Input.GetKeyDown("3") && !miniCannonFire && miniCannonPickUp)
         {
             WeaponChange(2);
         }
 
         //weapon 3
-        if (Input.GetKeyDown("3") && !hyperBlasterFire)
+        if (Input.GetKeyDown("4") && !hyperBlasterFire && hyperBlasterPickUp)
         {
             WeaponChange(3);
         }
 
-        if (Input.GetKeyDown("4") && !rezoidFire)
+        if (Input.GetKeyDown("1") && !rezoidFire)
         {
             WeaponChange(4);
         }
