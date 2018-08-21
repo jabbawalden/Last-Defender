@@ -32,7 +32,9 @@ public class GameManager : Singleton<GameManager> {
     public int gm_PowerCores;
     public DataContainer data;
     public List<SerializableVector3> test = new List<SerializableVector3>();
-    
+    public float armour;
+
+
     private CharacterMotor _characterMotor;
     private PShoot _pShoot;
     
@@ -47,9 +49,10 @@ public class GameManager : Singleton<GameManager> {
     private void Update()
     {
         test = checkPoints;
+        armour = data.data_PlayerArmour;
     }
 
-    /*
+
     private void OnEnable()
     {
         GameEvents.EventPlayerDead += StateDead;
@@ -63,7 +66,7 @@ public class GameManager : Singleton<GameManager> {
         GameEvents.EventSaveGameData -= SaveData;
         GameEvents.EventLoadLastSave -= LoadData;
     }
-    */
+
 
     public void StateDead()
     {
@@ -97,8 +100,7 @@ public class GameManager : Singleton<GameManager> {
         data.data_UsedHealthPack = usedHealthPack;
         data.data_UsedRepairKits = usedRepairKits;
         data.data_TriggeredEnemyGroups = triggeredEnemyGroups;
-        //data.data_checkPoints = checkPoints;
-        //data.data_PlayerPosition = new SerializableVector3(checkPoints[checkPoints.Count - 1].x, checkPoints[checkPoints.Count - 1].y, checkPoints[checkPoints.Count - 1].z);
+        data.data_checkPoints = checkPoints;
         data.data_gm_PowerCores = gm_PowerCores;
         data.data_CurrentHealth = _characterMotor.health;
         data.data_MaxHealth = _characterMotor.maxHealth;
@@ -134,8 +136,8 @@ public class GameManager : Singleton<GameManager> {
             usedHealthPack = data.data_UsedHealthPack;
             usedRepairKits = data.data_UsedRepairKits;
             triggeredEnemyGroups = data.data_TriggeredEnemyGroups;
-            //checkPoints = data.data_checkPoints;
-            //_characterMotor.transform.position = new Vector3(checkPoints[checkPoints.Count - 1].x, checkPoints[checkPoints.Count - 1].y, checkPoints[checkPoints.Count - 1].z);
+            checkPoints = data.data_checkPoints;
+            _characterMotor.transform.position = new Vector3(checkPoints[checkPoints.Count - 1].x, checkPoints[checkPoints.Count - 1].y, checkPoints[checkPoints.Count - 1].z); ;
             gm_PowerCores = data.data_gm_PowerCores;
             _characterMotor.health = data.data_CurrentHealth;
             _characterMotor.maxHealth = data.data_MaxHealth;
