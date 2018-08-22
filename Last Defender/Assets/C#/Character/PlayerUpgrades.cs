@@ -43,7 +43,7 @@ public class PlayerUpgrades : MonoBehaviour {
 
     public void ArmourUpgrade()
     {
-        _characterMotor.armour += 0.5f;
+        _characterMotor.armor += 0.5f;
         _characterMotor.canMove = true;
         playerUpgrades.SetActive(false);
         _characterLook.canLook = true;

@@ -33,7 +33,7 @@ public class DemonProjectile : MonoBehaviour {
             
             GameEvents.PlayerEventHit();
             Instantiate(explosion, transform.position, Quaternion.identity);
-            _charMotor.health -= projectileDamage - _charMotor.armour;
+            _charMotor.health -= projectileDamage - _charMotor.armor;
             Destroy(gameObject);
         }
         else if (other.CompareTag("Environment"))

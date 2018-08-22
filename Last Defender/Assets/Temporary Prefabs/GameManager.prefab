@@ -51,4 +51,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cf7aa163fd11a40a5db50b03e98494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
   deadEnemies: []
+  usedAmmo: []
+  usedPowerCore: []
+  usedHealthPack: []
+  usedRepairKits: []
+  triggeredEnemyGroups: []
+  gm_PowerCores: 0
+  checkPoints: []
+  gm_health: 42
+  gm_maxHealth: 50
+  gm_maxLightPower: 700
+  gm_speed: 7
+  gm_jump: 7
+  gm_bAmmo: 30
+  gm_mAmmo: 80
+  gm_hAmmo: 15
+  gm_Armor: 0
+  gm_blastCannonPickUp: 0
+  gm_miniCannonPickUp: 0
+  gm_hyperBlasterPickUp: 0

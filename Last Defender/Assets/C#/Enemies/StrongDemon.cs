@@ -20,7 +20,7 @@ public class StrongDemon : Enemy
     {
         if (gameManager.deadEnemies.Contains(enemyID))
         {
-            enemyState = EnemyState.Dead;
+            Destroy(gameObject);
             return;
         }
         PlayerStrike = false;

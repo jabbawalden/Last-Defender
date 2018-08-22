@@ -30,26 +30,34 @@ public class PShoot : MonoBehaviour {
 
     public int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
+    private GameManager _gameManager;
 
     private void OnEnable()
     {
         GameEvents.EventPlayerDead += PlayerShootDisable;  
         GameEvents.EventGameWon += PlayerShootDisable;
+        //GameEvents.EventSaveGameData += SendData;
     }
      
     private void OnDisable()
     {
         GameEvents.EventPlayerDead -= PlayerShootDisable;
         GameEvents.EventGameWon -= PlayerShootDisable;
+        //GameEvents.EventSaveGameData -= SendData;
     }
 
     // Use this for initialization
     void Start ()
     {
-        blastCannonPickUp = false;
-        miniCannonPickUp = false;
-        hyperBlasterPickUp = false;
-
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
+        blastCannonPickUp = _gameManager.gm_blastCannonPickUp;
+        miniCannonPickUp = _gameManager.gm_miniCannonPickUp;
+        hyperBlasterPickUp = _gameManager.gm_hyperBlasterPickUp;
+        bAmmo = _gameManager.gm_bAmmo;
+        mAmmo = _gameManager.gm_mAmmo;
+        hAmmo = _gameManager.gm_hAmmo;
+        
         beginWeapon = true;
         inAmmoMode = false;
         bCannonFire = false;
@@ -57,13 +65,20 @@ public class PShoot : MonoBehaviour {
         hyperBlasterFire = false;
         rezoidFire = false;
         _audioSource = GetComponent<AudioSource>();
-        //StartCoroutine(DebugUpdate());
 	}
 
-  
+    public void SendData()
+    {
+        _gameManager.gm_blastCannonPickUp = blastCannonPickUp;
+        _gameManager.gm_miniCannonPickUp = miniCannonPickUp;
+        _gameManager.gm_hyperBlasterPickUp = hyperBlasterPickUp;
+        _gameManager.gm_bAmmo = bAmmo;
+        _gameManager.gm_mAmmo = mAmmo;
+        _gameManager.gm_hAmmo = hAmmo;
+    }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
     {
         PInputWepChange();
         WeaponShootInput();

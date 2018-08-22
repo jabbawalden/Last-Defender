@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class CheckPointSave : MonoBehaviour {
 
+    //public string checkPointID = "Undefined";
     private GameManager _gameManager;
     private SerializableVector3 position;
 
 	// Use this for initialization
 	void Start ()
     {
-        position = transform.position;
+       position = transform.position;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
         if (_gameManager.checkPoints.Contains(position))
         {
             Destroy(this.gameObject);
         }
+        
 	}
 
     private void OnTriggerEnter(Collider other)

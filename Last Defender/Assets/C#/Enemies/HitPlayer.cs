@@ -36,7 +36,7 @@ public class HitPlayer : MonoBehaviour {
             {
                 if (strongDemon.PlayerStrike)
                 {
-                    _characterMotor.health -= strongDemon.EnemyDamage - _characterMotor.armour;
+                    _characterMotor.health -= strongDemon.EnemyDamage - _characterMotor.armor;
                     GameEvents.PlayerEventHit();
                 }
                    
@@ -46,7 +46,7 @@ public class HitPlayer : MonoBehaviour {
             {
                 if (fastDemon.PlayerStrike)
                 {
-                    _characterMotor.health -= fastDemon.EnemyDamage - _characterMotor.armour;
+                    _characterMotor.health -= fastDemon.EnemyDamage - _characterMotor.armor;
                     GameEvents.PlayerEventHit();
                 }
                     
