@@ -14,6 +14,7 @@ public class RayCastShoot : MonoBehaviour {
     [SerializeField] private LineRenderer[] laserLine;
     private PShoot _pShoot;
     [SerializeField] private GameObject _gunLight;
+    [SerializeField] GameObject[] bloodPE;
     // Use this for initialization
     
 
@@ -51,12 +52,18 @@ public class RayCastShoot : MonoBehaviour {
             //checks if there is a shootablebox script
             if (enemyCollider != null)
             {
+                //spawn blood particle fx at location of the hit.
                 GameEvents.ReportEnemyHit();
                 StartCoroutine(HitTargetIndicator());
 
                 if (hit.collider.CompareTag("Enemy"))
                 {
                     enemyCollider.CurrentHealth -= _pShoot.currentDamage;
+
+                    if (enemyCollider.hitVulnerable)
+                    {
+                        enemyCollider.HitActivate();
+                    }
 
                     if (_pShoot.currentWeapon == 3 && enemyCollider.CurrentHealth > 0)
                     {
@@ -79,10 +86,26 @@ public class RayCastShoot : MonoBehaviour {
             {
                 StartCoroutine(HitTargetIndicator());
 
+              
+
                 if (hit.collider.CompareTag("Enemy"))
+                {
                     enemyCollider2.CurrentHealth -= _pShoot.currentDamage;
+                    if (enemyCollider2.hitVulnerable)
+                    {
+                       // enemyCollider2.HitActivate();
+                    }
+                }
+                   
                 else if (hit.collider.CompareTag("EnemyHead"))
+                {
                     enemyCollider2.CurrentHealth -= _pShoot.currentDamage * 2;
+                    if (enemyCollider2.hitVulnerable)
+                    {
+                        //enemyCollider2.HitActivate();
+                    }
+                }
+                   
 
             }
 

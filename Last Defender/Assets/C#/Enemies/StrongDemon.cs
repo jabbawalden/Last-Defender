@@ -88,6 +88,10 @@ public class StrongDemon : Enemy
             enemyState = EnemyState.Dead;
         }
 
+        if (CurrentHealth <= 7)
+        {
+            hitVulnerable = true;
+        }
         /*
 		if (Health <= 0)
         {

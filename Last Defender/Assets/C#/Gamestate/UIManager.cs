@@ -10,12 +10,13 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Text _lightPowerDisplay;
     [SerializeField] private Text _doorPowerDisplay;
     [SerializeField] private Text _itemAcquiredDisplay;
+    [SerializeField] private Text _rezoidDisplay, _blastCannonDisplay, _miniCannonDisplay, _hyperBlasterDisplay;
     public Text interactE;
     public GameObject interactBG;
     private CharacterMotor _characterMotor;
     private GameManager _gameManager;
     private PShoot _pShoot;
-    [SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
+    //[SerializeField] private Text bCAmmoDisplay, mCAmmoDisplay, hBAmmoDisplay;
     public AmmoRefill ammoRefill;
     public GameObject uIammoRefill, uIplayerUpgrades;
     public GameObject suitInstructions;
@@ -51,9 +52,11 @@ public class UIManager : MonoBehaviour {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         DoorPowerDisplay("", Color.black);
         interactE.text = "";
+        /*
         bCAmmoDisplay.text = "Blast Cannon + " + ammoRefill.blastCannonA;
         mCAmmoDisplay.text = "Mini Cannon + " + ammoRefill.miniCannonA;
         hBAmmoDisplay.text = "Hyper Blaster + " + ammoRefill.hyperBlasterA;
+        */
     }
 
     void Update()
@@ -65,6 +68,7 @@ public class UIManager : MonoBehaviour {
 
         AmmoDisplay();
         SuitInstructionsController();
+        GunReveal();
 
     }
 
@@ -120,6 +124,70 @@ public class UIManager : MonoBehaviour {
             interactE.text = "Exit Application (E)";
             
         }
+    }
+
+    public void GunReveal()
+    {
+        
+        if (_pShoot.blastCannonPickUp)
+            _blastCannonDisplay.text = "Blast Cannon";
+        else
+            _blastCannonDisplay.text = "";
+
+        if (_pShoot.miniCannonPickUp)
+            _miniCannonDisplay.text = "Mini Cannon";
+        else
+            _miniCannonDisplay.text = "";
+
+        if (_pShoot.hyperBlasterPickUp)
+            _hyperBlasterDisplay.text = "Hyper Blaster";
+        else
+            _hyperBlasterDisplay.text = "";
+            
+
+    }
+    public void GunDisplay(int c)
+    {
+        
+        //highlight display if == c, else dim
+        if (c == 1)
+        {
+            //bright white
+            _rezoidDisplay.color = Color.white;
+        }
+        else
+        {
+            //dim grey
+            _rezoidDisplay.color = Color.grey;
+        }
+
+        if (c == 2)
+        {
+            _blastCannonDisplay.color = Color.white;
+        }
+        else
+        {
+            _blastCannonDisplay.color = Color.grey;
+        }
+
+        if (c == 3)
+        {
+            _miniCannonDisplay.color = Color.white;
+        } 
+        else
+        {
+            _miniCannonDisplay.color = Color.grey;
+        }
+
+        if (c == 4)
+        {
+            _hyperBlasterDisplay.color = Color.white;
+        }
+        else
+        {
+            _hyperBlasterDisplay.color = Color.grey;
+        }
+        
     }
 
     public void DeleteData()

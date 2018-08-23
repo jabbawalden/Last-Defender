@@ -69,6 +69,7 @@ public abstract class Enemy : MonoBehaviour
     public float aggressionDistance;
     public bool attackPlayer;
     public bool canMove;
+    public bool hitVulnerable;
     public Vector3 newPlayerPosition;
     public CharacterMotor characterMotor;
 
@@ -101,6 +102,7 @@ public abstract class Enemy : MonoBehaviour
         EnemyAnimator = GetComponent<Animator>();
         BoxCollider = GetComponent<BoxCollider>();
         CurrentHealth = MaxHealth;
+        hitVulnerable = false;
     }
 
 

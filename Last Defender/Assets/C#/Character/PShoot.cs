@@ -31,6 +31,7 @@ public class PShoot : MonoBehaviour {
     public int currentWeapon;
     [SerializeField] private RayCastShoot _rayCastShoot;
     private GameManager _gameManager;
+    private UIManager _uiManager;
 
     private void OnEnable()
     {
@@ -49,6 +50,7 @@ public class PShoot : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        _uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         
         blastCannonPickUp = _gameManager.gm_blastCannonPickUp;
@@ -126,47 +128,61 @@ public class PShoot : MonoBehaviour {
         if (Input.GetKeyDown("2") && !bCannonFire && blastCannonPickUp)
         {
             WeaponChange(1);
+            _uiManager.GunDisplay(2);
+            //blast to active state
         }
         
         //weapon 2
         if (Input.GetKeyDown("3") && !miniCannonFire && miniCannonPickUp)
         {
             WeaponChange(2);
+            _uiManager.GunDisplay(3);
+            //mini to active state
         }
 
         //weapon 3
         if (Input.GetKeyDown("4") && !hyperBlasterFire && hyperBlasterPickUp)
         {
             WeaponChange(3);
+            _uiManager.GunDisplay(4);
+            //hyper to active state
         }
 
         if (Input.GetKeyDown("1") && !rezoidFire)
         {
             WeaponChange(4);
+            _uiManager.GunDisplay(1);
+            //rezoid to active state
+            
         }
     }
 
     //if currentweapon is not == new weapon, deactivate current weapon and set bool to false.
     void DeActivateWeapon(int c)
     {
+        //returns to idle state must very extremely quick
         if (c == 1)
         {
             bCannonFire = false;
+            //rezoid back to idle state 
         }
 
         if (c == 2)
         {
             miniCannonFire = false;
+            //blast back to idle state
         }
 
         if (c == 3)
         {
             hyperBlasterFire = false;
+            //mini back to idle state
         }
 
         if (c == 4)
         {
             rezoidFire = false;
+            //hyper back to idle state
         }
     }
 
