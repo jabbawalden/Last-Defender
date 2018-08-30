@@ -14,11 +14,13 @@ public class ItemAcquiredAnimation : MonoBehaviour {
     private void OnEnable()
     {
         GameEvents.EventItemAcquired += AnimationTrigger;
+        GameEvents.EventSaveGameData += AnimationTrigger;
     }
 
     private void OnDisable()
     {
         GameEvents.EventItemAcquired -= AnimationTrigger;
+        GameEvents.EventSaveGameData -= AnimationTrigger;
     }
 
 

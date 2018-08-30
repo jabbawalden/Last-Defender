@@ -30,10 +30,12 @@ public class UIManager : MonoBehaviour {
     private void OnEnable()
     {
         GameEvents.EventGameWon += GameWonUI;
+        GameEvents.EventSaveGameData += SaveGameDisplay;
     }
     private void OnDisable()
     {
         GameEvents.EventGameWon -= GameWonUI;
+        GameEvents.EventSaveGameData -= SaveGameDisplay;
     }
 
     void Start()
@@ -110,6 +112,12 @@ public class UIManager : MonoBehaviour {
     public void ItemAcquiredDisplay(string itemType)
     {
         _itemAcquiredDisplay.text = itemType;
+    }
+
+    public void SaveGameDisplay()
+    {
+        ItemAcquiredDisplay("Check Point Reached " +
+            "(Game Saved)");
     }
 
     public void SuitInstructionsController()
