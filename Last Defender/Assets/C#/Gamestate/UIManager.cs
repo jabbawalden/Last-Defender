@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Text _doorPowerDisplay;
     [SerializeField] private Text _itemAcquiredDisplay;
     [SerializeField] private Text _rezoidDisplay, _blastCannonDisplay, _miniCannonDisplay, _hyperBlasterDisplay;
+    [SerializeField] private Text _ArmorDisplay, _MobilityDisplay, _LightDisplay;
+    public int _ArmorLevel, _MobilityLevel, _LightLevel;
     public Text interactE;
     public GameObject interactBG;
     private CharacterMotor _characterMotor;
@@ -59,6 +61,8 @@ public class UIManager : MonoBehaviour {
         mCAmmoDisplay.text = "Mini Cannon + " + ammoRefill.miniCannonA;
         hBAmmoDisplay.text = "Hyper Blaster + " + ammoRefill.hyperBlasterA;
         */
+        
+
     }
 
     void Update()
@@ -71,6 +75,10 @@ public class UIManager : MonoBehaviour {
         AmmoDisplay();
         SuitInstructionsController();
         GunReveal();
+
+        _ArmorDisplay.text = "+ " + _ArmorLevel;
+        _MobilityDisplay.text = "+ " + _MobilityLevel;
+        _LightDisplay.text = "+ " + _LightLevel;
 
     }
 

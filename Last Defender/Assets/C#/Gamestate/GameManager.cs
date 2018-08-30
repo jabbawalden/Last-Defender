@@ -28,8 +28,16 @@ public class GameManager : Singleton<GameManager> {
     public List<string> usedHealthPack = new List<string>();
     public List<string> usedRepairKits = new List<string>();
     public List<string> triggeredEnemyGroups = new List<string>();
+
+    public List<string> gm_deadEnemies = new List<string>();
+    public List<string> gm_usedAmmo = new List<string>();
+    public List<string> gm_usedPowerCore = new List<string>();
+    public List<string> gm_usedHealthPack = new List<string>();
+    public List<string> gm_usedRepairKits = new List<string>();
+    public List<string> gm_triggeredEnemyGroups = new List<string>();
+
     public int gm_PowerCores;
-    public List<SerializableVector3> checkPoints = new List<SerializableVector3>();
+    public List<SerializableVector3> gm_checkPoints = new List<SerializableVector3>();
 
     //data.data_CurrentHealth = _characterMotor.health;
     public float gm_health;
@@ -109,11 +117,28 @@ public class GameManager : Singleton<GameManager> {
 
     public void StartPosAssign()
     {
-        startPos = new Vector3 (checkPoints[checkPoints.Count - 1].x, checkPoints[checkPoints.Count - 1].y, checkPoints[checkPoints.Count - 1].z);
+        startPos = new Vector3 (gm_checkPoints[gm_checkPoints.Count - 1].x, gm_checkPoints[gm_checkPoints.Count - 1].y, gm_checkPoints[gm_checkPoints.Count - 1].z);
     }
-    
+
+    public void SendListData()
+    {
+        //public List<string> gm_deadEnemies = new List<string>();
+        gm_deadEnemies = deadEnemies;
+        //public List<string> gm_usedAmmo = new List<string>();
+        gm_usedAmmo = usedAmmo;
+        //public List<string> gm_usedPowerCore = new List<string>();
+        gm_usedPowerCore = usedPowerCore;
+        //public List<string> gm_usedHealthPack = new List<string>();
+        gm_usedHealthPack = usedHealthPack;
+        //public List<string> gm_usedRepairKits = new List<string>();
+        gm_usedRepairKits = usedRepairKits;
+        //public List<string> gm_triggeredEnemyGroups = new List<string>();
+        gm_triggeredEnemyGroups = triggeredEnemyGroups;
+    }
+
     public void SaveData()
     {
+        SendListData();
         _characterMotor.SendData();
         _pShoot.SendData();
 
@@ -123,15 +148,15 @@ public class GameManager : Singleton<GameManager> {
 
         Debug.Log("DataSaved");
 
-        data.data_Armor = gm_Armor; //gm_Armor;
+       
         
-        data.data_DeadEnemies = deadEnemies;
-        data.data_UsedAmmo = usedAmmo;
-        data.data_UsedPowerCore = usedPowerCore;
-        data.data_UsedHealthPack = usedHealthPack;
-        data.data_UsedRepairKits = usedRepairKits;
-        data.data_TriggeredEnemyGroups = triggeredEnemyGroups;
-        data.data_checkPoints = checkPoints;
+        data.data_DeadEnemies = gm_deadEnemies;
+        data.data_UsedAmmo = gm_usedAmmo;
+        data.data_UsedPowerCore = gm_usedPowerCore;
+        data.data_UsedHealthPack = gm_usedHealthPack;
+        data.data_UsedRepairKits = gm_usedRepairKits;
+        data.data_TriggeredEnemyGroups = gm_triggeredEnemyGroups;
+        data.data_checkPoints = gm_checkPoints;
         data.data_gm_PowerCores = gm_PowerCores;
         
         //data.data_CurrentHealth = _characterMotor.health;
@@ -144,9 +169,9 @@ public class GameManager : Singleton<GameManager> {
         data.data_PlayerSpeed = gm_speed;
         //data.data_PlayerJump = _characterMotor.jump;
         data.data_PlayerJump = gm_jump;
+        data.data_Armor = gm_Armor; 
 
-    
-        
+
         //data.data_BCannonAmmo = _pShoot.bAmmo;
         data.data_bAmmo = gm_bAmmo;
         //data.data_MCannonAmmo = _pShoot.mAmmo;
@@ -183,9 +208,8 @@ public class GameManager : Singleton<GameManager> {
 
             Debug.Log("DataLoaded");
 
-            gm_Armor = data.data_Armor;
-
             
+
             deadEnemies = data.data_DeadEnemies;
             usedAmmo = data.data_UsedAmmo;
             usedPowerCore = data.data_UsedPowerCore;
@@ -205,15 +229,20 @@ public class GameManager : Singleton<GameManager> {
             //data.data_PlayerJump = _characterMotor.jump;
             gm_jump = data.data_PlayerJump;
             //_characterMotor.armour = data.data_PlayerArmour;
-            
+            gm_Armor = data.data_Armor;
 
-            
-            checkPoints = data.data_checkPoints;
+
+            gm_checkPoints = data.data_checkPoints;
             //_characterMotor.health = data.data_CurrentHealth;
+            gm_health = data.data_health;
             //_characterMotor.maxHealth = data.data_MaxHealth;
+            gm_maxHealth = data.data_MaxHealth;
             //_characterMotor.maxLightPower = data.data_MaxLightPower;
+            gm_maxLightPower = data.data_MaxLightPower;
             //_characterMotor.speed = data.data_PlayerSpeed;
+            gm_speed = data.data_PlayerSpeed;
             //_characterMotor.jump = data.data_PlayerJump;
+            gm_jump = data.data_PlayerJump;
             //_pShoot.bAmmo = data.data_BCannonAmmo;
             gm_bAmmo = data.data_bAmmo;
             //_pShoot.mAmmo = data.data_MCannonAmmo;

@@ -8,11 +8,13 @@ public class PlayerUpgrades : MonoBehaviour {
     private PShoot _pShoot;
     public GameObject playerUpgrades;
     private CharacterLook _characterLook;
+    private UIManager _uiManager;
 	// Use this for initialization
 
 	void Start ()
     {
         playerUpgrades.SetActive(false);
+        _uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         _characterLook = GameObject.Find("Camera").GetComponent<CharacterLook>();
@@ -28,6 +30,7 @@ public class PlayerUpgrades : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _pShoot.canFire = true;
+        _uiManager._MobilityLevel++;
     }
 
     public void LightPowerUpgrade()
@@ -39,9 +42,10 @@ public class PlayerUpgrades : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _pShoot.canFire = true;
+        _uiManager._LightLevel++;
     }
 
-    public void ArmourUpgrade()
+    public void ArmorUpgrade()
     {
         _characterMotor.armor += 0.5f;
         _characterMotor.canMove = true;
@@ -50,6 +54,7 @@ public class PlayerUpgrades : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _pShoot.canFire = true;
+        _uiManager._ArmorLevel++;
     }
  
 }

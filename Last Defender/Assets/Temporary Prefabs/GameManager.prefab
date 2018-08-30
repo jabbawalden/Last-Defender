@@ -69,6 +69,9 @@ MonoBehaviour:
   gm_mAmmo: 80
   gm_hAmmo: 15
   gm_Armor: 0
-  gm_blastCannonPickUp: 0
-  gm_miniCannonPickUp: 0
-  gm_hyperBlasterPickUp: 0
+  gm_blastCannonPickUp: 1
+  gm_miniCannonPickUp: 1
+  gm_hyperBlasterPickUp: 1
+  startPos: {x: 73.496, y: 3.755, z: 37.876}
+  newCheckPointTest: {x: 0, y: 0, z: 0}
+  armorCheck: 0
