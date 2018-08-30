@@ -59,19 +59,13 @@ public class CharacterMotor : MonoBehaviour {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         armor = _gameManager.gm_Armor;
-        /*
+        
         health = _gameManager.gm_health;
         maxHealth = _gameManager.gm_maxHealth;
         speed = _gameManager.gm_speed;
         jump = _gameManager.gm_jump;
         maxLightPower = _gameManager.gm_maxLightPower;
-        /*
-        transform.position = 
-            new Vector3
-            (_gameManager.checkPoints[_gameManager.checkPoints.Count - 1].x, 
-            _gameManager.checkPoints[_gameManager.checkPoints.Count - 1].y, 
-            _gameManager.checkPoints[_gameManager.checkPoints.Count - 1].z);
-            */
+
         canShoot = true;
         canMove = true;
         _cursorshown = false;
@@ -91,13 +85,12 @@ public class CharacterMotor : MonoBehaviour {
     public void SendData()
     {
         _gameManager.gm_Armor = armor;
-        /*
         _gameManager.gm_health = health;
         _gameManager.gm_maxHealth = maxHealth;
         _gameManager.gm_speed = speed;
         _gameManager.gm_jump = jump;
         _gameManager.gm_maxLightPower = maxLightPower;
-        */
+        
     }
 
     // Update is called once per frame
