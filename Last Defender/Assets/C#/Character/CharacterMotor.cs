@@ -58,6 +58,8 @@ public class CharacterMotor : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+        transform.position = _gameManager.startPos;
+
         armor = _gameManager.gm_Armor;
         
         health = _gameManager.gm_health;

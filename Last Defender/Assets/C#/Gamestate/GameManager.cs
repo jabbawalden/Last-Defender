@@ -56,7 +56,8 @@ public class GameManager : Singleton<GameManager> {
     //data.data_hBlasterPickUp = _pShoot.hyperBlasterPickUp;
     public bool gm_hyperBlasterPickUp;
 
-    public SerializableVector3 startPos;
+    public Vector3 startPos;
+    public Vector3 newCheckPointTest;
 
     public float armorCheck;
 
@@ -78,6 +79,7 @@ public class GameManager : Singleton<GameManager> {
         GameEvents.EventSaveGameData += SaveData;
         //GameEvents.EventSaveGameData += SendData;
         GameEvents.EventLoadLastSave += LoadData;
+        GameEvents.EventLoadLastSave += StartPosAssign;
     }
 
     private void OnDisable()
@@ -86,6 +88,7 @@ public class GameManager : Singleton<GameManager> {
         GameEvents.EventSaveGameData -= SaveData;
         //GameEvents.EventSaveGameData -= SendData;
         GameEvents.EventLoadLastSave -= LoadData;
+        GameEvents.EventLoadLastSave -= StartPosAssign;
     }
 
 
@@ -104,7 +107,10 @@ public class GameManager : Singleton<GameManager> {
         Debug.Log("DataDeleted");
     }
 
-   
+    public void StartPosAssign()
+    {
+        startPos = new Vector3 (checkPoints[checkPoints.Count - 1].x, checkPoints[checkPoints.Count - 1].y, checkPoints[checkPoints.Count - 1].z);
+    }
     
     public void SaveData()
     {
@@ -126,8 +132,6 @@ public class GameManager : Singleton<GameManager> {
         data.data_UsedRepairKits = usedRepairKits;
         data.data_TriggeredEnemyGroups = triggeredEnemyGroups;
         data.data_checkPoints = checkPoints;
-        startPos = new SerializableVector3(checkPoints[checkPoints.Count - 1].x, checkPoints[checkPoints.Count - 1].y, checkPoints[checkPoints.Count - 1].z);
-        data.data_startPos = startPos;
         data.data_gm_PowerCores = gm_PowerCores;
         
         //data.data_CurrentHealth = _characterMotor.health;
@@ -204,7 +208,7 @@ public class GameManager : Singleton<GameManager> {
             
 
             
-            //checkPoints = data.data_checkPoints;
+            checkPoints = data.data_checkPoints;
             //_characterMotor.health = data.data_CurrentHealth;
             //_characterMotor.maxHealth = data.data_MaxHealth;
             //_characterMotor.maxLightPower = data.data_MaxLightPower;
@@ -224,7 +228,6 @@ public class GameManager : Singleton<GameManager> {
             //_pShoot.hyperBlasterPickUp = data.data_hBlasterPickUp;
             gm_hyperBlasterPickUp = data.data_hyperBlasterPickUp;
 
-            startPos = data.data_startPos;
 
             file.Close();
         }
@@ -245,7 +248,6 @@ public class DataContainer
     public List<string> data_UsedRepairKits = new List<string>();
     public List<string> data_TriggeredEnemyGroups = new List<string>();
     public List<SerializableVector3> data_checkPoints = new List<SerializableVector3>();
-    public SerializableVector3 data_startPos;
     public int data_gm_PowerCores;
     public float data_health;
     public float data_MaxHealth; 

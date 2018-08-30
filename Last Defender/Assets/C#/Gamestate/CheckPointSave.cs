@@ -28,6 +28,7 @@ public class CheckPointSave : MonoBehaviour {
         {
             AddToList();
             GameEvents.ReportSaveData();
+            _gameManager.newCheckPointTest = gameObject.transform.position;
         }
     }
 
