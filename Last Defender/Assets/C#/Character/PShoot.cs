@@ -67,7 +67,16 @@ public class PShoot : MonoBehaviour {
         hyperBlasterFire = false;
         rezoidFire = false;
         _audioSource = GetComponent<AudioSource>();
-	}
+
+        if (_gameManager.gameState == GameState.Menu)
+        {
+            canFire = false;
+        }
+        else if (_gameManager.gameState == GameState.Play)
+        {
+            canFire = true;
+        }
+    }
 
     public void SendData()
     {

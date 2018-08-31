@@ -29,6 +29,12 @@ public class UIManager : MonoBehaviour {
     public Slider powerBar;
     public bool menuShown;
 
+    public Text loadGame;
+    public GameObject startNew;
+
+    public GameObject playUI;
+    public GameObject mainMenu;
+
     private void OnEnable()
     {
         GameEvents.EventGameWon += GameWonUI;
@@ -61,7 +67,27 @@ public class UIManager : MonoBehaviour {
         mCAmmoDisplay.text = "Mini Cannon + " + ammoRefill.miniCannonA;
         hBAmmoDisplay.text = "Hyper Blaster + " + ammoRefill.hyperBlasterA;
         */
-        
+        if (_gameManager.gameExists)
+        {
+            startNew.SetActive(true);
+            loadGame.text = "Load Last Checkpoint";
+        }
+        else
+        {
+            startNew.SetActive(false);
+            loadGame.text = "Begin";
+        }
+
+        if (_gameManager.gameState == GameState.Menu)
+        {
+            playUI.SetActive(false);
+            mainMenu.SetActive(true);
+        } 
+        else if (_gameManager.gameState == GameState.Play)
+        {
+            playUI.SetActive(true);
+            mainMenu.SetActive(false);
+        }
 
     }
 
@@ -215,6 +241,28 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
         GameEvents.ReportLoadLastSave();
+    }
+
+    public void LoadGame()
+    {
+        if (_gameManager.gameExists)
+        {
+            _gameManager.gameState = GameState.Play;
+            SceneManager.LoadScene(0);
+            GameEvents.ReportLoadLastSave();
+        }
+        else
+        {
+            _gameManager.gameState = GameState.Play;
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void StartNew()
+    {
+        _gameManager.gameState = GameState.Play;
+        _gameManager.DeleteData();
+        SceneManager.LoadScene(0);
     }
 
     public void GameWonUI()

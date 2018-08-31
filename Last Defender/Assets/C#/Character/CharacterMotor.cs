@@ -68,19 +68,30 @@ public class CharacterMotor : MonoBehaviour {
         jump = _gameManager.gm_jump;
         maxLightPower = _gameManager.gm_maxLightPower;
 
-        canShoot = true;
-        canMove = true;
         _cursorshown = false;
         lightOn = false;
         spotLight.SetActive(false);
         
         interactE = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
         _uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         _pShoot = GetComponent<PShoot>();
         _characterLook = GameObject.Find("Camera").GetComponent<CharacterLook>();
-        
+
+        if (_gameManager.gameState == GameState.Menu)
+        {
+            canShoot = false;
+            canMove = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (_gameManager.gameState == GameState.Play)
+        {
+            canShoot = true;
+            canMove = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         //powerCoresCollected = _gameManager.gm_PowerCores;
     }
 

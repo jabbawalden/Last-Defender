@@ -39,7 +39,8 @@ public class RepairKit : MonoBehaviour {
             Cursor.visible = true;
             _characterShoot.canFire = false;
             Destroy(gameObject);
-            
+
+           
         }
             
     }

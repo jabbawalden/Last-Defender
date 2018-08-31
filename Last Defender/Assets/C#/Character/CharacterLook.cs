@@ -13,6 +13,7 @@ public class CharacterLook : MonoBehaviour {
 
     private GameObject _character;
     private CharacterMotor _pCharMotor;
+    private GameManager _gameManager;
 
     private void OnEnable()
     {
@@ -31,8 +32,19 @@ public class CharacterLook : MonoBehaviour {
     {
         _character = this.transform.parent.gameObject;
         _pCharMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
-        canLook = true;
-	}
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (_gameManager.gameState == GameState.Menu)
+        {
+            canLook = false;
+        }
+        else if (_gameManager.gameState == GameState.Play)
+        {
+            canLook = true;
+        }
+
+
+    }
 	
 	// Update is called once per frame
 	void Update ()

@@ -21,7 +21,9 @@ public enum GameState
 public class GameManager : Singleton<GameManager> {
 
     public GameState gameState;
-    
+
+    public bool gameExists;
+
     public List<string> deadEnemies = new List<string>();
     public List<string> usedAmmo = new List<string>();
     public List<string> usedPowerCore = new List<string>();
@@ -76,8 +78,16 @@ public class GameManager : Singleton<GameManager> {
     {
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
-        gameState = GameState.Play;
-        
+        gameState = GameState.Menu; 
+
+        if (File.Exists(Application.persistentDataPath + "/LastDefenderSavedFile.dat"))
+        {
+            gameExists = true;
+        }
+        else
+        {
+            gameExists = false;
+        }
     }
 
 
