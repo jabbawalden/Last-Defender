@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json;
 
 public enum GameState
 {
@@ -40,6 +41,8 @@ public class GameManager : Singleton<GameManager> {
 
     public int gm_PowerCores;
     public List<SerializableVector3> gm_checkPoints = new List<SerializableVector3>();
+
+    public bool shouldLoad = false;
 
     //data.data_CurrentHealth = _characterMotor.health;
     public float gm_health;
@@ -80,7 +83,7 @@ public class GameManager : Singleton<GameManager> {
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         gameState = GameState.Menu; 
 
-        if (File.Exists(Application.persistentDataPath + "/LastDefenderSavedFile.dat"))
+        if (File.Exists(Application.persistentDataPath + "/LastDefenderSavedFile.json"))
         {
             gameExists = true;
         }
@@ -93,7 +96,6 @@ public class GameManager : Singleton<GameManager> {
 
     private void OnEnable()
     {
-        GameEvents.EventPlayerDead += StateDead;
         GameEvents.EventSaveGameData += SaveData;
         //GameEvents.EventSaveGameData += SendData;
         GameEvents.EventLoadLastSave += LoadData;
@@ -102,7 +104,6 @@ public class GameManager : Singleton<GameManager> {
 
     private void OnDisable()
     {
-        GameEvents.EventPlayerDead -= StateDead;
         GameEvents.EventSaveGameData -= SaveData;
         //GameEvents.EventSaveGameData -= SendData;
         GameEvents.EventLoadLastSave -= LoadData;
@@ -110,16 +111,12 @@ public class GameManager : Singleton<GameManager> {
     }
 
 
-    public void StateDead()
-    {
-        gameState = GameState.Dead;
-    }
-
     public void DeleteData()
     {
-        if (File.Exists(Application.persistentDataPath + "/LastDefenderSavedFile.dat"))
-        {
-            File.Delete(Application.persistentDataPath + "/LastDefenderSavedFile.dat");
+        if (File.Exists(Application.persistentDataPath + "/LastDefenderSavedFile.json"))
+        {                                                                        
+            File.Delete(Application.persistentDataPath + "/LastDefenderSavedFile.json");
+            startPos = new Vector3(73.496f, 3.755f, 37.876f);
         }
 
         Debug.Log("DataDeleted");
@@ -148,12 +145,14 @@ public class GameManager : Singleton<GameManager> {
 
     public void SaveData()
     {
+        _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
+        _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+
         SendListData();
         _characterMotor.SendData();
         _pShoot.SendData();
+        gameExists = true;
 
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/LastDefenderSavedFile.dat");
         DataContainer data = new DataContainer();
 
         Debug.Log("DataSaved");
@@ -183,22 +182,14 @@ public class GameManager : Singleton<GameManager> {
 
 
         //data.data_BCannonAmmo = _pShoot.bAmmo;
-        data.data_bAmmo = gm_bAmmo;
+        data.data_bAmmo = _pShoot.bAmmo;
         //data.data_MCannonAmmo = _pShoot.mAmmo;
-        data.data_mAmmo = gm_mAmmo;
+        data.data_mAmmo = _pShoot.mAmmo;
         //data.data_HBlasterAmmo = _pShoot.hAmmo;
-        data.data_hAmmo = gm_hAmmo;
-      
-        //data.data_bCannonPickUp = _pShoot.blastCannonPickUp;
-        data.data_blastCannonPickUp = gm_blastCannonPickUp;
-        //data.data_mCannonPickUp = _pShoot.miniCannonPickUp;
-        data.data_miniCannonPickUp = gm_miniCannonPickUp;
-        //data.data_hBlasterPickUp = _pShoot.hyperBlasterPickUp;
-        data.data_hyperBlasterPickUp = gm_hyperBlasterPickUp;
-        
+        data.data_hAmmo = _pShoot.hAmmo;
 
-        bf.Serialize(file, data);
-        file.Close();
+
+        File.WriteAllText(Application.persistentDataPath + "/LastDefenderSavedFile.json", JsonConvert.SerializeObject(data, Formatting.Indented));
     }
 
     void SendData()
@@ -210,11 +201,12 @@ public class GameManager : Singleton<GameManager> {
     //LoadFunction
     public void LoadData()
     {
-        if (File.Exists(Application.persistentDataPath + "/LastDefenderSavedFile.dat"))
+        if (File.Exists(Application.persistentDataPath + "/LastDefenderSavedFile.json"))
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.OpenRead(Application.persistentDataPath + "/LastDefenderSavedFile.dat");
-            DataContainer data = (DataContainer)bf.Deserialize(file);
+            _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
+            _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
+
+            DataContainer data = JsonConvert.DeserializeObject<DataContainer>(File.ReadAllText(Application.persistentDataPath + "/LastDefenderSavedFile.json"));
 
             Debug.Log("DataLoaded");
 
@@ -254,26 +246,17 @@ public class GameManager : Singleton<GameManager> {
             //_characterMotor.jump = data.data_PlayerJump;
             gm_jump = data.data_PlayerJump;
             //_pShoot.bAmmo = data.data_BCannonAmmo;
-            gm_bAmmo = data.data_bAmmo;
+            _pShoot.bAmmo = data.data_bAmmo;
+            Debug.Log(data.data_bAmmo);
             //_pShoot.mAmmo = data.data_MCannonAmmo;
-            gm_mAmmo = data.data_mAmmo;
+            _pShoot.mAmmo = data.data_mAmmo;
+            Debug.Log(data.data_mAmmo);
             //_pShoot.hAmmo = data.data_HBlasterAmmo;
-            gm_hAmmo = data.data_hAmmo;
-
-            //_pShoot.blastCannonPickUp = data.data_bCannonPickUp;
-            gm_blastCannonPickUp = data.data_blastCannonPickUp;
-            //_pShoot.miniCannonPickUp = data.data_mCannonPickUp;
-            gm_miniCannonPickUp = data.data_miniCannonPickUp;
-            //_pShoot.hyperBlasterPickUp = data.data_hBlasterPickUp;
-            gm_hyperBlasterPickUp = data.data_hyperBlasterPickUp;
-
-
-            file.Close();
+            _pShoot.hAmmo = data.data_hAmmo;
+            Debug.Log(data.data_hAmmo);
         }
-            
+        shouldLoad = false;       
     }
-
-    
 }
 
 
@@ -297,7 +280,6 @@ public class DataContainer
     public int data_mAmmo;
     public int data_hAmmo;
     public float data_Armor;
-    public bool data_blastCannonPickUp, data_miniCannonPickUp, data_hyperBlasterPickUp; 
 }
 
 [Serializable]

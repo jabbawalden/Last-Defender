@@ -53,13 +53,6 @@ public class PShoot : MonoBehaviour {
         _uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         
-        blastCannonPickUp = _gameManager.gm_blastCannonPickUp;
-        miniCannonPickUp = _gameManager.gm_miniCannonPickUp;
-        hyperBlasterPickUp = _gameManager.gm_hyperBlasterPickUp;
-        bAmmo = _gameManager.gm_bAmmo;
-        mAmmo = _gameManager.gm_mAmmo;
-        hAmmo = _gameManager.gm_hAmmo;
-        
         beginWeapon = true;
         inAmmoMode = false;
         bCannonFire = false;
@@ -67,6 +60,11 @@ public class PShoot : MonoBehaviour {
         hyperBlasterFire = false;
         rezoidFire = false;
         _audioSource = GetComponent<AudioSource>();
+
+        blastCannonPickUp = true;
+        hyperBlasterPickUp = true;
+        miniCannonPickUp = true;
+        Debug.Log(System.DateTime.Now.Ticks + " p");
 
         if (_gameManager.gameState == GameState.Menu)
         {
@@ -76,6 +74,9 @@ public class PShoot : MonoBehaviour {
         {
             canFire = true;
         }
+
+        if (GameManager.Instance.shouldLoad)
+            GameEvents.ReportLoadLastSave();
     }
 
     public void SendData()

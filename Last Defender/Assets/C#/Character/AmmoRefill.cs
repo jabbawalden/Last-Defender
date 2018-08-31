@@ -11,10 +11,11 @@ public class AmmoRefill : MonoBehaviour {
     private CharacterLook _characterLook;
     public int blastCannonA, miniCannonA, hyperBlasterA; 
 
+
+
     // Use this for initialization
     void Start ()
     {
-        ammoRefill.SetActive(false);
         _characterMotor = GameObject.Find("PlayerMain").GetComponent<CharacterMotor>();
         _pShoot = GameObject.Find("PlayerMain").GetComponent<PShoot>();
         _characterLook = GameObject.Find("Camera").GetComponent<CharacterLook>();

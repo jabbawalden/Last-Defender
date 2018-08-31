@@ -239,17 +239,36 @@ public class UIManager : MonoBehaviour {
     
     public void RestartGame()
     {
+        _gameManager.gameState = GameState.Play;
+        mainMenu.SetActive(false);
+
+        GameManager.Instance.deadEnemies.Clear();
+        GameManager.Instance.usedAmmo.Clear();
+        GameManager.Instance.usedPowerCore.Clear();
+        GameManager.Instance.usedHealthPack.Clear();
+        GameManager.Instance.usedRepairKits.Clear();
+        GameManager.Instance.triggeredEnemyGroups.Clear();
+
         SceneManager.LoadScene(0);
-        GameEvents.ReportLoadLastSave();
+        GameManager.Instance.shouldLoad = true;
+        //GameEvents.ReportLoadLastSave();
     }
 
     public void LoadGame()
     {
+        GameManager.Instance.deadEnemies.Clear();
+        GameManager.Instance.usedAmmo.Clear();
+        GameManager.Instance.usedPowerCore.Clear();
+        GameManager.Instance.usedHealthPack.Clear();
+        GameManager.Instance.usedRepairKits.Clear();
+        GameManager.Instance.triggeredEnemyGroups.Clear();
+
         if (_gameManager.gameExists)
         {
             _gameManager.gameState = GameState.Play;
-            SceneManager.LoadScene(0);
-            GameEvents.ReportLoadLastSave();
+            var load = SceneManager.LoadSceneAsync(0);
+            GameManager.Instance.shouldLoad = true;
+            //GameEvents.ReportLoadLastSave();
         }
         else
         {
@@ -262,6 +281,46 @@ public class UIManager : MonoBehaviour {
     {
         _gameManager.gameState = GameState.Play;
         _gameManager.DeleteData();
+        _gameManager.gameExists = false;
+
+        GameManager.Instance.deadEnemies.Clear();
+        GameManager.Instance.usedAmmo.Clear();
+        GameManager.Instance.usedPowerCore.Clear();
+        GameManager.Instance.usedHealthPack.Clear();
+        GameManager.Instance.usedRepairKits.Clear();
+        GameManager.Instance.triggeredEnemyGroups.Clear();
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void MainMenu()
+    {
+    //     public List<string> deadEnemies = new List<string>();
+    //public List<string> usedAmmo = new List<string>();
+    //public List<string> usedPowerCore = new List<string>();
+    //public List<string> usedHealthPack = new List<string>();
+    //public List<string> usedRepairKits = new List<string>();
+    //public List<string> triggeredEnemyGroups = new List<string>();
+
+    //public List<string> gm_deadEnemies = new List<string>();
+    //public List<string> gm_usedAmmo = new List<string>();
+    //public List<string> gm_usedPowerCore = new List<string>();
+    //public List<string> gm_usedHealthPack = new List<string>();
+    //public List<string> gm_usedRepairKits = new List<string>();
+    //public List<string> gm_triggeredEnemyGroups = new List<string>();
+
+        _gameManager.gameState = GameState.Menu;
+        GameManager.Instance.deadEnemies.Clear();
+        GameManager.Instance.usedAmmo.Clear();
+        GameManager.Instance.usedPowerCore.Clear();
+        GameManager.Instance.usedHealthPack.Clear();
+        GameManager.Instance.usedRepairKits.Clear();
+        GameManager.Instance.triggeredEnemyGroups.Clear();
+
         SceneManager.LoadScene(0);
     }
 

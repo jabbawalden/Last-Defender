@@ -39,6 +39,7 @@ public class AmmoPack : MonoBehaviour {
         {     
             AddID();
             _uIManager.uIammoRefill.SetActive(true);
+            Debug.Log(_uIManager.uIammoRefill.name);
             _characterMotor.canMove = false;
             _characterLook.canLook = false;
             Cursor.lockState = CursorLockMode.None;
